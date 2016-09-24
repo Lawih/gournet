@@ -1,0 +1,2 @@
+module DishEvaluationsHelper
+end

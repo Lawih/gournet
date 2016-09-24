@@ -1,0 +1,1 @@
+json.partial! "dish_evaluations/dish_evaluation", dish_evaluation: @dish_evaluation

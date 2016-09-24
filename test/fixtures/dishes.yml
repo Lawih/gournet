@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chef: one
+  name: MyString
+  description: MyText
+  picture: MyString
+  score: 1.5
+  price: 1.5
+  calories: 1
+
+two:
+  chef: two
+  name: MyString
+  description: MyText
+  picture: MyString
+  score: 1.5
+  price: 1.5
+  calories: 1

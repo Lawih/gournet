@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @offer.dish %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @offer.amount %>
+</p>
+
+<p>
+  <strong>Delivery date:</strong>
+  <%= @offer.delivery_date %>
+</p>
+
+<p>
+  <strong>Max date:</strong>
+  <%= @offer.max_date %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

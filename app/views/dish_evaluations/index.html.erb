@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dish Evaluations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Dish</th>
+      <th>Score time</th>
+      <th>Score quality</th>
+      <th>Score visual</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dish_evaluations.each do |dish_evaluation| %>
+      <tr>
+        <td><%= dish_evaluation.user %></td>
+        <td><%= dish_evaluation.dish %></td>
+        <td><%= dish_evaluation.score_time %></td>
+        <td><%= dish_evaluation.score_quality %></td>
+        <td><%= dish_evaluation.score_visual %></td>
+        <td><%= dish_evaluation.comment %></td>
+        <td><%= link_to 'Show', dish_evaluation %></td>
+        <td><%= link_to 'Edit', edit_dish_evaluation_path(dish_evaluation) %></td>
+        <td><%= link_to 'Destroy', dish_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dish Evaluation', new_dish_evaluation_path %>

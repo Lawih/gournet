@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @delivery_person.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @delivery_person.lastname %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @delivery_person.document %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @delivery_person.phone %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @delivery_person.picture %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_person_path(@delivery_person) %> |
+<%= link_to 'Back', delivery_people_path %>

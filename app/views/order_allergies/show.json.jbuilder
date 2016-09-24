@@ -1,0 +1,1 @@
+json.partial! "order_allergies/order_allergy", order_allergy: @order_allergy

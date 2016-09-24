@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Delivery People</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Document</th>
+      <th>Phone</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delivery_people.each do |delivery_person| %>
+      <tr>
+        <td><%= delivery_person.name %></td>
+        <td><%= delivery_person.lastname %></td>
+        <td><%= delivery_person.document %></td>
+        <td><%= delivery_person.phone %></td>
+        <td><%= delivery_person.picture %></td>
+        <td><%= link_to 'Show', delivery_person %></td>
+        <td><%= link_to 'Edit', edit_delivery_person_path(delivery_person) %></td>
+        <td><%= link_to 'Destroy', delivery_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery Person', new_delivery_person_path %>

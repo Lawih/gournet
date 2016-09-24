@@ -1,0 +1,1 @@
+json.array! @tag_dishes, partial: 'tag_dishes/tag_dish', as: :tag_dish

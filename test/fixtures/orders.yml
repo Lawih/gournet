@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  dish: one
+  delivery_person: one
+  amount: 1
+  date: 2016-09-23 22:02:21
+  comment: MyText
+  status: 1
+
+two:
+  user: two
+  dish: two
+  delivery_person: two
+  amount: 1
+  date: 2016-09-23 22:02:21
+  comment: MyText
+  status: 1
