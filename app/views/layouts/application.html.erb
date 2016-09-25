@@ -15,8 +15,8 @@
         <%= link_to t('edit_profile'), edit_user_registration_path, class: "btn btn-default" %>
         <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: "btn btn-default" %>          
     <%else%>
-    <%= link_to t('login'), new_user_session_path, class: "btn btn-default" %>
-    <%= link_to t('signin'), new_user_registration_path, class: "btn btn-default"%>
+    <%= link_to t('log In'), new_user_session_path, class: "btn btn-default" %>
+    <%= link_to t('sign Up'), new_user_registration_path, class: "btn btn-default"%>
     <% end%>
     </div>
     <div class="notice"><%= notice %></div>
