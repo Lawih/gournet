@@ -47,3 +47,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
+
+# Bootstrap gems
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
