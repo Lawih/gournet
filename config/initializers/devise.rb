@@ -11,7 +11,7 @@ Devise.setup do |config|
   config.confirmation_keys = [ :username ]
 
   #login with facebook
-  config.omniauth :facebook, "1778390422403429", "cae49ffedbff336675a33b39ab282249"
+  config.omniauth :facebook, "1646406112338578", "fbf4cb46d22a85bc582ce70c04347538"
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
