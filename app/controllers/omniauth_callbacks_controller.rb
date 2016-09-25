@@ -13,11 +13,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
  
   def after_sign_in_path_for(resource) # Revisa después de cada login si el mail del usuario es válido
-    if resource.email_verified?
-      super resource # Acción por defecto de Devise (si no está configurada, va al root_path)
-    else
-      finish_signup_path(resource)
-    end
+      if resource.sign_in_count<2
+        finish_signup_path(resource)
+      else
+        super resource
+      end
   end
  
 end

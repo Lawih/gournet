@@ -72,7 +72,10 @@ class UsersController < ApplicationController
       else
         @show_errors = true
       end
+    else
+      @show_errors = true
     end
+
   end
 
   private

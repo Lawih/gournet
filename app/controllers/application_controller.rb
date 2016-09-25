@@ -7,8 +7,10 @@ class ApplicationController < ActionController::Base
   def configure_new_column_to_devise_permitted_parameters
     registration_params = [:name, :lastname,:birthday, :phone, :picture, :username, :email, 
     	:password, :password_confirmation]
+      registration_paramss = [:name, :lastname,:birthday, :picture, :username, :email, 
+      :password, :password_confirmation]
     if params[:action] == 'create'
-      devise_parameter_sanitizer.permit(:sign_up, keys: registration_params)
+      devise_parameter_sanitizer.permit(:sign_up, keys: registration_paramss)
     elsif params[:action] == 'update'
       devise_parameter_sanitizer.permit(:account_update, keys: registration_params)
     end

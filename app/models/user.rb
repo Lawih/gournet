@@ -26,8 +26,8 @@ class User < ApplicationRecord
   #Validar que nombre de usuario no contenga @
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   # when allowing distinct User records with, e.g., "username" and "UserName"...
-  validates :phone, numericality: { only_integer: true }
-
+  #validates :phone , presence: false, confirmation: false
+  
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
@@ -41,22 +41,25 @@ class User < ApplicationRecord
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
- 
+  
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
+      username = auth.info.UserName
  
       # Create the user if it's a new registration
       if user.nil?
-        password = Devise.friendly_token[0,20]
+         password = Devise.friendly_token[0,20]
         if auth.provider == 'facebook'
           user = User.new(
             email: email ? email : "#{auth.uid}@change-me.com",
+            username: username ? username : "#{auth.uid}",
             password: password,
             password_confirmation: password
           )
         end
       end
+      
       user.save!
     end
  

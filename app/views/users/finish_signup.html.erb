@@ -1,7 +1,7 @@
 <h1>Confirma tu Email</h1>
- 
-<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
-  <% if @show_errors && current_user.errors.any? %>
+<%= render 're', user: @user %>
+<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>  
+  <% if @show_errors  && current_user.errors.any? %>
     <h2>Errores encontrados:</h2>
     <ul>
       <% current_user.errors.full_messages.each do |msg| %>
@@ -9,10 +9,21 @@
       <% end %>
     </ul>
   <% end %>
+
  
   <div>
-    <%= f.label :email %>
+    <% if not current_user.email_verified? %>
+    <%= f.label :email, t('email') %>
     <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
+    <%else%>
+    <%= f.label :email, t('email') %>
+    <%= f.text_field :email,:readonly => true%> 
+    <% end%>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true%>
   </div>
  
   <div>
