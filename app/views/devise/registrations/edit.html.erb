@@ -12,6 +12,16 @@
     <%= f.label :lastname %><em>(Campo opcional)</em><br />
     <%= f.text_field :lastname, autofocus: true %>
   </div>
+
+  <div class="field">
+    <%= f.label :birthday %><em>(Formato fecha YYYY-MM-DD)</em><br />
+    <%= f.date_field :birthday, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><em>(Campo opcional)</em><br />
+    <%= f.text_field :phone, autofocus: true %>
+  </div>
     
   <div class="field">
     <%= f.label :email %><br />

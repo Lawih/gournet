@@ -54,3 +54,8 @@ gem 'autoprefixer-rails'
 
 # Devise gem
 gem 'devise'
+
+#Login with facebook and google
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2", "~> 0.2.1"

@@ -10,8 +10,8 @@
     <div class="banner" align="center">
     <%= link_to t('home'), root_path, class: "btn btn-default" %>
     <% if user_signed_in? %>
-        <%= link_to current_user.email,root_path, class: "btn btn-default"%>
 
+        <%= link_to " User: "+current_user.username,root_path, class: "btn btn-default"%>
         <%= link_to t('edit_profile'), edit_user_registration_path, class: "btn btn-default" %>
         <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: "btn btn-default" %>          
     <%else%>
@@ -26,4 +26,5 @@
   <body>
     <%= yield %>
   </body>
+  <p ALIGN=center>copyright 2016</p>
 </html>

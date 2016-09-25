@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925083506) do
+ActiveRecord::Schema.define(version: 20160925174214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 20160925083506) do
     t.datetime "updated_at",  null: false
     t.index ["chef_id"], name: "index_followings_on_chef_id", using: :btree
     t.index ["user_id"], name: "index_followings_on_user_id", using: :btree
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -203,6 +212,7 @@ ActiveRecord::Schema.define(version: 20160925083506) do
   add_foreign_key "favorite_dishes", "users"
   add_foreign_key "followings", "chefs"
   add_foreign_key "followings", "users"
+  add_foreign_key "identities", "users"
   add_foreign_key "offers", "dishes"
   add_foreign_key "order_allergies", "allergies", column: "allergie_id"
   add_foreign_key "order_allergies", "orders"

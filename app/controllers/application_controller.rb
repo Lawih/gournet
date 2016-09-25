@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
   #Insert parameters of user
   def configure_new_column_to_devise_permitted_parameters
-    registration_params = [:name, :lastname, :username, :email, 
+    registration_params = [:name, :lastname,:birthday, :phone, :picture, :username, :email, 
     	:password, :password_confirmation]
     if params[:action] == 'create'
       devise_parameter_sanitizer.permit(:sign_up, keys: registration_params)
