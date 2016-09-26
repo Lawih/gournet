@@ -36,3 +36,15 @@ en:
       user: "User"
       about_us: "About us"
       contact_us: "Contact us"
+
+  contacts:
+    new:
+      contact_us: "Contact us"
+      name: "Name"
+      email: "E-mail"
+      message: "Message"
+      send: "Send"
+    create:
+      contact_us: "Contact us"
+      contact_thanks: "Thanks for your message"
+      contact_thanks_2: "Your feedback makes us better"

@@ -15,3 +15,15 @@ es:
       user: "Usuario"
       about_us: "Sobre nosotros"
       contact_us: "Contáctenos"
+
+  contacts:
+    new:
+      contact_us: "Contactenos"
+      name: "Nombre"
+      email: "Correo electrónico"
+      message: "Mensaje"
+      send: "Enviar"
+    create:
+      contact_us: "Contactenos"
+      contact_thanks: "Gracias por tu mensaje"
+      contact_thanks_2: "Tu opinión es importante para nosotros"

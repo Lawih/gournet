@@ -1,18 +1,18 @@
-<h1 id="page_title">Contactenos</h1>
+<h1 id="page_title"><%= t('.contact_us') %></h1>
 
-<div class="skinny_wrapper wrapper_padding">
+<div>
   <%= form_for @contact do |f| %>
-      <%= f.label :name %> <br>
+      <%= f.label t('.name') %> <br>
       <%= f.text_field :name, required: true %>
 
       <br>
 
-      <%= f.label :email %> <br>
+      <%= f.label t('.email') %> <br>
       <%= f.email_field :email, required: true %>
 
       <br>
 
-      <%= f.label :message %> <br>
+      <%= f.label t('.message') %> <br>
       <%= f.text_area :message, as: :text %>
 
       <!-- to filter span -->
@@ -22,7 +22,7 @@
       </div>
 
       <br>
-      <%= f.submit 'Send message', class: "button" %>
+      <%= f.submit t('.send'), class: "button" %>
   <% end %>
 
 </div>
