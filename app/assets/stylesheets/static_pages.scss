@@ -1,0 +1,91 @@
+
+.wrapper{
+	overflow-x: hidden;
+	font-size: 140%;
+	padding: 0 0 30px 0;
+	width: 70%;
+
+	.wrapper-logo{
+		text-align: center;
+		.logo{
+			width : 170px;
+			margin: 0 auto;
+		}
+	}
+
+	.wrapper-head{
+		padding: 20px 0 0 15px;
+		margin-top: 20px;
+		text-align: center;
+
+		.title{
+            .hidden-lg{
+                margin: 0;
+                padding: 0 15px 50px;
+                font-size: 50px;
+                text-align: center;
+            }
+		}
+
+		.intro{
+			padding-top: 1px;
+			
+    		.lema{
+				span{
+					display: block;
+				}
+			} 
+
+			.text{
+				margin-top:20px;
+				display: block;
+				font-size: 19px;
+			}
+
+			.vcenter {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		.group-col{
+			padding-top: 25px;
+
+			.group{
+				border-radius: 5%;
+				border-width: 2px;
+			}
+		}	
+	}
+
+	.wrapper-body{
+		padding: 20px 0 0 15px;
+		text-align: center;
+		margin: 0 auto;
+		intro-body{
+			width:70%;
+		}
+
+		.team-row{
+			text-align: center;
+			padding: 20px 0 10px 0;
+		}
+
+		.team-photo{
+			border-radius: 5%;
+			width : 250px;
+			margin: 0 auto;
+		}
+		
+		.team-text{
+			font-weight: bold;
+			font-size: 12px;
+			padding-top: 12px;
+		}
+
+		.team-role{
+			font-size: 13px;
+		}
+		
+	}
+}
