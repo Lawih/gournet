@@ -18,7 +18,7 @@ Devise.setup do |config|
     #scope: "email"
   #}
 
-  OmniAuth.config.full_host = Rails.env.production? ? 'https://domain.com' : 'http://localhost:3000' 
+  #OmniAuth.config.full_host = Rails.env.production? ? 'https://domain.com' : 'http://localhost:3000' 
  config.omniauth :google_oauth2, 
    "764161750222-0a2u2mdg5llhvlhbj6h71dlc9lddk9i3.apps.googleusercontent.com", 
    "89eiQsKL4USSixQKWKIRk_Hi",
