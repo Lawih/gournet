@@ -1,0 +1,17 @@
+es:
+  home:
+    index:
+      welcome: "Bienvenido a GourNet"
+      construction_1: "Estamos en construcción."
+      construction_2: "Estamos trabajando para hacer este sitio mejor para ti."
+
+  layouts:
+    application:
+      home: "Inicio"
+      log_in: "Iniciar sesión"
+      sign_up: "Regístrate"
+      log_out: "Cerrar sesión"
+      edit_profile: "Editar perfil"
+      user: "Usuario"
+      about_us: "Sobre nosotros"
+      contact_us: "Contáctenos"
