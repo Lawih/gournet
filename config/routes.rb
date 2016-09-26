@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root :to => 'home#index'
   get 'home/index'
+  get 'static_pages/about_us'
 
   resources :order_allergies
   resources :addresses
