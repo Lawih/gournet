@@ -61,7 +61,7 @@ class User < ApplicationRecord
           )
         elsif auth.provider == 'google_oauth2'
           user = User.new(
-            email: "#{auth.uid}@change-me.com",
+            email: email ? email : "#{auth.uid}@change-me.com",
             username: username ? username : "#{auth.uid}",
             password: password,
             password_confirmation: password
