@@ -58,4 +58,5 @@ gem 'devise'
 #Login with facebook and google
 gem "omniauth"
 gem "omniauth-facebook"
-gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "omniauth-oauth2" 
+gem "omniauth-google-oauth2"

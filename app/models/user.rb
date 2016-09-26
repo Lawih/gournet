@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook], :authentication_keys => [:login]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2], :authentication_keys => [:login]
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   #attr_accessor :login
@@ -59,6 +59,13 @@ class User < ApplicationRecord
             password: password,
             password_confirmation: password
           )
+        elsif auth.provider == 'google_oauth2'
+          user = User.new(
+            email: "#{auth.uid}@change-me.com",
+            username: username ? username : "#{auth.uid}",
+            password: password,
+            password_confirmation: password
+          )
         end
       end
       
@@ -71,6 +78,17 @@ class User < ApplicationRecord
     end
     
     user
+  end
+
+  def self.connect_to_google(auth) 
+     data = auth.info 
+     where(provider: auth.provider, uid: auth.uid).first_or_create do |user| 
+       user.email = data["email"] 
+       user.password = Devise.friendly_token[0,20] 
+       user.first_name = data["first_name"] 
+       user.last_name = data["last_name"] 
+       user.avatar = process_uri(data["image"]) 
+     end 
   end
  
   def email_verified?
