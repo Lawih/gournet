@@ -20,4 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    index:
+      welcome: "Welcome to GourNet"
+      construction_1: "We are under construction."
+      construction_2: "We are working to make this site better for you."
+
+  layouts: # Name of the view
+    application: # Name of file view
+      home: "Home" # <%= t('.home') %> in views/layouts/application.html.erb
+      log_in: "Log in"
+      sign_up: "Sign up"
+      log_out: "Log out"
+      edit_profile: "Edit profile"
+      user: "User"
+      about_us: "About us"
+      contact_us: "Contact us"
