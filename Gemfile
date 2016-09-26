@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -51,3 +51,12 @@ gem 'pg', '~> 0.18'
 # Bootstrap gems
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+# Devise gem
+gem 'devise'
+
+#Login with facebook and google
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-oauth2" 
+gem "omniauth-google-oauth2"
