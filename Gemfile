@@ -63,4 +63,7 @@ gem "omniauth-google-oauth2"
 
 # Internationalization
 gem 'rails-i18n'
-gem 'geocoder' 
+gem 'geocoder'
+
+# Use for contact us
+gem 'mail_form'

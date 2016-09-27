@@ -9,7 +9,7 @@ class User < ApplicationRecord
   #attr_accessor :login
 
   has_many :identity, :dependent=> :delete_all
-  
+
   def login=(login)
     @login = login
   end
@@ -18,9 +18,9 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-  #if you want email to be case insensitive, you should add 
+  #if you want email to be case insensitive, you should add
   validates :username , presence: true , confirmation: true
-   # Validamos que el identificador tenga entre 8 a 12 caracteres
+  # Validamos que el identificador tenga entre 8 a 12 caracteres
   validates :username, length: { in: 4..100 , message: "debe ser mayor a 4 caracteres"}
   # Validamos que el email sea unico
   validates :username, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
@@ -29,7 +29,7 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   # when allowing distinct User records with, e.g., "username" and "UserName"...
   #validates :phone , presence: false, confirmation: false
-  
+
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
@@ -43,12 +43,12 @@ class User < ApplicationRecord
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
-  
+
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
       username = auth.info.UserName
- 
+
       # Create the user if it's a new registration
       if user.nil?
          password = Devise.friendly_token[0,20]
@@ -68,29 +68,29 @@ class User < ApplicationRecord
           )
         end
       end
-      
+
       user.save!
     end
- 
+
     if identity.user != user
       identity.user = user
       identity.save!
     end
-    
+
     user
   end
 
-  def self.connect_to_google(auth) 
-     data = auth.info 
-     where(provider: auth.provider, uid: auth.uid).first_or_create do |user| 
-       user.email = data["email"] 
-       user.password = Devise.friendly_token[0,20] 
-       user.first_name = data["first_name"] 
-       user.last_name = data["last_name"] 
-       user.avatar = process_uri(data["image"]) 
-     end 
+  def self.connect_to_google(auth)
+     data = auth.info
+     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+       user.email = data["email"]
+       user.password = Devise.friendly_token[0,20]
+       user.first_name = data["first_name"]
+       user.last_name = data["last_name"]
+       user.avatar = process_uri(data["image"])
+     end
   end
- 
+
   def email_verified?
     if self.email
       if self.email.split('@')[1] == 'change-me.com'
@@ -103,5 +103,5 @@ class User < ApplicationRecord
     end
   end
 
-    
+
 end

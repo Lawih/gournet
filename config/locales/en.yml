@@ -1,31 +1,10 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
 # To use the locales, use `I18n.t`:
-#
 #     I18n.t 'hello'
-#
 # In views, this is aliased to just `t`:
-#
 #     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  home:
-    index:
-      welcome: "Welcome to GourNet"
-      construction_1: "We are under construction."
-      construction_2: "We are working to make this site better for you."
-
+  # Views
   layouts: # Name of the view
     application: # Name of file view
       home: "Home" # <%= t('.home') %> in views/layouts/application.html.erb
@@ -36,3 +15,18 @@ en:
       user: "User"
       about_us: "About us"
       contact_us: "Contact us"
+
+  home:
+    index:
+      welcome: "Welcome to GourNet"
+      construction_1: "We are under construction."
+      construction_2: "We are working to make this site better for you."
+
+  contacts:
+    new:
+      contact_us: "Contact us"
+      send: "Send"
+    create:
+      contact_us: "Contact us"
+      contact_thanks: "Thanks for your message"
+      contact_thanks_2: "Your feedback makes us better"
