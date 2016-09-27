@@ -1,10 +1,21 @@
 es:
-  home:
-    index:
-      welcome: "Bienvenido a GourNet"
-      construction_1: "Estamos en construcción."
-      construction_2: "Estamos trabajando para hacer este sitio mejor para ti."
+  # Models
+  activerecord:
+    attributes:
+      chef: #TODO
+        type: "Tipo"
 
+  mail_form:
+    attributes:
+      contact:
+        name: "Nombre"
+        email: "Correo electrónico"
+        message: "Mensaje"
+    errors:
+      messages:
+        blank: "No funciona"
+
+  # Views
   layouts:
     application:
       home: "Inicio"
@@ -16,14 +27,17 @@ es:
       about_us: "Sobre nosotros"
       contact_us: "Contáctenos"
 
+  home:
+    index:
+      welcome: "Bienvenido a GourNet"
+      construction_1: "Estamos en construcción."
+      construction_2: "Estamos trabajando para hacer este sitio mejor para ti."
+
   contacts:
     new:
-      contact_us: "Contactenos"
-      name: "Nombre"
-      email: "Correo electrónico"
-      message: "Mensaje"
-      send: "Enviar"
+      contact_us: "Contáctenos"
+      send: "Enviar mensaje"
     create:
-      contact_us: "Contactenos"
+      contact_us: "Contáctenos"
       contact_thanks: "Gracias por tu mensaje"
       contact_thanks_2: "Tu opinión es importante para nosotros"
