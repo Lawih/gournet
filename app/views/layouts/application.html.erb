@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 <html>
   <head>
     <title>Gournet</title>
@@ -11,6 +10,7 @@
     <p></p>
     <div class="banner" align="center">
     <%= link_to t('.home'), root_path, class: "btn btn-default" %>
+    <%= link_to t('.about_us'), static_pages_about_us_path, class: "btn btn-default" %>
     <% if user_signed_in? %>
         <%= link_to t('.user') + ": " + current_user.username,root_path, class: "btn btn-default"%>
         <%= link_to t('.edit_profile'), edit_user_registration_path, class: "btn btn-default" %>
