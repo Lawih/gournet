@@ -33,12 +33,6 @@ ActiveRecord::Schema.define(version: 20160925174214) do
   end
 
   create_table "chefs", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "type"
-    t.text     "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_chefs_on_user_id", using: :btree
   end
 
   create_table "delivery_people", force: :cascade do |t|
@@ -49,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.string   "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diners", force: :cascade do |t|
   end
 
   create_table "dish_evaluations", force: :cascade do |t|
@@ -185,6 +182,9 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.date     "birthday"
     t.string   "phone"
     t.string   "picture"
+    t.string   "type"
+    t.string   "category"
+    t.text     "bio"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -202,7 +202,6 @@ ActiveRecord::Schema.define(version: 20160925174214) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "chefs", "users"
   add_foreign_key "dish_evaluations", "dishes"
   add_foreign_key "dish_evaluations", "users"
   add_foreign_key "dish_ingredients", "dishes"

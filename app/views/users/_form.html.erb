@@ -41,6 +41,21 @@
     <%= f.text_field :picture %>
   </div>
 
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.select :type, User.types.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @type != "User" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_type
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = type_class.all
   end
 
   # GET /users/1
@@ -61,31 +63,48 @@ class UsersController < ApplicationController
     end
   end
 
-  #login with facebook
-  def finish_signup
-    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
-      @user = User.find(params[:id])
- 
-      if @user.update(user_params)
-        sign_in(@user, :bypass => true)
-        redirect_to root_path, notice: 'Hemos guardado tu email correctamente.'
-      else
-        @show_errors = true
-      end
-    else
-      @show_errors = true
-    end
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = type_class.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :lastname, :username, :birthday, :phone, :picture, :user, :password)
+      params.require(type.underscore.to_sym).permit(:name, :lastname, :username, :birthday, :phone, :picture, :type, :category, :bio)
+    end
+
+    def set_type
+       @type = type
+    end
+
+    def type
+        params[:type]? params[:type] : 'User'
+    end
+
+    def type_classes
+        ['User', 'Diner', 'Chef', 'Admin']
+    end
+
+    def type_class
+        # never trust parameters from the scary internet
+        if type.in? type_classes
+            type.constantize
+        end
+    end
+
+    #login with facebook
+    def finish_signup
+        if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
+            @user = User.find(params[:id])
+            if @user.update(user_params)
+                sign_in(@user, :bypass => true)
+                redirect_to root_path, notice: 'Hemos guardado tu email correctamente.'
+            else
+                @show_errors = true
+            end
+        else
+          @show_errors = true
+        end
     end
 end

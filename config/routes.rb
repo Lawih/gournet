@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'static_pages/about_us'
 
+    resources :users
+    resources :chefs, :only => [:index, :show], controller: 'users', type: 'Chef'
+    resources :diners, :only => [:index, :show], controller: 'users', type: 'Diner'
     resources :order_allergies
     resources :addresses
     resources :offers
@@ -25,10 +28,8 @@ Rails.application.routes.draw do
     resources :ingredients
     resources :delivery_people
     resources :dishes
-    resources :chefs
-    resources :users
     resources :contacts, only: [:new, :create]
   end
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

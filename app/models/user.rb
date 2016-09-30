@@ -10,18 +10,10 @@ class User < ApplicationRecord
 
   has_many :identity, :dependent=> :delete_all
 
-  def login=(login)
-    @login = login
-  end
-
-  def login
-    @login || self.username || self.email
-  end
-
   #if you want email to be case insensitive, you should add
   validates :username , presence: true , confirmation: true
   # Validamos que el identificador tenga entre 8 a 12 caracteres
-  validates :username, length: { in: 4..100 , message: "debe ser mayor a 4 caracteres"}
+  validates :username, length: { in: 4..100}
   # Validamos que el email sea unico
   validates :username, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
 
@@ -29,6 +21,18 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   # when allowing distinct User records with, e.g., "username" and "UserName"...
   #validates :phone , presence: false, confirmation: false
+
+  def self.types
+    %w(Diner Chef Admin)
+  end
+
+  def login=(login)
+    @login = login
+  end
+
+  def login
+    @login || self.username || self.email
+  end
 
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
