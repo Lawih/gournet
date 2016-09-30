@@ -1,5 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>  
+<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
   <%= devise_error_messages! %>
   <% if @show_errors  && current_user.errors.any?%>
     <h2>Errores encontrados:</h2>
@@ -21,7 +21,7 @@
     <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
     <%else%>
     <%= f.label :email, t('email') %><br />
-    <%= f.text_field :email,:readonly => true%> 
+    <%= f.text_field :email,:readonly => true%>
     <% end%>
   </div>
 
@@ -37,18 +37,18 @@
 
   <div class="field">
     <%= f.label :birthday %><em>(Formato fecha YYYY-MM-DD)</em><br />
-    <%= f.date_field :birthday, autofocus: true %>
+    <%= f.date_select :birthday, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :phone %><em>(Campo opcional)</em><br />
     <%= f.text_field :phone, autofocus: true %>
   </div>
- 
+
   <div>
     <%= f.submit 'Confirmar' %>
   </div>
- 
+
 <% end %>
 <br/>
 <br/>

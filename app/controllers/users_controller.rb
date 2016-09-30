@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params, type: "Diner")
 
     respond_to do |format|
       if @user.save
@@ -64,16 +64,17 @@ class UsersController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = type_class.find(params[:id])
+      @user = type_class.find_by_username(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(type.underscore.to_sym).permit(:name, :lastname, :username, :birthday, :phone, :picture, :type, :category, :bio)
     end
 
+    #  <ª For filtering using the url path
     def set_type
        @type = type
     end
@@ -92,6 +93,7 @@ class UsersController < ApplicationController
             type.constantize
         end
     end
+    #  /ª>
 
     #login with facebook
     def finish_signup

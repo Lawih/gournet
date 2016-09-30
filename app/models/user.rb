@@ -21,6 +21,10 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   # when allowing distinct User records with, e.g., "username" and "UserName"...
   #validates :phone , presence: false, confirmation: false
+  
+  def to_param
+    username
+  end
 
   def self.types
     %w(Diner Chef Admin)
