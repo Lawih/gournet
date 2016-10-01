@@ -9,6 +9,13 @@ class User < ApplicationRecord
   #attr_accessor :login
 
   has_many :identity, :dependent=> :delete_all
+  has_many :oders
+  has_many :followings
+  has_many :chefs, through: :followings
+  has_and_belongs_to_many :allergies
+  has_many :dish_evaluations
+  has_and_belongs_to_many :dishes
+  has_many :addresses
 
   #if you want email to be case insensitive, you should add
   validates :username , presence: true , confirmation: true
@@ -21,7 +28,7 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   # when allowing distinct User records with, e.g., "username" and "UserName"...
   #validates :phone , presence: false, confirmation: false
-  
+
   def to_param
     username
   end
