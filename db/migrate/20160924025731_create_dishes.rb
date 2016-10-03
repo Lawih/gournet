@@ -1,7 +1,7 @@
 class CreateDishes < ActiveRecord::Migration[5.0]
   def change
     create_table :dishes do |t|
-      t.references :chef, foreign_key: true
+      t.references :chef
       t.string :name
       t.text :description
       t.string :picture

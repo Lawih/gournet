@@ -1,8 +1,8 @@
 class CreateFollowings < ActiveRecord::Migration[5.0]
   def change
     create_table :followings do |t|
-      t.references :chef, foreign_key: true
-      t.references :user, foreign_key: true
+      t.references :chef
+      t.references :user
       t.boolean :is_favorite
 
       t.timestamps

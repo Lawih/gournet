@@ -8,19 +8,19 @@ class User < ApplicationRecord
   # This is in addition to a real persisted field like 'username'
   #attr_accessor :login
 
-  has_many :identity, :dependent=> :delete_all
+  has_many :identity, :dependent => :delete_all
   has_many :oders
   has_many :followings
   has_many :chefs, through: :followings
   has_and_belongs_to_many :allergies
   has_many :dish_evaluations
-  has_and_belongs_to_many :dishes
+  #has_and_belongs_to_many :dishes
   has_many :addresses
 
   #if you want email to be case insensitive, you should add
   validates :username , presence: true , confirmation: true
   # Validamos que el identificador tenga entre 8 a 12 caracteres
-  validates :username, length: { in: 4..100}
+  validates :username, length: { in: 4..100 }
   # Validamos que el email sea unico
   validates :username, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
 

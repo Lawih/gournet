@@ -68,6 +68,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = type_class.find_by_username(params[:id])
+      #@user = type_class.find(params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
