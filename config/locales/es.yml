@@ -2,8 +2,8 @@ es:
   # Models
   activerecord:
     attributes:
-      chef: #TODO
-        type: "Tipo"
+      user: #TODO
+        name: "Nombre"
 
   mail_form:
     attributes:
