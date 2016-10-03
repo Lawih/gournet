@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
-
+  devise_for :users ,controllers: { registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks'}
+  
   scope "(:locale)" do
       
     # devise_for  :users, skip: omniauth_callbacks: 'omniauth_callbacks'
