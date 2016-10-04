@@ -4,7 +4,13 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.all
+    if(params[:chef_id])
+        @dishes = Chef.find_by_username(params[:chef_id]).dishes
+    elsif(params[:user_id])
+        @dishes = Chef.find_by_username(params[:user_id]).dishes
+    else
+        @dishes = Dish.all
+    end
   end
 
   # GET /dishes/1

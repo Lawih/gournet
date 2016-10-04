@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+
+  devise_for :users ,controllers: { registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks'}
 
   scope "(:locale)" do
+
     # devise_for  :users, skip: omniauth_callbacks: 'omniauth_callbacks'
     match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
-
     #devise_for :users
     root :to => 'home#index'
     get 'home/index'
     get 'static_pages/about_us'
 
+    resources :users do
+        resources :dishes
+    end
+    resources :chefs, controller: 'users', type: 'Chef' do #only => [:index, :show],
+        resources :dishes
+    end
+    resources :diners, controller: 'users', type: 'Diner' # only => [:index, :show],
+    resources :dishes
     resources :order_allergies
     resources :addresses
     resources :offers
@@ -24,11 +33,11 @@ Rails.application.routes.draw do
     resources :followings
     resources :ingredients
     resources :delivery_people
-    resources :dishes
-    resources :chefs
-    resources :users
     resources :contacts, only: [:new, :create]
+
+    resources :users, :only => [:show], path: '' do
+        resources :dishes
+    end
   end
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

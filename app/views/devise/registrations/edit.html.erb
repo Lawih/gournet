@@ -1,17 +1,14 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>  
+<h2>Update <%= resource_name.to_s.humanize %> profile</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-  <% if @show_errors  && current_user.errors.any?%>
-    <h2>Errores encontrados:</h2>
-    <ul>
-      <% current_user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><em>(Campo Obligatorio)</em><br />
+    <div class="field">
+    <%= f.label :username %><em></em><br />
     <%= f.text_field :username, autofocus: true%>
   </div>
 
@@ -21,64 +18,28 @@
     <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
     <%else%>
     <%= f.label :email, t('email') %><br />
-    <%= f.text_field :email,:readonly => true%> 
+    <%= f.text_field :email,:readonly => true%>
     <% end%>
   </div>
 
   <div class="field">
-    <%= f.label :name %><em>(Campo opcional)</em><br />
+    <%= f.label :name %><em></em><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :lastname %><em>(Campo opcional)</em><br />
+    <%= f.label :lastname %><em></em><br />
     <%= f.text_field :lastname, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :birthday %><em>(Formato fecha YYYY-MM-DD)</em><br />
-    <%= f.date_field :birthday, autofocus: true %>
+    <%= f.label :birthday %><em>(Format YYYY-MM-DD)</em><br />
+    <%= f.date_select :birthday, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :phone %><em>(Campo opcional)</em><br />
+    <%= f.label :phone %><em></em><br />
     <%= f.text_field :phone, autofocus: true %>
-  </div>
- 
-  <div>
-    <%= f.submit 'Confirmar' %>
-  </div>
- 
-<% end %>
-<br/>
-<br/>
-
-<h2>Change <%= resource_name.to_s.humanize %> password</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">
@@ -87,7 +48,6 @@
 <% end %>
 <br/>
 <br/>
-
 <h2>Cancel my account</h2>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>

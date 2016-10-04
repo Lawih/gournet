@@ -8,7 +8,34 @@ class User < ApplicationRecord
   # This is in addition to a real persisted field like 'username'
   #attr_accessor :login
 
-  has_many :identity, :dependent=> :delete_all
+  has_many :identity, :dependent => :delete_all
+  has_many :oders
+  has_many :followings
+  has_many :chefs, through: :followings
+  has_and_belongs_to_many :allergies
+  has_many :dish_evaluations
+  #has_and_belongs_to_many :dishes
+  has_many :addresses
+
+  #if you want email to be case insensitive, you should add
+  validates :username , presence: true , confirmation: true
+  # Validamos que el identificador tenga entre 8 a 12 caracteres
+  validates :username, length: { in: 4..100 }
+  # Validamos que el email sea unico
+  validates :username, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
+
+  #Validar que nombre de usuario no contenga @
+  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  # when allowing distinct User records with, e.g., "username" and "UserName"...
+  #validates :phone , presence: false, confirmation: false
+
+  def to_param
+    username
+  end
+
+  def self.types
+    %w(Diner Chef Admin)
+  end
 
   def login=(login)
     @login = login
@@ -17,18 +44,6 @@ class User < ApplicationRecord
   def login
     @login || self.username || self.email
   end
-
-  #if you want email to be case insensitive, you should add
-  validates :username , presence: true , confirmation: true
-  # Validamos que el identificador tenga entre 8 a 12 caracteres
-  validates :username, length: { in: 4..100 , message: "debe ser mayor a 4 caracteres"}
-  # Validamos que el email sea unico
-  validates :username, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
-
-  #Validar que nombre de usuario no contenga @
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-  # when allowing distinct User records with, e.g., "username" and "UserName"...
-  #validates :phone , presence: false, confirmation: false
 
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup

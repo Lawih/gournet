@@ -33,12 +33,6 @@ ActiveRecord::Schema.define(version: 20160925174214) do
   end
 
   create_table "chefs", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "type"
-    t.text     "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_chefs_on_user_id", using: :btree
   end
 
   create_table "delivery_people", force: :cascade do |t|
@@ -49,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.string   "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diners", force: :cascade do |t|
   end
 
   create_table "dish_evaluations", force: :cascade do |t|
@@ -185,14 +182,17 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.date     "birthday"
     t.string   "phone"
     t.string   "picture"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "type",                   default: "Diner"
+    t.string   "category"
+    t.text     "bio"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "email",                  default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -202,25 +202,11 @@ ActiveRecord::Schema.define(version: 20160925174214) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "chefs", "users"
   add_foreign_key "dish_evaluations", "dishes"
   add_foreign_key "dish_evaluations", "users"
-  add_foreign_key "dish_ingredients", "dishes"
-  add_foreign_key "dish_ingredients", "ingredients"
-  add_foreign_key "dishes", "chefs"
-  add_foreign_key "favorite_dishes", "dishes"
-  add_foreign_key "favorite_dishes", "users"
-  add_foreign_key "followings", "chefs"
-  add_foreign_key "followings", "users"
   add_foreign_key "identities", "users"
   add_foreign_key "offers", "dishes"
-  add_foreign_key "order_allergies", "allergies", column: "allergie_id"
-  add_foreign_key "order_allergies", "orders"
   add_foreign_key "orders", "delivery_people"
   add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "users"
-  add_foreign_key "tag_dishes", "dishes"
-  add_foreign_key "tag_dishes", "tags"
-  add_foreign_key "user_allergies", "allergies", column: "allergie_id"
-  add_foreign_key "user_allergies", "users"
 end
