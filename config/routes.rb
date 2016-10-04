@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users ,controllers: { registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks'}
-  
+
   scope "(:locale)" do
-      
+
     # devise_for  :users, skip: omniauth_callbacks: 'omniauth_callbacks'
     match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
     #devise_for :users
@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     resources :users do
         resources :dishes
     end
-    resources :chefs, :only => [:index, :show], controller: 'users', type: 'Chef' do
+    resources :chefs, controller: 'users', type: 'Chef' do #only => [:index, :show],
         resources :dishes
     end
-    resources :diners, :only => [:index, :show], controller: 'users', type: 'Diner'
+    resources :diners, controller: 'users', type: 'Diner' # only => [:index, :show],
     resources :dishes
     resources :order_allergies
     resources :addresses
