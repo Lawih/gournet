@@ -5,5 +5,5 @@ class Dish < ApplicationRecord
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :ingredients
   has_many :dish_evaluations
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :users, join_table: :favorite_dishes
 end

@@ -7,9 +7,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.date :birthday
       t.string :phone
       t.string :picture
-      t.string :type, default: "Diner"
+      t.string :type
       t.string :category
       t.text :bio
+      t.boolean :enabled
 
       t.timestamps
     end
