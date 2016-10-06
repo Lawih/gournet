@@ -67,3 +67,6 @@ gem 'geocoder'
 
 # Use for contact us
 gem 'mail_form'
+
+# Use for authorization
+gem 'pundit', '~> 1.1'
