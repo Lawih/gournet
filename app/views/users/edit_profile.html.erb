@@ -1,13 +1,14 @@
 <h2>Edit </h2>
-<%= render 're', user: current_user %>
-<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
-  <% if @show_errors  && current_user.errors.any?%>
-    <h2>Errores encontrados:</h2>
+<%= form_for(current_user, as: 'user', url: edit_profile_path(current_user)) do |f| %>
+
+  <% if ( @user!=nil && @user.errors.any?) %>
+  <div id="errorExplanation">
     <ul>
-      <% current_user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
+  </div>
   <% end %>
 
   <div class="field">
@@ -48,5 +49,4 @@
   <div>
     <%= f.submit 'Confirmar' %>
   </div>
-
 <% end %>

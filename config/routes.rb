@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users ,controllers: { registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks'}
+  devise_for :users ,controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
   namespace :admin do
       resources :users
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   scope "(:locale)" do
 
     # devise_for  :users, skip: omniauth_callbacks: 'omniauth_callbacks'
-    match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
+    match '/edit_profile' => 'users#edit_profile', via: [:get, :patch], as: :edit_profile
     #devise_for :users
     root :to => 'home#index'
     get 'home/index'

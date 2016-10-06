@@ -20,13 +20,11 @@ class User < ApplicationRecord
   #if you want email to be case insensitive, you should add
   validates :username , presence: true , confirmation: true
   # Validamos que el identificador tenga entre 8 a 12 caracteres
-  validates :username, length: { in: 4..100 }
+  validates :username, length: { in: 4..100 ,message: "muy corto"}
   # Validamos que el email sea unico
   validates :username, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
-
   #Validar que nombre de usuario no contenga @
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-  # when allowing distinct User records with, e.g., "username" and "UserName"...
   #validates :phone , presence: false, confirmation: false
 
   def to_param
