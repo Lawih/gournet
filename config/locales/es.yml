@@ -4,6 +4,11 @@ es:
     attributes:
       user: #TODO
         name: "Nombre"
+        email: "Correo electrónico"
+        username: "Usuario"
+        lastname: "Apellido"
+        birthday: "Cumpleaños"
+        phone: "Telefono"
 
   mail_form:
     attributes:
@@ -19,19 +24,36 @@ es:
   layouts:
     application:
       home: "Inicio"
-      log_in: "Iniciar sesión"
+      sign_in: "Iniciar sesión"
       sign_up: "Regístrate"
       log_out: "Cerrar sesión"
       edit_profile: "Editar perfil"
       user: "Usuario"
       about_us: "Sobre nosotros"
       contact_us: "Contáctenos"
+      change_your_password: "Cambiar contraseña"
+      dishs: "Platos"
+      your_order: "Tu pedido"
+      about_us: "¿Quienes somos?"
+      contact_us: "Contactenos"
+  
+  users: 
+    edit_profile:                  
+        edit_profile: "Editar perfil"        
+        confirm: "Confirmar"
 
   home:
     index:
       welcome: "Bienvenido a GourNet"
       construction_1: "Estamos en construcción."
       construction_2: "Estamos trabajando para hacer este sitio mejor para ti."
+      sign_in: "Iniciar sesión"
+      sign_up: "Regístrate"
+      dishs: "Platos"
+      your_order: "Tu pedido"
+      about_us: "¿Quienes somos?"
+      contact_us: "Contactenos"
+
 
   contacts:
     new:

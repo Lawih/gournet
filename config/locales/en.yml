@@ -10,6 +10,12 @@ en:
     attributes:
       user: #TODO
         name: "Name"
+        email: "Email"
+        username: "Username"
+        lastname: "Lastname"
+        birthday: "Birthday"
+        phone: "Phone"
+        edit_profile: "Edit Profile"
 
     mail_form:
       attributes:
@@ -32,20 +38,35 @@ en:
   layouts: # Name of the view
     application: # Name of file view
       home: "Home" # <%= t('.home') %> in views/layouts/application.html.erb
-      log_in: "Log in"
+      sign_in: "Sign in"
       sign_up: "Sign up"
       log_out: "Log out"
       edit_profile: "Edit profile"
       user: "User"
       about_us: "About us"
+      contact_us: "Contact us"      
+      change_your_password: "Change your password"      
+      dishs: "Dishs"
+      your_order: "Your order"    
+      about_us: "About us?"
       contact_us: "Contact us"
 
+  users: 
+    edit_profile:                  
+        edit_profile: "Edit Profile"
+        confirm: "Confirm"
 
   home:
     index:
       welcome: "Welcome to GourNet"
       construction_1: "We are under construction."
       construction_2: "We are working to make this site better for you."
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      dishs: "Dishs"
+      your_order: "Your order"    
+      about_us: "About us?"
+      contact_us: "Contact us"
 
   contacts:
     new:
