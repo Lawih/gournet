@@ -4,6 +4,22 @@
 #     <%= t('hello') %>
 
 en:
+  # Models
+  activerecord:
+    attributes:
+      user: #TODO
+        name: "Name"
+
+    mail_form:
+      attributes:
+        contact:
+          name: "Name"
+          email: "Email"
+          message: "Message"
+      errors:
+        messages:
+          blank: "Message cannot be blank. Please try again."
+
   # Views
   layouts: # Name of the view
     application: # Name of file view
@@ -30,3 +46,10 @@ en:
       contact_us: "Contact us"
       contact_thanks: "Thanks for your message"
       contact_thanks_2: "Your feedback makes us better"
+
+  static_pages:
+    about_us:
+      title: "Get to know us!"
+      team: "Our team"
+      team_description: "We are a team of future System and Computer Engineers of the Universidad Nacional de Colombia, entrepreneurial and creative."
+      developer: "Developer"
