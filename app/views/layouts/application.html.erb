@@ -66,13 +66,16 @@
 
   <body>
     <%= yield %>
-    <center>
-        <br>
-        <p>
-          <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
-          <%= link_to_unless I18n.locale == :es, "Spanish", locale: :es %>
-        </p>
-    </center>
   </body>
-  <p ALIGN=center>Copyright 2016</p>
+  <footer>
+      <center>
+          <br>
+          <p>
+            <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
+            <%= link_to_unless I18n.locale == :es, "Spanish", locale: :es %>
+          </p>
+          <p> Copyright 2016</p>
+          <br>
+      </center>
+  </footer>
 </html>
