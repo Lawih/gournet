@@ -12,30 +12,54 @@
     <%=stylesheet_link_tag "https://fonts.googleapis.com/css?family=Arvo:400,700"%>
     <%=stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic"%>
 
-    <%= csrf_meta_tags %>
+   <%= csrf_meta_tags %>
 
+    <!-- NavBar-->
+      <nav class="navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"> GourNet </a>
+        </div>
+
+         <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+           <ul class="nav navbar-nav">
+
+            <li class="menuItem"><a href="/#whatis">Chefs</a></li>
+            <li class="menuItem"><a href="/#useit">Platos</a></li>
+            <li class="menuItem"><a href="/#screen">Tu Pedido</a></li>
+            <li class="menuItem"><a href="/#credits">¿Quienes somos?</a></li>
+            <li class="menuItem"><a href="/#contact">Contactenos</a></li>
+             <% if user_signed_in? %>
+                <li class="menuItem btn-info">
+                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                  <%=current_user.username%><span class="caret"></span>
+                </a>
+
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-submenu"><%= link_to t('.edit_profile'), edit_user_registration_path%></li>
+                      <li class="divider"></li>
+                      <li class="menuItem btn-danger"><%= link_to t('.log_out'), destroy_user_session_path, method: :delete%></li>
+                    </ul>
+                </li>
+            <%else%>
+                <li class="menuItem btn-default"><%= link_to t('.sign_in'), new_user_session_path%></li>
+                <li class="menuItem btn-success" ><%= link_to t('.sign_up'), new_user_registration_path%></li>
+            <% end%>
+           </ul>
+         </div>
+       </div>
+     </nav>
+     <!-- NavBar END-->
 
     <!--
-
-    <p></p>
-    <div class="banner" align="center">
-        <%= link_to t('.home'), root_path, class: "btn btn-default" %>
-        <% if user_signed_in? %>
-            <%= link_to t('.user') + ": " + current_user.username,root_path, class: "btn btn-default"%>
-            <%= link_to t('.edit_profile'), edit_profile_path, class: "btn btn-default" %>
-            <%= link_to t('.change_password'), edit_user_registration_path, class: "btn btn-default" %>
-            <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "btn btn-default" %>
-        <%else%>
-            <%= link_to t('.log_in'), new_user_session_path, class: "btn btn-default" %>
-            <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-default"%>
-        <% end%>
-        <%= link_to t('.contact_us'), new_contact_path, class: "btn btn-default" %>
-        <%= link_to t('.about_us'), static_pages_about_us_path, class: "btn btn-default" %>
-    </div>
-    <center>
-
     <div class="notice"><%= notice %></div>
-  	<div class="alert"><%= alert %></div>
+    <div class="alert"><%= alert %></div>
     -->
     </center>
   </head>

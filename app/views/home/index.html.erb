@@ -33,7 +33,7 @@
 
  
   <!-- NavBar-->
-  <nav class="navbar-default" role="navigation">
+    <nav class="navbar-default" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -53,6 +53,23 @@
         <li class="menuItem"><a href="#screen">Tu Pedido</a></li>
         <li class="menuItem"><a href="#credits">¿Quienes somos?</a></li>
         <li class="menuItem"><a href="#contact">Contactenos</a></li>
+
+        <% if user_signed_in? %>
+                <li class="menuItem btn-info">
+                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                  <%=current_user.username%><span class="caret"></span>
+                </a>
+
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-submenu"><%= link_to t('.edit_profile'), edit_user_registration_path%></li>
+                      <li class="divider"></li>
+                      <li class="menuItem btn-danger"><%= link_to t('.log_out'), destroy_user_session_path, method: :delete%></li>
+                    </ul>
+                </li>
+            <%else%>
+                <li class="menuItem btn-default" ><%= link_to t('.sign_in'), new_user_session_path%></li>
+                <li class="menuItem btn-success" ><%= link_to t('.sign_up'), new_user_registration_path%></li>
+            <% end%>
       </ul>
     </div>
 
