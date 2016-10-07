@@ -36,8 +36,7 @@
 </p>
 
 <%= link_to 'Edit', edit_chef_dish_path(@dish) if policy(@dish).update? %>
-<% if (params[:chef_id]) %>
-  <%= link_to 'Back', chef_dishes_path %>
-<% else %>
-  <%= link_to 'Back', dishes_path %>
-<% end %>
+
+<a href= "<%= dishes_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
+<a href= "<%= chef_dishes_path(@dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
+<a href= "<%= chef_path(@dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver chef</span></a>

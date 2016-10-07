@@ -51,8 +51,7 @@
       <%= @chef.bio %>
     </p>
 
-    <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s">
-        <span class="network-name">Ver todos</span>
-    </a>
+    <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"> <span class="network-name">Ver todos</span>  </a>
+    <a href= "<%= chef_dishes_path(@chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
 
 </body>

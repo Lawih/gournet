@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       { locale: I18n.locale }
   end
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  #rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 private
 
