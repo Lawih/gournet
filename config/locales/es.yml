@@ -4,6 +4,11 @@ es:
     attributes:
       user: #TODO
         name: "Nombre"
+        email: "Correo electrónico"
+        username: "Usuario"
+        lastname: "Apellido"
+        birthday: "Cumpleaños"
+        phone: "Telefono"
 
   mail_form:
     attributes:
@@ -19,19 +24,49 @@ es:
   layouts:
     application:
       home: "Inicio"
-      log_in: "Iniciar sesión"
+      sign_in: "Iniciar sesión"
       sign_up: "Regístrate"
       log_out: "Cerrar sesión"
       edit_profile: "Editar perfil"
       user: "Usuario"
       about_us: "Sobre nosotros"
       contact_us: "Contáctenos"
+      change_your_password: "Cambiar contraseña"
+      dishs: "Platos"
+      your_order: "Tu pedido"
+      about_us: "¿Quienes somos?"
+      contact_us: "Contactenos"
+  
+  users: 
+    edit_profile:                  
+        edit_profile: "Editar perfil"        
+        confirm: "Confirmar"
 
   home:
     index:
       welcome: "Bienvenido a GourNet"
       construction_1: "Estamos en construcción."
       construction_2: "Estamos trabajando para hacer este sitio mejor para ti."
+      sign_in: "Iniciar sesión"
+      sign_up: "Regístrate"
+      dishs: "Platos"
+      your_order: "Tu pedido"
+      about_us: "¿Quienes somos?"
+      contact_us: "Contactenos"
+      forget_about_cooking_at_home: "Comida casera a domicilio, olvídate de cocinar"
+      favourite_chef: "¡Selecciona tu chef favorito!"
+      chef_1: "Su especialidad el churrasco"
+      chef_2: "Su especialidad es la pizza"
+      chef_3: "Su especialidad ratatouille"
+      chef_4: "Su especialidad el cocido boyacense"
+      dish_description: "Filetes anchos de abadejo grillado, servidos con el salteado clásico de la cocina vasca (pimientos de tres colores, cebolla, tomates y aceite de oliva). Viene servido con papas estilo Arzak."
+      order: "Pedir"
+      dish_description2: "Golosina para adultos altamente adictiva, abstenerse o rendirse por completo Base de galletita, relleno de toffee (caramelo suave) con almendras tostadas y cubierta de chocolate belga semi amargo."
+      subscribe: "¡Suscríbete!"
+      subscription: "Suscribirse"
+      email: "Su correo electrónico"
+      team_description: "Somos un equipo de futuros Ingenieros e Ingenieras de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos."
+
 
   contacts:
     new:

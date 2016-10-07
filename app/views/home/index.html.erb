@@ -1,398 +1,337 @@
 <head>
-    <%=stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-    <%=stylesheet_link_tag "http://fonts.googleapis.com/css?family=Arvo:400,700" %>
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+  <%=stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <%=stylesheet_link_tag "http://fonts.googleapis.com/css?family=Arvo:400,700" %>
+  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body id="home">
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="status"></div>
-    </div>
+ <!-- Preloader -->
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
 
-    <!-- FullScreen -->
+	<!-- FullScreen -->
     <div class="intro-header">
-        <div class="col-xs-12 text-center abcen1">
-            <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">GourNet</h1>
-            <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">COMIDA CASERA A DOMICILIO OLVÍDATE DE COCINAR</h3>
+		<div class="col-xs-12 text-center abcen1">
+			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">GourNet</h1>
+			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"><%=t('.forget_about_cooking_at_home')%></h3>
             <ul class="list-inline intro-social-buttons">
-                <li><a href="" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Sing In</span></a>
-                </li>
-                <li id="download" ><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Sing Up</span></a>
-                </li>
-            </ul>
-            <div class="col-xs-12 text-center abcen wow fadeIn">
-                <div class="button_down ">
-                    <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img  class="img_scroll"  src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
-                </div>
-            </div>
-        </div>
+				<li><%= link_to t('.sign_up'), new_user_registration_path, class: "btn  btn-lg mybutton_cyano wow fadeIn" %>
+				</li>
+				<li id="download" ><%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-lg mybutton_standard wow swing wow fadeIn" %>
+				</li>
+			</ul>
+      <div class="col-xs-12 text-center abcen wow fadeIn">
+			<div class="button_down ">
+				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img  class="img_scroll"  src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
+			</div>
+		</div>
+		</div>
         <!-- /.container -->
 
     </div>
 
 
-    <!-- NavBar-->
+  <!-- NavBar-->
     <nav class="navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#home">GourNet</a>
-            </div>
-
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-
-                    <li class="menuItem"><a href="#whatis">Chefs</a></li>
-                    <li class="menuItem"><a href="#useit">Platos</a></li>
-                    <li class="menuItem"><a href="#screen">Tu Pedido</a></li>
-                    <li class="menuItem"><a href="#credits">¿Quienes somos?</a></li>
-                    <li class="menuItem"><a href="#contact">Contactenos</a></li>
-
-                    <% if user_signed_in? %>
-                    <li class="menuItem btn-info">
-                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                            <%=current_user.username%><span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu"><%= link_to t('.edit_profile'), edit_profile_path%></li>
-                            <li class="dropdown-submenu"><%= link_to t('.change_your_password'), edit_user_registration_path%></li>
-
-                            <li class="divider"></li>
-                            <li class="menuItem btn-danger"><%= link_to t('.log_out'), destroy_user_session_path, method: :delete%></li>
-                        </ul>
-                    </li>
-                    <%else%>
-                    <li class="menuItem btn-default" ><%= link_to t('.sign_in'), new_user_session_path%></li>
-                    <li class="menuItem btn-success" ><%= link_to t('.sign_up'), new_user_registration_path%></li>
-                    <% end%>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
-
-    <!-- What is -->
-    <div id="whatis" class="content-section-b" style="border-top: 0">
-        <div class="container">
-
-            <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-                <h2>Chefs</h2>
-                <p class="lead" style="margin-top:0">Selecciona tu chef favorito!</p>
-                <li><a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
-            </div>
-
-            <div class="row first-chef-row">
-
-                <div class="col-sm-4 wow fadeInDown text-center">
-                    <img  class="rotate" src="<%= image_path('theme/chefs/mxi.jpg') %>" alt="Generic placeholder image">
-                    <h3> <%= @chefs[0].name %> </h3>
-                    <p class="lead">Su especialidad el churrasco </p>
-                    <li><a href= "<%= chef_path(@chefs[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-4 wow fadeInDown text-center">
-                    <img class="rotate" src="<%= image_path('theme/chefs/luigi.jpg') %>" alt="Generic placeholder image">
-                    <h3> <%= @chefs[1].name %> </h3>
-                    <p class="lead">Su especialidad la pizza</p>
-                    <li><a href= "<%= chef_path(@chefs[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-
-            </div><!-- /.row -->
-            <br>
-            <hr>
-            <br>
-            <div class="row second-chef-row">
-
-                <div class="col-sm-4  wow fadeInDown text-center">
-                    <img class="rotate" src="<%= image_path('theme/chefs/ratatouale.jpg') %>" alt="Generic placeholder image">
-                    <h3> <%= @chefs[2].name %> </h3>
-                    <p class="lead">Su especialidad ratatouille</p>
-                    <li><a href= "<%= chef_path(@chefs[2]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-4 wow fadeInDown text-center">
-                    <img  class="rotate" src="<%= image_path('theme/chefs/riel.jpg') %>" alt="Generic placeholder image">
-                    <h3> <%= @chefs[3].name %> </h3>
-                    <p class="lead">Su especialidad el cocido boyacense </p>
-                    <li><a href= "<%= chef_path(@chefs[3]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-            </div><!-- /.row -->
-        </div>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#home">GourNet</a>
     </div>
 
-    <!-- Use it -->
-    <div id ="useit" class="content-section-a">
+    <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
 
-        <div class="container">
+        <li class="menuItem"><a href="#whatis">Chefs</a></li>
+        <li class="menuItem"><a href="#useit"><%=t('.dishs')%></a></li>
+        <li class="menuItem"><a href="#screen"><%=t('.your_order')%></a></li>
+        <li class="menuItem"><a href="#credits"><%=t('.about_us')%></a></li>
+        <li class="menuItem"><a href="#contact"><%=t('.contact_us')%></a></li>
 
-            <div class="row">
+        <% if user_signed_in? %>
+              <li class="menuItem btn-info">
+                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                  <%=current_user.username%><span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu"><%= link_to t('.edit_profile'), edit_profile_path%></li>
+                    <li class="dropdown-submenu"><%= link_to t('.change_your_password'), edit_user_registration_path%></li>
+                  <li class="divider"></li>
+                  <li class="menuItem btn-danger"><%= link_to t('.log_out'), destroy_user_session_path, method: :delete%></li>
+                </ul>
+              </li>
+            <%else%>
+                <li class="menuItem" ><%= link_to t('.sign_in'), new_user_session_path%></li>
+                <li class="menuItem" ><%= link_to t('.sign_up'), new_user_registration_path%></li>
+            <% end%>
+      </ul>
+    </div>
 
-                <div class="col-sm-6 pull-right wow fadeInRightBig">
-                    <%= image_tag "theme/Pescado-blanco-a-la-vasca1.jpg", :title => "example", :class=>"img-responsive" %>
-                </div>
+  </div>
+  </nav>
 
-                <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
-                    <h3 class="section-heading"> <%= @dishes[0].name %> </h3>
-                    <div class="sub-title lead3"> <%= @dishes[0].chef.name %> <br> junio 27, 2016</div>
-                    <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
-                        <p>
-                            <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
-                            <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
-                        </p>
-                        <!--
-                        <p> <a class="btn btn-embossed btn-primary" href="<%= dish_path(@dishes[0]) %>"  role="button">Ver Detalles</a>
-                            <a class="btn btn-embossed btn-info" href="#" role="button">Pedir</a></p>
-                        -->
-                    </div>
-                    </div>
-                </div>
-                <!-- /.container -->
+  <!-- What is -->
+  <div id="whatis" class="content-section-b" style="border-top: 0">
+  <div class="container">
+
+    <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+      <h2>Chefs</h2>
+      <p class="lead" style="margin-top:0">Selecciona tu chef favorito!</p>
+      <li><a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
+    </div>
+
+    <div class="row first-chef-row">
+
+        <div class="col-sm-6 wow fadeInDown text-center">
+            <img  src="<%= image_path('theme/chefs/profile_1.png') %>" alt="Generic placeholder image">
+            <h3> <%= @chefs[0].name %> </h3>
+            <p class="lead"><%= t('.chef_1')%></p>
+            <li><a href= "<%= chef_path(@chefs[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-sm-6 wow fadeInDown text-center">
+            <img src="<%= image_path('theme/chefs/profile_2.png') %>" alt="Generic placeholder image">
+            <h3> <%= @chefs[1].name %> </h3>
+            <p class="lead"><%= t('.chef_2')%></p>
+            <li><a href= "<%= chef_path(@chefs[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
+        </div><!-- /.col-lg-4 -->
+
+
+    </div><!-- /.row -->
+    <br>
+    <hr>
+    <br>
+    <div class="row second-chef-row">
+
+        <div class="col-sm-6  wow fadeInDown text-center">
+            <img src="<%= image_path('theme/chefs/profile_3.png') %>" alt="Generic placeholder image">
+            <h3> <%= @chefs[2].name %> </h3>
+            <p class="lead"><%= t('.chef_3')%></p>
+            <li><a href= "<%= chef_path(@chefs[2]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
+            <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-sm-6 wow fadeInDown text-center">
+            <img  src="<%= image_path('theme/chefs/profile_4.png') %>" alt="Generic placeholder image">
+            <h3> <%= @chefs[3].name %> </h3>
+            <p class="lead"><%= t('.chef_4')%></p>
+            <li><a href= "<%= chef_path(@chefs[3]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
+            <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+        </div><!-- /.col-lg-4 -->
+
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Use it -->
+  <div id ="useit" class="content-section-a">
+
+      <div class="container">
+
+          <div class="row">
+
+      <div class="col-sm-6 pull-right wow fadeInRightBig">
+                  <%= image_tag "theme/Pescado-blanco-a-la-vasca1.jpg", :title => "example", :class=>"img-responsive" %>
+              </div>
+
+      <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
+          <h3 class="section-heading"> <%= @dishes[0].name %> </h3>
+          <div class="sub-title lead3"> <%= @dishes[0].chef.name %> <br> junio 27, 2016</div>
+          <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
+              <p>
+                  <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
+                  <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
+              </p>
+      </div>
+          </div>
+      </div>
+      <!-- /.container -->
+  </div>
+
+  <div class="content-section-b">
+
+  <div class="container">
+          <div class="row">
+              <div class="col-sm-6 wow fadeInLeftBig">
+                  <div id="owl-demo-1" class="owl-carousel">
+          <a href="img/iphone.png" class="image-link">
+            <div class="item">
+              <%= image_tag "theme/Barras-de-chocolate-y-toffee-con-almendras.jpg", :title => "example", :class=>"img-responsive img-rounded" %>
             </div>
+          </a>
+        </div>
+              </div>
 
-            <div class="content-section-b">
+      <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
+          <h3 class="section-heading"> <%= @dishes[1].name %> </h3>
+          <div class="sub-title lead3"> <%= @dishes[1].chef.name %> <br> junio 27, 2016</div>
+          <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
+              <p>
+                  <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
+                  <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
+              </p>
+          </div>
+    </div>
+      </div>
+  </div>
 
-                <div class="container">
-                    <div class="row">
 
-                        <div class="col-sm-6 wow fadeInLeftBig">
-                            <div id="owl-demo-1" class="owl-carousel">
-                                <a href="img/iphone.png" class="image-link">
-                                    <div class="item">
-                                        <%= image_tag "theme/Barras-de-chocolate-y-toffee-con-almendras.jpg", :title => "example", :class=>"img-responsive img-rounded" %>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+  <!-- Screenshot -->
+  <div id="screen" class="content-section-b">
+      <div class="container">
+        <div class="row" >
+    <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
+      <h2><%=t('.your_order')%></h2>
+      <p class="lead" style="margin-top:0"><%= t('.construction_1')%></p>
+    </div>
+    </div>
+      <div class="row wow bounceInUp" >
+            <div id="owl-demo" class="owl-carousel">
 
-                        <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
-                            <h3 class="section-heading"> <%= @dishes[1].name %> </h3>
-                            <div class="sub-title lead3"> <%= @dishes[1].chef.name %> <br> junio 27, 2016</div>
-                            <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
-                                <p>
-                                    <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
-                                    <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
-                                </p>
-                                <!--
-                                <p><a class="btn btn-embossed btn-primary" href="#" role="button">ver detalles</a>
-                                <a class="btn btn-embossed btn-info" href="#" role="button">Hacer pedido</a></p>
-                            -->
-                            </div>
-                        </div>
-                    </div>
+      <a href="img/slide/1.png" class="image-link">
+        <div class="item">
+          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/1.png') %>" alt="Owl Image">
+        </div>
+      </a>
+
+            <a href="img/slide/2.png" class="image-link">
+        <div class="item">
+          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/2.png') %>" alt="Owl Image">
+        </div>
+      </a>
+
+      <a href="img/slide/3.png" class="image-link">
+        <div class="item">
+          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/3.png') %>" alt="Owl Image">
+        </div>
+      </a>
+
+      <a href="img/slide/1.png" class="image-link">
+        <div class="item">
+          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/1.png') %>" alt="Owl Image">
+        </div>
+      </a>
+
+            <a href="img/slide/2.png" class="image-link">
+        <div class="item">
+          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/2.png') %>" alt="Owl Image">
+        </div>
+      </a>
+
+      <a href="img/slide/3.png" class="image-link">
+        <div class="item">
+          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/3.png') %>" alt="Owl Image">
+        </div>
+      </a>
+            </div>
+        </div>
+      </div>
+
+
+  </div>
+
+  <div  class="content-section-c ">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center white">
+        <h2><%= t('.subscribe')%></h2>
+      </div>
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <div class="mockup-content">
+            <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
+              <button type="button "><span><%= t('.subscription')%></span></button>
+              <div class="morph-content">
+                <div>
+                  <div class="content-style-form content-style-form-4 ">
+                    <h2 class="morph-clone"><%= t('.subscription')%></h2>
+                    <form>
+                      <p><label><%= t('email')%></label><input type="text"/></p>
+                      <p><button><%= t('.subscription')%></button></p>
+                    </form>
+                  </div>
                 </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      </div>>
+    </div>
+  </div>
 
+  <!-- Credits -->
+  <div id="credits" class="content-section-a">
+    <div class="container">
+      <div class="row">
 
-                <!-- Screenshot -->
-                <div id="screen" class="content-section-b">
-                    <div class="container">
-                        <div class="row" >
-                            <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
-                                <h2>Tu pedido</h2>
-                                <p class="lead" style="margin-top:0">En contruccion!!</p>
-                            </div>
-                        </div>
-                        <div class="row wow bounceInUp" >
-                            <div id="owl-demo" class="owl-carousel">
+        <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+          <h2><%=t('.about_us')%></h2>
+        </div>
 
-                                <a href="img/slide/1.png" class="image-link">
-                                    <div class="item">
-                                        <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/1.png') %>" alt="Owl Image">
-                                    </div>
-                                </a>
+        <%= stylesheet_link_tag 'static_pages' %>
 
-                                <a href="img/slide/2.png" class="image-link">
-                                    <div class="item">
-                                        <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/2.png') %>" alt="Owl Image">
-                                    </div>
-                                </a>
+  	    <div class ="wrapper container">
+	        <div class="wrapper-body row">
+		      	  <p class="intro-body"><%= t('.team_description')%></p>
 
-                                <a href="img/slide/3.png" class="image-link">
-                                    <div class="item">
-                                        <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/3.png') %>" alt="Owl Image">
-                                    </div>
-                                </a>
+			        <div class = "row team-row">
+                <li><a href= "static_pages/about_us" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Conocenos Más</span></a>
+              </div>
 
-                                <a href="img/slide/1.png" class="image-link">
-                                    <div class="item">
-                                        <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/1.png') %>" alt="Owl Image">
-                                    </div>
-                                </a>
+			    </div>
+        </div>
 
-                                <a href="img/slide/2.png" class="image-link">
-                                    <div class="item">
-                                        <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/2.png') %>" alt="Owl Image">
-                                    </div>
-                                </a>
+      </div>
+    </div>
+  </div>
 
-                                <a href="img/slide/3.png" class="image-link">
-                                    <div class="item">
-                                        <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/3.png') %>" alt="Owl Image">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Banner Download -->
+  <div id="downloadlink" class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+        <h2>Nuestras Redes</h2>
+        <li><a href="https://twitter.com/" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Twitter</span></a>
+				</li>
+      </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Contact -->
+  <div id="contact" class="content-section-a">
+    <div class="container">
+      <div class="row">
 
-                </div>
-
-                <div  class="content-section-c ">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3 text-center white">
-                                <h2>Suscribete!</h2>
-                            </div>
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                                <div class="mockup-content">
-                                    <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
-                                        <button type="button "><span>Subscribir</span></button>
-                                        <div class="morph-content">
-                                            <div>
-                                                <div class="content-style-form content-style-form-4 ">
-                                                    <h2 class="morph-clone">Subscribir</h2>
-                                                    <form>
-                                                        <p><label>Your Email Address</label><input type="text"/></p>
-                                                        <p><button>Subscribeme</button></p>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>>
-                    </div>
-                </div>
-
-                <!-- Credits -->
-                <div id="credits" class="content-section-a">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-                                <h2>¿Quienes Somos?</h2>
-                            </div>
-
-                            <%= stylesheet_link_tag 'static_pages' %>
-
-                            <div class ="wrapper container">
-                                <div class="wrapper-body row">
-                                    <p class="intro-body">Somos un equipo de futuros Ingenieros de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos.</p>
-
-                                    <div class = "row team-row">
-                                        <li><a href= "static_pages/about_us" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Conocenos Más</span></a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Banner Download -->
-                    <div id="downloadlink" class="banner">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-                                    <h2>Nuestras Redes</h2>
-                                    <li><a href="https://twitter.com/" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Twitter</span></a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact -->
-                    <div id="contact" class="content-section-a">
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-                                    <h2>Contact Us</h2>
-                                    <p class="lead" style="margin-top:0">A special thanks to Death.</p>
-                                </div>
-
-                                <form role="form" action="" method="post" >
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="InputName">Your Name</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="InputEmail">Your Email</label>
-                                            <div class="input-group">
-                                                <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="InputMessage">Message</label>
-                                            <div class="input-group">
-                                                <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                            </div>
-                                        </div>
-
-                                        <input type="submit" name="submit" id="submit" value="Submit" class="btn wow tada btn-embossed btn-primary pull-right">
-                                    </div>
-                                </form>
-
-                                <hr class="featurette-divider hidden-lg">
-                                <div class="col-md-5 col-md-push-1 address">
-                                    <address>
-                                        <h3>Office Location</h3>
-                                        <p class="lead"><a href="https://www.google.com/maps/preview?ie=UTF-8&q=The+Pentagon&fb=1&gl=us&hq=1400+Defense+Pentagon+Washington,+DC+20301-1400&cid=12647181945379443503&ei=qmYfU4H8LoL2oATa0IHIBg&ved=0CKwBEPwSMAo&safe=on">The Pentagon<br>
-                                            Washington, DC 20301</a><br>
-                                            Phone: XXX-XXX-XXXX<br>
-                                            Fax: XXX-XXX-YYYY</p>
-                                        </address>
-
-                                        <h3>Social</h3>
-                                        <li class="social">
-                                            <a href="#"><i class="fa fa-facebook-square fa-size"> </i></a>
-                                            <a href="#"><i class="fa  fa-twitter-square fa-size"> </i> </a>
-                                            <a href="#"><i class="fa fa-google-plus-square fa-size"> </i></a>
-                                            <a href="#"><i class="fa fa-flickr fa-size"> </i> </a>
-                                        </li>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+        <h2><%=t('.contact_us')%></h2>
+        <p class="lead" style="margin-top:0">A special thanks to Santa.</p>
+        <%= link_to t('.contact_us'), new_contact_path, class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+      </div>
+      </div>
+    </div>
+  </div>
 
 
 
-                        <footer>
+  <footer>
 
-                            <script type="text/javascript">
-                            jQuery(function($) {
-                                $(document).ready( function() {
-                                    $('.navbar-default').stickUp();
+  <script type="text/javascript">
+  jQuery(function($) {
+  $(document).ready( function() {
+  $('.navbar-default').stickUp();
 
-                                });
-                            });
-                            </script>
-                            <!-- Smoothscroll -->
-                            <script>
-                            new WOW().init();
-                            </script>
-                        </footer>
-                    </body>
+  });
+  });
+  </script>
+  <!-- Smoothscroll -->
+  <script>
+  new WOW().init();
+  </script>
+  </footer>
+</body>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   scope "(:locale)" do
 
     # devise_for  :users, skip: omniauth_callbacks: 'omniauth_callbacks'
-    match '/edit_profile' => 'users#edit_profile', via: [:get, :patch], as: :edit_profile
+    match 'users/edit_profile' => 'users#edit_profile', via: [:get, :patch], as: :edit_profile
     #devise_for :users
     root :to => 'home#index'
     get 'home/index'
