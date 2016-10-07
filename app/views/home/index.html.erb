@@ -31,7 +31,7 @@
 		
     </div>
 
- 
+
   <!-- NavBar-->
     <nav class="navbar-default" role="navigation">
   <div class="container">
@@ -82,7 +82,7 @@
 
     <div class="col-md-6 col-md-offset-3 text-center wrap_title">
       <h2>Chefs</h2>
-      <p class="lead" style="margin-top:0">Selecciona tu chef favorito!</p>
+      <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
 
     </div>
 
@@ -91,14 +91,14 @@
       <div class="col-sm-4 wow fadeInDown text-center">
         <img  class="rotate" src="<%= image_path('theme/chefs/mxi.jpg') %>" alt="Generic placeholder image">
         <h3>Maximiliano Fontanet</h3>
-        <p class="lead">Su especialidad el churrasco </p>
+        <p class="lead"><%= t('.chef_1')%></p>
         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
 
       <div class="col-sm-4 wow fadeInDown text-center">
         <img class="rotate" src="<%= image_path('theme/chefs/luigi.jpg') %>" alt="Generic placeholder image">
         <h3>Luigi Carola</h3>
-        <p class="lead">Su especialidad la pizza</p>
+        <p class="lead"><%= t('.chef_2')%></p>
 
         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
@@ -111,14 +111,14 @@
       <div class="col-sm-4  wow fadeInDown text-center">
         <img class="rotate" src="<%= image_path('theme/chefs/ratatouale.jpg') %>" alt="Generic placeholder image">
         <h3>Rata Touille</h3>
-        <p class="lead">Sue especialidad ratatouille </p>
+        <p class="lead"><%= t('.chef_3')%></p>
       <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
 
       <div class="col-sm-4 wow fadeInDown text-center">
         <img  class="rotate" src="<%= image_path('theme/chefs/riel.jpg') %>" alt="Generic placeholder image">
         <h3>Ariel Rodiguez Palacios</h3>
-        <p class="lead">Su especialidad el cocido boyacense </p>
+        <p class="lead"><%= t('.chef_4')%></p>
         <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
       </div><!-- /.col-lg-4 -->
 
@@ -141,9 +141,8 @@
                   <h3 class="section-heading"><%=t('.dishs')%></h3>
         <div class="sub-title lead3">PESCADO A LA VASCA<br> junio 27, 2016</div>
                   <p class="lead">
-          Filetes anchos de abadejo grillado, servidos con el salteado clásico de la cocina vasca (pimientos de tres colores, cebolla, tomates y aceite de oliva). Viene servido con papas estilo Arzak.
-        <p><a class="btn btn-embossed btn-primary" href="#" role="button">Ver Detalles</a>
-        <a class="btn btn-embossed btn-info" href="#" role="button">Pedir</a></p>
+                <%= t('.dish_description')%><p><a class="btn btn-embossed btn-primary" href="#" role="button">Ver Detalles</a>
+        <a class="btn btn-embossed btn-info" href="#" role="button"><%= t('.order')%></a></p>
       </div>
           </div>
       </div>
@@ -166,13 +165,11 @@
 
               <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
                   <h3 class="section-heading"><%=t('.dishs')%></h3>
-        <div class="sub-title lead3">BARRAS DE CHOCOLATE, TOFFEE Y ALMENDRAS<br> junio 27, 2016</div>
-                  <p class="lead">
-          Golosina para adultos altamente adictiva, abstenerse o rendirse por completo Base de galletita, relleno de toffee (caramelo suave) con almendras tostadas y cubierta de chocolate belga semi amargo
-        </p>
+        <div class="sub-title lead3">Barras de chocolate, toffee y almendras<br> junio 27, 2016</div>
+                  <p class="lead"><%= t('.dish_description2')%></p>
 
         <p><a class="btn btn-embossed btn-primary" href="#" role="button">ver detalles</a>
-        <a class="btn btn-embossed btn-info" href="#" role="button">Hacer pedido</a></p>
+        <a class="btn btn-embossed btn-info" href="#" role="button"><%= t('.order')%></a></p>
       </div>
     </div>
       </div>
@@ -185,7 +182,7 @@
         <div class="row" >
     <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
       <h2><%=t('.your_order')%></h2>
-      <p class="lead" style="margin-top:0">En construcción!!</p>
+      <p class="lead" style="margin-top:0"><%= t('.construction_1')%></p>
     </div>
     </div>
       <div class="row wow bounceInUp" >
@@ -237,19 +234,19 @@
     <div class="container">
       <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center white">
-        <h2>Suscribete!</h2>
+        <h2><%= t('.subscribe')%></h2>
       </div>
       <div class="col-md-6 col-md-offset-3 text-center">
         <div class="mockup-content">
             <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
-              <button type="button "><span>Subscribir</span></button>
+              <button type="button "><span><%= t('.subscription')%></span></button>
               <div class="morph-content">
                 <div>
                   <div class="content-style-form content-style-form-4 ">
-                    <h2 class="morph-clone">Subscribir</h2>
+                    <h2 class="morph-clone"><%= t('.subscription')%></h2>
                     <form>
-                      <p><label>Your Email Address</label><input type="text"/></p>
-                      <p><button>Subscribeme</button></p>
+                      <p><label><%= t('email')%></label><input type="text"/></p>
+                      <p><button><%= t('.subscription')%></button></p>
                     </form>
                   </div>
                 </div>
@@ -274,7 +271,7 @@
 
   	    <div class ="wrapper container">
 	        <div class="wrapper-body row">
-		      	  <p class="intro-body">Somos un equipo de futuros Ingenieros de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos.</p>
+		      	  <p class="intro-body"><%= t('.team_description')%></p>
 
 			        <div class = "row team-row">
                 <li><a href= "static_pages/about_us" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Conocenos Más</span></a>
