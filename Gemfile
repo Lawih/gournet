@@ -70,3 +70,9 @@ gem 'devise-i18n'
 
 # Use for contact us
 gem 'mail_form'
+
+# Theme gems
+gem 'owlcarousel-rails'
+gem "animate-rails"
+gem 'magnific-popup-rails', '~> 1.1.0'
+gem 'modernizr-rails'

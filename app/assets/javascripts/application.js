@@ -15,5 +15,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap/dropdown
 //= require bootstrap/carousel
+//= require owl.carousel
 //= require_tree .
 //= require_tree ./theme
+//= require magnific-popup
