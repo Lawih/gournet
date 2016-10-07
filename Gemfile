@@ -51,6 +51,7 @@ gem 'pg', '~> 0.18'
 # Bootstrap gems
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem "font-awesome-rails"
 
 # Devise gem
 gem 'devise'
@@ -72,3 +73,9 @@ gem 'mail_form'
 
 # Use for authorization
 gem 'pundit', '~> 1.1'
+
+# Theme gems
+gem 'owlcarousel-rails'
+gem "animate-rails"
+gem 'magnific-popup-rails', '~> 1.1.0'
+gem 'modernizr-rails'

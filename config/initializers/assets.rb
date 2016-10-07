@@ -9,3 +9,9 @@ Rails.application.config.assets.precompile += %w( static_pages.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+Rails.application.config.assets.precompile += %w['*.js']
+Rails.application.config.assets.precompile += %w['*.css']
+
+# Fonts
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
