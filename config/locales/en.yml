@@ -4,6 +4,7 @@
 #     <%= t('hello') %>
 
 en:
+
   # Models
   activerecord:
     attributes:
@@ -20,6 +21,13 @@ en:
         messages:
           blank: "Message cannot be blank. Please try again."
 
+  user_not_authorized: 'You cannot perform this action.'
+  pundit:
+   default: 'You cannot perform this action.'
+   dish_policy:
+    update?: 'You cannot edit this dish!'
+    create?: 'You cannot create dishes!'
+
   # Views
   layouts: # Name of the view
     application: # Name of file view
@@ -31,6 +39,7 @@ en:
       user: "User"
       about_us: "About us"
       contact_us: "Contact us"
+
 
   home:
     index:

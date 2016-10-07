@@ -15,13 +15,9 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'static_pages/about_us'
 
-    #resources :users do
-    #    resources :dishes
-    #end
-    #resources :chefs, controller: 'users', type: 'Chef' do #only => [:index, :show],
-    #    resources :dishes
-    #end
-    resources :diners, controller: 'users', type: 'Diner' # only => [:index, :show],
+    resources :chefs do
+        resources :dishes
+    end
     resources :dishes
     resources :order_allergies
     resources :addresses

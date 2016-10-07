@@ -1,6 +1,9 @@
 class DishesController < ApplicationController
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
 
+  after_action :verify_authorized, except: :index
+  #after_action :verify_policy_scoped, only: :index
+
   # GET /dishes
   # GET /dishes.json
   def index
@@ -21,6 +24,7 @@ class DishesController < ApplicationController
   # GET /dishes/new
   def new
     @dish = Dish.new
+    authorize @dish
   end
 
   # GET /dishes/1/edit
@@ -31,6 +35,7 @@ class DishesController < ApplicationController
   # POST /dishes.json
   def create
     @dish = Dish.new(dish_params)
+    authorize @dish
 
     respond_to do |format|
       if @dish.save
@@ -71,6 +76,7 @@ class DishesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dish
       @dish = Dish.find(params[:id])
+      authorize @dish
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

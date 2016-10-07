@@ -35,5 +35,9 @@
   <%= @dish.calories %>
 </p>
 
-<%= link_to 'Edit', edit_chef_dish_path(@dish) %> |
-<%= link_to 'Back', chef_dishes_path %>
+<%= link_to 'Edit', edit_chef_dish_path(@dish) if policy(@dish).update? %>
+<% if (params[:chef_id]) %>
+  <%= link_to 'Back', chef_dishes_path %>
+<% else %>
+  <%= link_to 'Back', dishes_path %>
+<% end %>
