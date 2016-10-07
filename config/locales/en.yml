@@ -4,6 +4,22 @@
 #     <%= t('hello') %>
 
 en:
+  # Models
+  activerecord:
+    attributes:
+      user: #TODO
+        name: "Name"
+
+    mail_form:
+      attributes:
+        contact:
+          name: "Name"
+          email: "Email"
+          message: "Message"
+      errors:
+        messages:
+          blank: "Message cannot be blank. Please try again."
+
   # Views
   layouts: # Name of the view
     application: # Name of file view
