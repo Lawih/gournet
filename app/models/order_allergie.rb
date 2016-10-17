@@ -1,0 +1,2 @@
+class OrderAllergie < ApplicationRecord
+end

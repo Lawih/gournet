@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chef: one
+  user: one
+  is_favorite: false
+
+two:
+  chef: two
+  user: two
+  is_favorite: false

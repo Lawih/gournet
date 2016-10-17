@@ -1,0 +1,1 @@
+json.array! @dish_evaluations, partial: 'dish_evaluations/dish_evaluation', as: :dish_evaluation

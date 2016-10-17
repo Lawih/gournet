@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  dish: one
+  score_time: 1
+  score_quality: 1
+  score_visual: 1
+  comment: MyText
+
+two:
+  user: two
+  dish: two
+  score_time: 1
+  score_quality: 1
+  score_visual: 1
+  comment: MyText

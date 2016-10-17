@@ -1,0 +1,88 @@
+/* line 2, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper {
+  overflow-x: hidden;
+  font-size: 140%;
+  padding: 0 0 30px 0;
+  width: 70%;
+}
+/* line 8, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-logo {
+  text-align: center;
+}
+/* line 10, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-logo .logo {
+  width: 170px;
+  margin: 0 auto;
+}
+/* line 16, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head {
+  padding: 20px 0 0 15px;
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 22, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .title .hidden-lg {
+  margin: 0;
+  padding: 0 15px 50px;
+  font-size: 50px;
+  text-align: center;
+}
+/* line 30, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .intro {
+  padding-top: 1px;
+}
+/* line 34, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .intro .lema span {
+  display: block;
+}
+/* line 39, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .intro .text {
+  margin-top: 20px;
+  display: block;
+  font-size: 19px;
+}
+/* line 45, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .intro .vcenter {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 51, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .group-col {
+  padding-top: 25px;
+}
+/* line 54, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-head .group-col .group {
+  border-radius: 5%;
+  border-width: 2px;
+}
+/* line 61, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-body {
+  padding: 20px 0 0 15px;
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 65, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-body intro-body {
+  width: 70%;
+}
+/* line 69, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-body .team-row {
+  text-align: center;
+  padding: 20px 0 10px 0;
+}
+/* line 74, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-body .team-photo {
+  border-radius: 5%;
+  width: 250px;
+  margin: 0 auto;
+}
+/* line 80, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-body .team-text {
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 12px;
+}
+/* line 86, /home/lawih/Documents/Ingesoft/gournet/app/assets/stylesheets/static_pages.scss */
+.wrapper .wrapper-body .team-role {
+  font-size: 13px;
+}

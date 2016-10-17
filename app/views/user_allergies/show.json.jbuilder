@@ -1,0 +1,1 @@
+json.partial! "user_allergies/user_allergy", user_allergy: @user_allergy

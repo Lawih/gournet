@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @order_allergy.order %>
+</p>
+
+<p>
+  <strong>Allergie:</strong>
+  <%= @order_allergy.allergie %>
+</p>
+
+<%= link_to 'Edit', edit_order_allergy_path(@order_allergy) %> |
+<%= link_to 'Back', order_allergies_path %>

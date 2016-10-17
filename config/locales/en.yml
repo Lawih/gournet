@@ -1,23 +1,99 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
 # To use the locales, use `I18n.t`:
-#
 #     I18n.t 'hello'
-#
 # In views, this is aliased to just `t`:
-#
 #     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+
+  # Models
+  activerecord:
+    attributes:
+      user: #TODO
+        name: "Name"
+        email: "Email"
+        username: "Username"
+        lastname: "Lastname"
+        birthday: "Birthday"
+        phone: "Phone"
+        edit_profile: "Edit Profile"
+
+    mail_form:
+      attributes:
+        contact:
+          name: "Name"
+          email: "Email"
+          message: "Message"
+      errors:
+        messages:
+          blank: "Message cannot be blank. Please try again."
+
+  user_not_authorized: 'You cannot perform this action.'
+  pundit:
+   default: 'You cannot perform this action.'
+   dish_policy:
+    update?: 'You cannot edit this dish!'
+    create?: 'You cannot create dishes!'
+
+  # Views
+  layouts: # Name of the view
+    application: # Name of file view
+      home: "Home" # <%= t('.home') %> in views/layouts/application.html.erb
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      log_out: "Log out"
+      edit_profile: "Edit profile"
+      user: "User"
+      about_us: "About us"
+      contact_us: "Contact us"
+      change_your_password: "Change your password"
+      dishs: "Dishs"
+      your_order: "Your order"
+      about_us: "About us?"
+      contact_us: "Contact us"
+
+  users:
+    edit_profile:
+        edit_profile: "Edit Profile"
+        confirm: "Confirm"
+
+  home:
+    index:
+      welcome: "Welcome to GourNet"
+      construction_1: "We are under construction."
+      construction_2: "We are working to make this site better for you."
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      dishs: "Dishs"
+      your_order: "Your order"
+      about_us: "About us?"
+      contact_us: "Contact us"
+      forget_about_cooking_at_home: "Forget about cooking at home"
+      favourite_chef: "Select your favourite chef!"
+      chef_1: "Her specialty is steak"
+      chef_2: "Her specialty is pizza"
+      chef_3: "His specialty is ratatouille"
+      chef_4: "His specialty is cocido boyacense"
+      dish_description: "Filetes anchos de abadejo grillado, servidos con el salteado clásico de la cocina vasca (pimientos de tres colores, cebolla, tomates y aceite de oliva). Viene servido con papas estilo Arzak."
+      order: "Make your order"
+      dish_description2: "Golosina para adultos altamente adictiva, abstenerse o rendirse por completo Base de galletita, relleno de toffee (caramelo suave) con almendras tostadas y cubierta de chocolate belga semi amargo."
+      subscribe: "Subscribe!"
+      subscription: "Make your subscription"
+      email: "Email"
+      team_description: "We are a team of future System and Computer Engineers of the Universidad Nacional de Colombia, entrepreneurial and creative."
+
+
+  contacts:
+    new:
+      contact_us: "Contact us"
+      send: "Send"
+    create:
+      contact_us: "Contact us"
+      contact_thanks: "Thanks for your message"
+      contact_thanks_2: "Your feedback makes us better"
+
+  static_pages:
+    about_us:
+      title: "Get to know us!"
+      team: "Our team"
+      team_description: "We are a team of future System and Computer Engineers of the Universidad Nacional de Colombia, entrepreneurial and creative."
+      developer: "Developer"

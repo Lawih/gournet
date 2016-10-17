@@ -1,0 +1,52 @@
+<h2>Edit </h2>
+<%= render 're', user: current_user %>
+<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
+  <% if @show_errors  && current_user.errors.any?%>
+    <h2>Errores encontrados:</h2>
+    <ul>
+      <% current_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><em>(Campo Obligatorio)</em><br />
+    <%= f.text_field :username, autofocus: true%>
+  </div>
+
+  <div>
+    <% if not current_user.email_verified? %>
+    <%= f.label :email, t('email') %><br />
+    <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
+    <%else%>
+    <%= f.label :email, t('email') %><br />
+    <%= f.text_field :email,:readonly => true%>
+    <% end%>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><em>(Campo opcional)</em><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastname %><em>(Campo opcional)</em><br />
+    <%= f.text_field :lastname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %><em>(Formato fecha YYYY-MM-DD)</em><br />
+    <%= f.date_field :birthday, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><em>(Campo opcional)</em><br />
+    <%= f.text_field :phone, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.submit 'Confirmar' %>
+  </div>
+
+<% end %>

@@ -1,0 +1,2 @@
+class Diner < User
+end

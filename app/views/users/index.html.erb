@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Birthday</th>
+      <th>Phone</th>
+      <th>Picture</th>
+      <th>Type</th>
+      <th>Category</th>
+      <th>Bio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.birthday %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.picture %></td>
+        <td><%= user.type %></td>
+        <td><%= user.category %></td>
+        <td><%= user.bio %></td>
+
+        <td><%= link_to 'Show',  user %></td> <!--  sti_user_path(user.type, user) -->
+        <td><%= link_to 'Edit', edit_user_path(user) %></td> <!-- sti_user_path(user.type, user, :edit) -->
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New User', new_user_path %> <!-- sti_user_path(@type, nil, :new) -->

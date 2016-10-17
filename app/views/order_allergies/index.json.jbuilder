@@ -1,0 +1,1 @@
+json.array! @order_allergies, partial: 'order_allergies/order_allergy', as: :order_allergy

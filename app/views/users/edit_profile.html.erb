@@ -1,0 +1,54 @@
+<div class="container" align="Center">
+<h2> <%= t('.edit_profile')%></h2>
+
+<%= bootstrap_form_for(current_user, as: 'user', url: edit_profile_path(current_user)) do |f| %>
+  
+  <div class="row"  align="Center">
+  <div class=col-md-4 align="left"></div>
+  <div class=col-md-4 align="left">
+  
+  <% if ( @user!=nil && @user.errors.any?) %>
+  <div id="errorExplanation">
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div>
+    <%= f.text_field :username, autofocus: true%>(Campo Obligatorio)
+  </div>
+
+  <div>
+    <% if not current_user.email_verified? %>
+    <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
+    <%else%>
+    <%= f.text_field :email,:readonly => true%>
+    <% end%>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true %><em>(Campo opcional)</em>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :lastname, autofocus: true %><em>(Campo opcional)</em>
+  </div>
+
+  <div class="field">
+    <%= f.date_field :birthday, autofocus: true %><em>(Formato fecha YYYY-MM-DD)</em>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :phone, autofocus: true %><em>(Campo opcional)</em>
+  </div>
+
+  <div>
+    <%= f.submit t('.confirm') %>
+  </div>
+    </div>
+  </div>
+<% end %>
+</div>

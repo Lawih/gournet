@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+    <body>
+    <p>
+      <strong>Name:</strong>
+      <%= @chef.name %>
+    </p>
+
+    <p>
+      <strong>Lastname:</strong>
+      <%= @chef.lastname %>
+    </p>
+
+    <p>
+      <strong>Username:</strong>
+      <%= @chef.username %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @chef.email %>
+    </p>
+
+    <p>
+      <strong>Birthday:</strong>
+      <%= @chef.birthday %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @chef.phone %>
+    </p>
+
+    <p>
+      <strong>Picture:</strong>
+      <%= @chef.picture %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @chef.type %>
+    </p>
+
+    <p>
+      <strong>Category:</strong>
+      <%= @chef.category %>
+    </p>
+
+    <p>
+      <strong>Bio:</strong>
+      <%= @chef.bio %>
+    </p>
+
+    <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"> <span class="network-name">Ver todos</span>  </a>
+    <a href= "<%= chef_dishes_path(@chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
+
+</body>

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -44,3 +44,39 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.18'
+
+# Bootstrap gems
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap_form'
+gem 'autoprefixer-rails'
+gem "font-awesome-rails"
+
+# Devise gem
+gem 'devise'
+
+# Login with facebook and google
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-oauth2"
+gem "omniauth-google-oauth2"
+
+# Internationalization
+gem 'rails-i18n'
+gem 'geocoder'
+# Allows to use multi-language with devise
+gem 'devise-i18n'
+
+# Use for contact us
+gem 'mail_form'
+
+# Use for authorization
+gem 'pundit', '~> 1.1'
+
+# Theme gems
+gem 'owlcarousel-rails'
+gem "animate-rails"
+gem 'magnific-popup-rails', '~> 1.1.0'
+gem 'modernizr-rails'

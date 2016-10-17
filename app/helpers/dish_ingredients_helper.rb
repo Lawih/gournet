@@ -1,0 +1,2 @@
+module DishIngredientsHelper
+end

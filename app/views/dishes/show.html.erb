@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chef:</strong>
+  <%= @dish.chef %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dish.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dish.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @dish.picture %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @dish.score %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @dish.price %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @dish.calories %>
+</p>
+
+<%= link_to 'Edit', edit_chef_dish_path(@dish) if policy(@dish).update? %>
+
+<a href= "<%= dishes_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
+<a href= "<%= chef_dishes_path(@dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
+<a href= "<%= chef_path(@dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver chef</span></a>

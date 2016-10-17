@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @favorite_dish.user %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @favorite_dish.dish %>
+</p>
+
+<%= link_to 'Edit', edit_favorite_dish_path(@favorite_dish) %> |
+<%= link_to 'Back', favorite_dishes_path %>

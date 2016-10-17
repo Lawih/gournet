@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Allergies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Allergie</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_allergies.each do |user_allergy| %>
+      <tr>
+        <td><%= user_allergy.user %></td>
+        <td><%= user_allergy.allergie %></td>
+        <td><%= link_to 'Show', user_allergy %></td>
+        <td><%= link_to 'Edit', edit_user_allergy_path(user_allergy) %></td>
+        <td><%= link_to 'Destroy', user_allergy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Allergy', new_user_allergy_path %>

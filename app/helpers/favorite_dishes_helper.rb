@@ -1,0 +1,2 @@
+module FavoriteDishesHelper
+end

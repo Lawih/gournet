@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dish_evaluation.user %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @dish_evaluation.dish %>
+</p>
+
+<p>
+  <strong>Score time:</strong>
+  <%= @dish_evaluation.score_time %>
+</p>
+
+<p>
+  <strong>Score quality:</strong>
+  <%= @dish_evaluation.score_quality %>
+</p>
+
+<p>
+  <strong>Score visual:</strong>
+  <%= @dish_evaluation.score_visual %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @dish_evaluation.comment %>
+</p>
+
+<%= link_to 'Edit', edit_dish_evaluation_path(@dish_evaluation) %> |
+<%= link_to 'Back', dish_evaluations_path %>

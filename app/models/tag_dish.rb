@@ -1,0 +1,3 @@
+class TagDish < ApplicationRecord
+    
+end
