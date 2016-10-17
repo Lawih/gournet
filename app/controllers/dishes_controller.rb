@@ -14,6 +14,12 @@ class DishesController < ApplicationController
     else
         @dishes = Dish.all
     end
+
+    if params[:search]
+      @dishes = Dish.search(params[:search]).order("created_at DESC")
+    else
+      @dishes = Dish.all.order('created_at DESC')
+    end
   end
 
   # GET /dishes/1
