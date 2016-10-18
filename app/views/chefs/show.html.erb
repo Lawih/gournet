@@ -26,7 +26,7 @@
         <div class="container-fluid">
         <% @dishes.each do |dish| %>
           <div class=col-md-12 >    
-              <div class=col-md-12 ><h3><%= dish.name %></h3></div>
+              <div class=col-md-12 ><h3><a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>
               </br>
               </br>
               <div class=col-md-3 >
@@ -39,10 +39,11 @@
                 <div class=col-md-3 >Score: <%= dish.score %></div>
                 <div class=col-md-4 >Price:  <%= dish.price %></div>
                 <div class=col-md-4 >Calories: <%= dish.calories %></div>
-                <div class=col-md-1 ><%= link_to 'Show', dish %></div>
+                <div class=col-md-1 ><td><%= link_to 'Show', dish %></td>
+                  <td><%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %></td>
+                  <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %></td>
+                </div>
               </div>
-              <%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %>
-              <%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
               </br>
               </br>
           </div>

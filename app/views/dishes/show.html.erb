@@ -14,6 +14,10 @@
             <div class=col-md-3 >Score: <%= @dish.score %></div>
             <div class=col-md-4 >Price:  <%= @dish.price %></div>
             <div class=col-md-4 >Calories: <%= @dish.calories %></div>
+            <div class=col-md-1 ><td><%= link_to 'Show', @dish %></td>
+                <td><%= link_to 'Edit', edit_dish_path(@dish) if policy(@dish).edit? %></td>
+                <td><%= link_to 'Destroy', @dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(@dish).destroy? %></td>
+            </div>
           </div>
           </br>
           </br>
