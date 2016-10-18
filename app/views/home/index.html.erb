@@ -32,49 +32,57 @@
     </div>
 
 
-  <!-- NavBar-->
+    <!-- NavBar-->
     <nav class="navbar-default" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#home">GourNet</a>
-    </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">GourNet</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <div class="search-wrapper">
+                    <div class="input-holder">
+                        <%= form_tag dishes_path, :method => 'get' do %>
+                          <%= text_field_tag :search, params[:search], :class => 'search-input', :placeholder => "Ej: pizza, risotto." %>
+                          <button class="search-icon"><span></span></button>
+                        <% end %>
+                    </div>
+                </div>
 
-    <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-
-        <li class="menuItem"><a href="#whatis">Chefs</a></li>
-        <li class="menuItem"><a href="#useit"><%=t('.dishs')%></a></li>
-        <li class="menuItem"><a href="#screen"><%=t('.your_order')%></a></li>
-        <li class="menuItem"><a href="#credits"><%=t('.about_us')%></a></li>
-        <li class="menuItem"><a href="#contact"><%=t('.contact_us')%></a></li>
-
-        <% if user_signed_in? %>
-              <li class="menuItem btn-info">
-                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                  <%=current_user.username%><span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-submenu"><%= link_to t('.edit_profile'), edit_profile_path%></li>
-                    <li class="dropdown-submenu"><%= link_to t('.change_your_password'), edit_user_registration_path%></li>
-                  <li class="divider"></li>
-                  <li class="menuItem btn-danger"><%= link_to t('.log_out'), destroy_user_session_path, method: :delete%></li>
+                <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                    <li class="menuItem btn-info">
+                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                            <%=current_user.username%><span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <%= link_to t('.edit_profile'), edit_profile_path%>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <%= link_to t('.change_your_password'), edit_user_registration_path%>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="menuItem btn-danger">
+                                <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
+                            </li>
+                        </ul>
+                    </li>
+                <%else%>
+                    <li class="menuItem">
+                        <%= link_to t('.sign_in'), new_user_session_path%>
+                    </li>
+                    <li class="menuItem">
+                        <%= link_to t('.sign_up'), new_user_registration_path%>
+                    </li>
+                <% end%>
                 </ul>
-              </li>
-            <%else%>
-                <li class="menuItem" ><%= link_to t('.sign_in'), new_user_session_path%></li>
-                <li class="menuItem" ><%= link_to t('.sign_up'), new_user_registration_path%></li>
-            <% end%>
-      </ul>
-    </div>
-
-  </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
+    <!-- NavBar END-->
 
   <!-- What is -->
   <div id="whatis" class="content-section-b" style="border-top: 0">

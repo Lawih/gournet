@@ -23,33 +23,16 @@
                 <a class="navbar-brand" href="/">GourNet</a>
             </div>
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <div class="search-wrapper">
+                    <div class="input-holder">
+                        <%= form_tag dishes_path, :method => 'get' do %>
+                          <%= text_field_tag :search, params[:search], :class => 'search-input', :placeholder => "Ej: pizza, risotto." %>
+                          <button class="search-icon"><span></span></button>
+                        <% end %>
+                    </div>
+                </div>
+
                 <ul class="nav navbar-nav">
-                    <li>
-                      <%= form_tag dishes_path, :method => 'get' do %>
-                        <%= text_field_tag :search, params[:search] %>
-                      <% end %>
-                    </li>
-                    <li class="menuItem"><a href="<%= chefs_path %>">Chefs</a></li>
-                    <li class="menuItem">
-                        <a href="<%= dishes_path%>">
-                            <%=t('.dishs')%>
-                        </a>
-                    </li>
-                    <li class="menuItem">
-                        <a href="/#screen">
-                            <%=t('.your_order')%>
-                        </a>
-                    </li>
-                    <li class="menuItem">
-                        <a href="<%=static_pages_about_us_path%>">
-                            <%=t('.about_us')%>
-                        </a>
-                    </li>
-                    <li class="menuItem">
-                        <a href="<%=new_contact_path%>">
-                            <%=t('.contact_us')%>
-                        </a>
-                    </li>
                 <% if user_signed_in? %>
                     <li class="menuItem btn-info">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
@@ -88,9 +71,7 @@
 </head>
 
 <body>
-
     <%= yield %>
-
 </body>
 <footer>
     <center>
