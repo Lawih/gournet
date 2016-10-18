@@ -1,39 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Chef:</strong>
-  <%= @dish.chef %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @dish.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @dish.description %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @dish.picture %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  <%= @dish.score %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @dish.price %>
-</p>
-
-<p>
-  <strong>Calories:</strong>
-  <%= @dish.calories %>
-</p>
+<div class=col-md-12 >    
+          <div class=col-md-12 ><h3><a href= "<%= dish_path(@dish) %>"><%= @dish.name %></a></h3></div>
+          </br>
+          </br>
+          <div class=col-md-3 >
+            <div class="imgdish-div"> 
+              <img src="<%=@dish.picture%>" class="img-circle">
+            </div>
+          </div>
+          <div class=col-md-9 >
+            <div class=col-md-12 ><b>Description: </b><%= @dish.description %></div>
+            <div class=col-md-3 >Score: <%= @dish.score %></div>
+            <div class=col-md-4 >Price:  <%= @dish.price %></div>
+            <div class=col-md-4 >Calories: <%= @dish.calories %></div>
+          </div>
+          </br>
+          </br>
+      </div>
 
 <%= link_to 'Edit', edit_chef_dish_path(@dish) if policy(@dish).update? %>
 
