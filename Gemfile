@@ -80,3 +80,8 @@ gem 'owlcarousel-rails'
 gem "animate-rails"
 gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'modernizr-rails'
+
+# for Heroku
+group :production do
+  gem 'rails_12factor'
+end
