@@ -11,6 +11,7 @@ class ChefsController < ApplicationController
   # GET /chefs/1
   # GET /chefs/1.json
   def show
+      @dishes = @chef.dishes
   end
 
   private
