@@ -47,7 +47,10 @@
                     <div class="input-holder">
                         <%= form_tag dishes_path, :method => 'get' do %>
                           <%= text_field_tag :search, params[:search], :class => 'search-input', :placeholder => "Ej: pizza, risotto." %>
-                          <button class="search-icon"><span></span></button>
+                          <div class="search-icon">
+                            <%= submit_tag "", :class => "search-button" %>
+                            <span></span>                                                    
+                          </div>
                         <% end %>
                     </div>
                 </div>

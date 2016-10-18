@@ -63,7 +63,23 @@
     position: relative;
     z-index: 2;
     float:right;
-    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-wrapper .input-holder .search-icon .search-button {
+    opacity: 0;
+    width:35px;
+    height:35px;
+    margin: 2px 3px 0 0;
+    border-radius: 30px;
+    border:none;
+    padding:0px;
+    outline:none;
+    position: absolute;
+    z-index: 3;
+    float:right;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -75,7 +91,6 @@
     margin-left: 10px;
     display: inline-block;
     vertical-align: middle;
-    position:relative;
     -webkit-transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
     -moz-transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
     transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
