@@ -46,6 +46,8 @@ GEM
     bcrypt (3.1.11)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap-social-rails (4.12.0)
+      railties (>= 3.1)
     bootstrap_form (2.5.1)
     builder (3.2.2)
     byebug (9.0.5)
@@ -218,6 +220,7 @@ DEPENDENCIES
   animate-rails
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
+  bootstrap-social-rails
   bootstrap_form
   byebug
   coffee-rails (~> 4.2)
@@ -250,4 +253,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.2
+   1.13.3
