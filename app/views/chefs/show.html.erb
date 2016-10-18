@@ -1,53 +1,56 @@
 <p id="notice"><%= notice %></p>
-    <body>
       <!------>
-      <div class="container">
-        <div class="col-md-3" align="center">
+  <div class="container">
+    <div class="col-md-3" align="center">
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <div class="img-div"> <img src="<%=@chef.picture%>" class="img-circle"></div>
-              <h2><%= @chef.username %></h2>
-            </div>
-            <div class="panel-body">
-                <h4><%= @chef.name unless @chef.name.blank? %>
-                <%= @chef.lastname unless @chef.lastname.blank? %></h4>
-                <h4><%= @chef.email unless @chef.email.blank? %></h4>
-                <h4><%= @chef.birthday unless @chef.birthday.blank? %></h4>
-                <h4><%= @chef.category unless @chef.category.blank? %></h4>
-                <h4><%= @chef.type unless @chef.type.blank? %></h4>
-                <h4><%= @chef.bio unless @chef.bio.blank? %></h4>
-            </div>
-          </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="img-div"> <img src="<%=@chef.picture%>" class="img-circle"></div>
+          <h2><%= @chef.username %></h2>
         </div>
+        <div class="panel-body">
+            <h4><%= @chef.name unless @chef.name.blank? %>
+            <%= @chef.lastname unless @chef.lastname.blank? %></h4>
+            <h4><%= @chef.email unless @chef.email.blank? %></h4>
+            <h4><%= @chef.birthday unless @chef.birthday.blank? %></h4>
+            <h4><%= @chef.category unless @chef.category.blank? %></h4>
+            <h4><%= @chef.type unless @chef.type.blank? %></h4>
+            <h4><%= @chef.bio unless @chef.bio.blank? %></h4>
+        </div>
+      </div>
+    </div>
 
 
 <!-- Dishes-->
     <div class=col-md-8 >
-      <h3>Dishes <%= @chef.username %></h3>
-
         <div class="container-fluid">
         <% @dishes.each do |dish| %>
-            <div class="row">
-            <div class=col-md-12 ><b>Name</b> <%= dish.name %></div>
-            <div class=col-md-3 ><%= dish.picture %></div>
-            <div class=col-md-9 ><b>Description: </b><%= dish.description %></div>
-            <div class=col-md-4 >Score: <%= dish.score %></div>
-            <div class=col-md-4 >Price:  <%= dish.price %></div>
-            <div class=col-md-4 >Calories: <%= dish.calories %></div>
-            <div class=col-md-4 ><%= link_to 'Show', dish %></td>
+          <div class=col-md-12 >    
+              <div class=col-md-12 ><h3><%= dish.name %></h3></div>
+              </br>
+              </br>
+              <div class=col-md-3 >
+                <div class="imgdish-div"> 
+                  <img src="<%=dish.picture%>" class="img-circle">
+                </div>
+              </div>
+              <div class=col-md-9 >
+                <div class=col-md-12 ><b>Description: </b><%= dish.description %></div>
+                <div class=col-md-3 >Score: <%= dish.score %></div>
+                <div class=col-md-4 >Price:  <%= dish.price %></div>
+                <div class=col-md-4 >Calories: <%= dish.calories %></div>
+                <div class=col-md-1 ><%= link_to 'Show', dish %></div>
+              </div>
               <%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %>
-              <%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %></div>
+              <%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
+              </br>
+              </br>
           </div>
-        <% end %>
+        <% end %>      
       </div>
     </div>
+  </div>
     <!--
     <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"> <span class="network-name">Ver todos</span>  </a>
     <a href= "<%= chef_dishes_path(@chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
 -->
-    </div>
-
-
-
-</body>
