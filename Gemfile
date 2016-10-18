@@ -53,6 +53,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
+gem 'bootstrap-social-rails'
 
 # Devise gem
 gem 'devise'
