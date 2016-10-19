@@ -4,27 +4,25 @@
     <div id="status"></div>
   </div>
 
-	<!-- FullScreen -->
+  <!-- FullScreen -->
     <div class="intro-header">
 		<div class="col-xs-12 text-center abcen1">
-			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">GourNet</h1>
+      <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">GourNet</h1>
 			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"><%=t('.forget_about_cooking_at_home')%></h3>
-            <ul class="list-inline intro-social-buttons">
-				<li><%= link_to t('.sign_up'), new_user_registration_path, class: "btn  btn-lg mybutton_cyano wow fadeIn" %>
+			<ul class="list-inline intro-social-buttons">
+        <li><%= link_to t('.sign_up'), new_user_registration_path, class: "btn  btn-lg mybutton_cyano wow fadeIn" %>
 				</li>
 				<li id="download" ><%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-lg mybutton_standard wow swing wow fadeIn" %>
 				</li>
 			</ul>
-      <div class="col-xs-12 text-center abcen wow fadeIn">
-			<div class="button_down ">
-				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img  class="img_scroll"  src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
-			</div>
-		</div>
 		</div>
         <!-- /.container -->
-
+		<div class="col-xs-12 text-center abcen wow fadeIn">
+			<div class="button_down ">
+				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
+			</div>
+		</div>
     </div>
-
 
     <!-- NavBar-->
     <nav class="navbar-default" role="navigation">
@@ -75,6 +73,19 @@
                         <%= link_to t('.sign_up'), new_user_registration_path%>
                     </li>
                 <% end%>
+
+                <li class="menuItem">
+                    <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                        Menu <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <%= link_to t('.chefs'), chefs_path%>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <%= link_to t('.dishes'),dishes_path%>
+                        </li>
+                    </ul>
+                </li>
                 </ul>
             </div>
         </div>
