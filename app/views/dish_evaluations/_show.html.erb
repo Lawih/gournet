@@ -1,0 +1,13 @@
+<div class="col-md-12 ">
+    <div class=col-md-12 ><b><%= dish_evaluation.user.username%> : </b><%= dish_evaluation.comment %></div>
+      <div class=col-md-3>Tiempo:<%=dish_evaluation.score_time%></div>
+      <div class=col-md-4>Calidad: <%=dish_evaluation.score_quality%></div>
+      <div class=col-md-5>Presentación: <%=dish_evaluation.score_visual%></div>
+    </br>
+    </br>
+    <% if user_signed_in? %>
+      <%if current_user.username == dish_evaluation.user.username%>
+        <%= link_to 'Edit', edit_dish_evaluation_path(dish_evaluation) %>
+      <%end%>
+    <%end%>
+</div>
