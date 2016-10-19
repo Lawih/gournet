@@ -100,11 +100,16 @@
 </body>
 <footer>
     <center>
-        <br>
-        <p>
-            <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
-            <%= link_to_unless I18n.locale == :es, "Spanish", locale: :es %>
-        </p>
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <%= link_to t('.about_us'), static_pages_about_us_path %> |
+            <%= link_to t('.contact_us'), new_contact_path %>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <%= link_to_unless I18n.locale == :en, "English", locale: :en %>|<%= link_to_unless I18n.locale == :es, "Spanish", locale: :es %>
+          </div>
+        </div>
         <p> Copyright 2016</p>
         <br> </center>
 </footer>
