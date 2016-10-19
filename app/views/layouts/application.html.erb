@@ -41,6 +41,15 @@
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
                             <%=current_user.username%><span class="caret"></span> </a>
                         <ul class="dropdown-menu">
+                            <% if current_user.type == "Chef" %>
+                              <li class="dropdown-submenu">
+                                  <%= link_to t('.profile'), chef_path(current_user)%>
+                              </li>
+                            <% else %>
+                              <li class="dropdown-submenu">
+                                  <%= link_to t('.profile'), user_path(current_user)%>
+                              </li>
+                            <% end%>
                             <li class="dropdown-submenu">
                                 <%= link_to t('.edit_profile'), edit_profile_path%>
                             </li>
