@@ -37,9 +37,9 @@
 
                 <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
-                    <li class="menuItem btn-info">
+                    <li class="menuItem">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                            <%=current_user.username%><span class="caret"></span> </a>
+                            <%=current_user.username%> <span class="caret"></span> </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
                                 <%= link_to t('.edit_profile'), edit_profile_path%>
@@ -48,7 +48,7 @@
                                 <%= link_to t('.change_your_password'), edit_user_registration_path%>
                             </li>
                             <li class="divider"></li>
-                            <li class="menuItem btn-danger">
+                            <li class="menuItem">
                                 <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
                             </li>
                         </ul>

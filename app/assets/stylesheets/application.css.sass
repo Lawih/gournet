@@ -9,6 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
+ *= require_tree ./theme
  *= require owl.carousel
  *= require owl.theme
  *= require animate
@@ -16,12 +17,12 @@
  *= require rails_bootstrap_forms
  *= require bootstrap-social
  *= require font-awesome
- *= require_tree ./theme
  *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
-@import "bootstrap/theme"
-@import "font-awesome"
+@import "theme/general"
+@import "theme/custom"
+@import "theme/style"

@@ -17,5 +17,5 @@
 //= require bootstrap/carousel
 //= require owl.carousel
 //= require magnific-popup
-//= require_tree ./theme
 //= require_tree .
+//= require_tree ./theme

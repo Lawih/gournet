@@ -49,7 +49,7 @@
                           <%= text_field_tag :search, params[:search], :class => 'search-input', :placeholder => "Ej: pizza, risotto." %>
                           <div class="search-icon">
                             <%= submit_tag "", :class => "search-button" %>
-                            <span></span>                                                    
+                            <span></span>
                           </div>
                         <% end %>
                     </div>
@@ -57,9 +57,9 @@
 
                 <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
-                    <li class="menuItem btn-info">
+                    <li class="menuItem">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                            <%=current_user.username%><span class="caret"></span> </a>
+                            <%=current_user.username%> <span class="caret"></span> </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
                                 <%= link_to t('.edit_profile'), edit_profile_path%>
@@ -68,7 +68,7 @@
                                 <%= link_to t('.change_your_password'), edit_user_registration_path%>
                             </li>
                             <li class="divider"></li>
-                            <li class="menuItem btn-danger">
+                            <li class="menuItem">
                                 <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
                             </li>
                         </ul>
@@ -93,7 +93,7 @@
 
     <div class="col-md-6 col-md-offset-3 text-center wrap_title">
       <h2>Chefs</h2>
-      <p class="lead" style="margin-top:0">Selecciona tu chef favorito!</p>
+      <p class="lead" style="margin-top:0">¡Selecciona tu chef favorito!</p>
       <li><a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
     </div>
 
