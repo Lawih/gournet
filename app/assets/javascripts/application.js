@@ -18,5 +18,7 @@
 //= require owl.carousel
 //= require magnific-popup
 //= require app
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 //= require_tree ./theme
