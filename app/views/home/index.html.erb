@@ -82,7 +82,14 @@
                             <%= link_to t('.chefs'), chefs_path%>
                         </li>
                         <li class="dropdown-submenu">
-                            <%= link_to t('.dishes'),dishes_path%>
+                            <%= link_to t('.dishes'), dishes_path%>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <%= link_to t('.contact_us'), new_contact_path %>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <%= link_to t('.about_us'), static_pages_about_us_path %>
                         </li>
                     </ul>
                 </li>
@@ -98,7 +105,7 @@
 
     <div class="col-md-6 col-md-offset-3 text-center wrap_title">
       <h2>Chefs</h2>
-      <p class="lead" style="margin-top:0">¡Selecciona tu chef favorito!</p>
+      <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
       <li><a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
     </div>
 

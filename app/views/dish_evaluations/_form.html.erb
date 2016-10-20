@@ -1,10 +1,10 @@
-<%= form_for(dish_evaluation) do |f| %>
-  <% if dish_evaluation.errors.any? %>
+<%= form_for(@dish_evaluation) do |f| %>
+  <% if @dish_evaluation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(dish_evaluation.errors.count, "error") %> prohibited this dish_evaluation from being saved:</h2>
+      <h2><%= pluralize(@dish_evaluation.errors.count, "error") %> prohibited this dish_evaluation from being saved:</h2>
 
       <ul>
-      <% dish_evaluation.errors.full_messages.each do |message| %>
+      <% @dish_evaluation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

@@ -46,10 +46,10 @@ en:
       about_us: "About us"
       contact_us: "Contact us"
       change_your_password: "Change your password"
-      dishs: "Dishs"
+      dishes: "Dishes"
       your_order: "Your order"
-      about_us: "About us?"
-      contact_us: "Contact us"
+      about_us: "About"
+      contact_us: "Contact"
 
   users:
     edit_profile:
@@ -63,10 +63,10 @@ en:
       construction_2: "We are working to make this site better for you."
       sign_in: "Sign in"
       sign_up: "Sign up"
-      dishs: "Dishs"
+      dishes: "Dishes"
       your_order: "Your order"
-      about_us: "About us?"
-      contact_us: "Contact us"
+      about_us: "About"
+      contact_us: "Contact"
       forget_about_cooking_at_home: "Forget about cooking at home"
       favourite_chef: "Select your favourite chef!"
       chef_1: "Her specialty is steak"
