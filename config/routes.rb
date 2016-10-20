@@ -35,9 +35,9 @@ Rails.application.routes.draw do
     resources :delivery_people
     resources :contacts, only: [:new, :create]
 
-    #resources :users, :only => [:show], path: '' do
-    #    resources :dishes
-    #end
+    resources :users, :only => [:show], path: '' do
+        resources :dishes
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
