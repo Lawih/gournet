@@ -31,7 +31,7 @@
     <div class=col-md-8 >
         <div class="container-fluid">
         <% @dishes.each do |dish| %>
-        <%=render "dishes/show_dish", dish: dish , chef: nil, divide: ""  %>
+        <%=render "dishes/show_dish", dish: dish , chef: nil, divide: "",viewmore: true  %>
         <!--
           <div class=col-md-12 >
               <div class=col-md-12 ><h3><a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>

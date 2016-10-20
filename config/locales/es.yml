@@ -46,6 +46,12 @@ es:
       your_order: "Tu pedido"
       about_us: "¿Quiénes somos?"
       contact_us: "Contáctenos"
+      profile: "Perfil"
+      user: "Usuario"
+      chef: "Chef"
+      edit_profile: "Editar perfil"
+      change_your_password: "Cambiar contraseña"
+      new_dish: "Nuevo plato"
 
   users:
     edit_profile:
@@ -76,6 +82,13 @@ es:
       subscription: "Suscribirse"
       email: "Su correo electrónico"
       team_description: "Somos un equipo de futuros Ingenieros e Ingenieras de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos."
+      join_us: "¿Quieres hacer parte de nuestros Chefs?"
+      profile: "Perfil"
+      user: "Usuario"
+      chef: "Chef"
+      edit_profile: "Editar perfil"
+      change_your_password: "Cambiar contraseña"
+      new_dish: "Nuevo plato"
 
   addresses:
     show:

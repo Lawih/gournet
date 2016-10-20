@@ -1,24 +1,33 @@
-<%= form_for(dish_ingredient) do |f| %>
-  <% if dish_ingredient.errors.any? %>
+<%= bootstrap_form_for(@dish_evaluation) do |f| %>
+  <% if @dish_evaluation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(dish_ingredient.errors.count, "error") %> prohibited this dish_ingredient from being saved:</h2>
+      <h2><%= pluralize(@dish_evaluation.errors.count, "error") %> prohibited this dish_evaluation from being saved:</h2>
 
       <ul>
-      <% dish_ingredient.errors.full_messages.each do |message| %>
+      <% @dish_evaluation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
+  <input readonly="readonly" value="<%= current_user.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
+  <input readonly="readonly" value="<%= @dish_evaluation.dish.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
+
   <div class="field">
-    <%= f.label :ingredient_id %>
-    <%= f.text_field :ingredient_id %>
+    <%= f.number_field :score_time %>
   </div>
 
   <div class="field">
-    <%= f.label :dish_id %>
-    <%= f.text_field :dish_id %>
+    <%= f.number_field :score_quality %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :score_visual %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :comment %>
   </div>
 
   <div class="actions">

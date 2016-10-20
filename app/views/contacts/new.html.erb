@@ -1,5 +1,5 @@
 <div class="container" align="Center">
-<h1 id="page_title"> <%= t('.contact_us') %> </h1>
+<h2 id="page_title"> <%= t('.contact_us') %> </h2>
 <div class="row"  align="Center">
   <div class=col-md-4 align="left"></div>
   <div class=col-md-4 align="left">
@@ -15,13 +15,14 @@
       <div class="hidden">
         <%= f.text_field :nickname, hint: 'leave this field blank' %>
       </div>
-
+      
       <div>
         <center>
           <%= f.submit t('.send'), :class => "btn btn-embossed btn-primary" %>
         </center>
       </div>
   <% end %>
+  <br>
 </div>
 </div>
 </div>
