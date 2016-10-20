@@ -43,10 +43,16 @@
                         <ul class="dropdown-menu">
                             <% if current_user.type == "Chef" %>
                               <li class="dropdown-submenu">
-                                  <%= link_to t('.profile'), chef_path(current_user)%>
+                                <%= link_to "Nuevo plato", new_dish_path %>
+                              </li>
+                              <li class="divider"></li>
+                              <li class="dropdown-submenu">
+                                  <%= link_to t('.profile')+" "+t('.user'), user_path(current_user)%>
+                                  <%= link_to t('.profile')+" "+t('.chef'), chef_path(current_user)%>
                               </li>
                             <% else %>
                               <li class="dropdown-submenu">
+                                <%= link_to t('.profile'), user_path(current_user)%>
                               </li>
                             <% end%>
                             <li class="dropdown-submenu">

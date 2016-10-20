@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1 align="center">Dishes</h1>
-
-
   <div class="container-fluid">
     <% @dishes.each do |dish| %>
-      <%=render "dishes/showdishes", dish: dish, chef: dish.chef, divide: " - "  %>
+      <%=render "dishes/showdishes", dish: dish, chef: dish.chef, divide: " - ",viewmore: true  %>
     <% end %>
   </div>
 <!--
