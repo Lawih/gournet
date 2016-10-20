@@ -7,8 +7,6 @@
     </br>
     <% if user_signed_in? %>
       <%if current_user.username == dish_evaluation.user.username%>
-        <button class="btn btn-embossed btn-primary" id="comment" type="button" value ="<%=dish_evaluation.id%>" >Edit</button>
-        <div id="divcomment"> </div>
       <%end%>
     <%end%>
 </div>
