@@ -14,12 +14,13 @@
   </div>
   <div class=col-md-9 >
     <div class=col-md-12 ><b>Description: </b><%= dish.description %></div>
-    <div class=col-md-3 >Score: <%= dish.score %></div>
+    <div class=col-md-4 >Score: <%= dish.score %></div>
     <div class=col-md-4 >Price:  <%= dish.price %></div>
     <div class=col-md-4 >Calories: <%= dish.calories %></div>
-    <div class=col-md-1 ><td><%= link_to 'Show', dish %></td>
-        <td><%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %></td>
-        <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %></td>
+    <div class=col-md-12 >
+      <% if viewmore == true%><%= link_to "<button class='btn btn-embossed btn-primary' >Ver mas</button>".html_safe, dish %><%end%>
+      <%= link_to "<button class='btn btn-embossed btn-primary' >Editar</button>".html_safe, edit_dish_path(dish) if policy(dish).edit?%>
+      <%= link_to "<button class='btn btn-embossed btn-primary' >Eliminar</button>".html_safe, dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
     </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
-<h1>New Dish</h1>
-
-<%= render 'form', dish: @dish %>
-
-<%= link_to 'Back', dishes_path %>
+<div class="container">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h2>New Dish</h2>
+    <%= render 'form', dish: @dish , chef: current_user%>
+    <%= link_to 'Back', dishes_path %>
+  </div>
+</div>

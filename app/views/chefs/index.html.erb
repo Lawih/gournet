@@ -9,13 +9,11 @@
             <h4><%= chef.username %></h4>
           </div>
           <div class="panel-body">
-              <h5><%= chef.name unless chef.name.blank? %>
-              <%= chef.lastname unless chef.lastname.blank? %></h5>
+              <h4><%= chef.name unless chef.name.blank? %>
+              <%= chef.lastname unless chef.lastname.blank? %></h4>
               <h5><%= chef.email unless chef.email.blank? %></h5>
               <h5><%= chef.birthday unless chef.birthday.blank? %></h5>
               <h5><%= chef.category unless chef.category.blank? %></h5>
-              <h5><%= chef.type unless chef.type.blank? %></h5>
-              <h5><%= chef.bio unless chef.bio.blank? %></h5>
               <a href= "<%= chef_path(chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
           </div>
         </div>
