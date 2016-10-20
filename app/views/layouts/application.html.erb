@@ -42,6 +42,9 @@
                             <%=current_user.username%><span class="caret"></span> </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
+                                <%= link_to t('.Mis_direcciones'), addresses_path%>
+                            </li>
+                            <li class="dropdown-submenu">
                                 <%= link_to t('.edit_profile'), edit_profile_path%>
                             </li>
                             <li class="dropdown-submenu">

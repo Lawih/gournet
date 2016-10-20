@@ -1,22 +1,18 @@
-
 <p id="notice"><%= notice %></p>
   <div class="container">
-    <%= link_to 'New Address', new_address_path, class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+    <div class="col-md-12">
+      <center>
+        <%= link_to 'Agregar Direccion', new_address_path, class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+      </center>
+    </div>
+    <br><br><br>
     <% @addresses.each do |address| %>
       <div class="col-md-3" align="center">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="imgs-div"> <img src="<%= asset_path 'house.png' %>" class="img-circle"></div>
-            <h2><%= address.name %><h2>
-          </div>
-          <div class="panel-body">
-            <%= link_to 'Show', address ,class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
-             <%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
-          </div>
-        </div>
+        <div class="imgs-div"> <img src="<%= asset_path 'house.png' %>" class="img-circle"></div>
+        <h2><%= address.name %><h2>
+        <%= link_to 'Mostrar', address ,class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+         <%= link_to 'Eliminar', address, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
       </div>
     <% end %>
   </div>
 <br>
-
-
