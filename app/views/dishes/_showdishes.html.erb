@@ -4,7 +4,11 @@
       <% if chef != nil%>
         <a href= "<%= chef_path(chef) %>"><%= chef.username %></a> <%= divide %>
       <%end%>
-    <a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>
+      <a href= "<%= dish_path(dish) %>"><%= dish.name %></a>
+      <% if current_user.id != dish.chef.id%>
+        <%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe %></h3>
+      <%end%>
+      </div>
   </br>
   </br>
   <div class=col-md-3 >
