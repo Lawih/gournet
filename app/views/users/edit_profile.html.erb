@@ -1,12 +1,12 @@
 <div class="container" align="Center">
-<h2> <%= t('.edit_profile')%></h2>
+<h3> <%= t('.edit_profile')%></h3>
 
 <%= bootstrap_form_for(current_user, as: 'user', url: edit_profile_path(current_user)) do |f| %>
-  
+
   <div class="row"  align="Center">
   <div class=col-md-4 align="left"></div>
   <div class=col-md-4 align="left">
-  
+
   <% if ( @user!=nil && @user.errors.any?) %>
   <div id="errorExplanation">
     <ul>
@@ -18,7 +18,7 @@
   <% end %>
 
   <div>
-    <%= f.text_field :username, autofocus: true%>(Campo Obligatorio)
+    <%= f.text_field :username, autofocus: true%>
   </div>
 
   <div>
@@ -30,19 +30,19 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :name, autofocus: true %><em>(Campo opcional)</em>
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.text_field :lastname, autofocus: true %><em>(Campo opcional)</em>
+    <%= f.text_field :lastname, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.date_field :birthday, autofocus: true %><em>(Formato fecha YYYY-MM-DD)</em>
+    <%= f.date_field :birthday, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.text_field :phone, autofocus: true %><em>(Campo opcional)</em>
+    <%= f.text_field :phone, autofocus: true %>
   </div>
 
   <div>

@@ -14,4 +14,47 @@ class Dish < ApplicationRecord
       Dish.all
     end
   end
+
+  # default for will_paginate
+  self.per_page = 6
+
+  scope :sorted_by, lambda { |sort_option|
+    # extract the sort direction from the param value.
+    direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
+    case sort_option.to_s
+    when /^price_/
+      # Simple sort on the name colums
+      order("dishes.price #{ direction }")
+    when /^score_/
+      # This sorts by a student's country name, so we need to include
+      # the country. We can't use JOIN since not all students might have
+      # a country.
+      order("dishes.score #{ direction }")
+    when /^calories_/
+      # This sorts by a student's country name, so we need to include
+      # the country. We can't use JOIN since not all students might have
+      # a country.
+      order("dishes.calories #{ direction }")
+    else
+      raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
+    end
+  }
+
+  filterrific(
+    default_filter_params: { sorted_by: 'score_asc' },
+    available_filters: [
+      :sorted_by
+    ]
+  )
+
+  def self.options_for_sorted_by
+  [
+    ['Precio: ascendente', 'price_asc'],
+    ['Precio: descendente', 'price_desc'],
+    ['Puntuación: ascendente', 'score_asc'],
+    ['Puntuación: descendente', 'score_desc'],
+    ['Calorias: ascendente', 'calories_asc'],
+    ['Calorias: descendente', 'calories_desc']
+  ]
+  end
 end

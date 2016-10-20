@@ -15,3 +15,5 @@ Rails.application.config.assets.precompile += %w['*.css']
 
 # Fonts
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+
+Rails.application.config.assets.precompile += %w( filterrific/filterrific-spinner.gif )

@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require filterrific/filterrific-jquery
 //= require bootstrap-sprockets
+//= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require bootstrap/carousel
 //= require owl.carousel
@@ -20,3 +22,4 @@
 //= require app
 //= require_tree .
 //= require_tree ./theme
+//= require bootstrap-select

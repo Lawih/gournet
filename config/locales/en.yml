@@ -16,6 +16,12 @@ en:
         birthday: "Birthday"
         phone: "Phone"
         edit_profile: "Edit Profile"
+      dish:
+        name: "Name"
+        description: "Description"
+        score: "Score"
+        price: "Price"
+        calories: "Calories"
 
     mail_form:
       attributes:
