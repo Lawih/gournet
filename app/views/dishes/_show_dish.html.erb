@@ -4,8 +4,10 @@
     <% if chef != nil%>
       <h4><a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a></h4>
     <%end%>
-    <% if current_user.id != dish.chef.id%>
-      <%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe %></h3>
+    <% if user_signed_in? %>
+      <% if current_user.id != dish.chef.id%>
+        <%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe %></h3>
+      <%end%>
     <%end%>
   </div>
   </br>

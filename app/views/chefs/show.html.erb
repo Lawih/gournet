@@ -17,11 +17,13 @@
             <h5><%= @chef.birthday unless @chef.birthday.blank? %></h5>
             <h5><%= @chef.bio unless @chef.bio.blank? %></h5>
         </div>
-        <% if current_user.type == "Chef" and current_user.id == @chef.id%>
-          <%= link_to "<button class='btn btn-embossed btn-primary' >Nuevo plato</button>".html_safe, new_dish_path %>
-        <%end%>
-        <% if current_user.id != @chef.id%>
-          <%= link_to "<button class='btn btn-embossed btn-danger' >Seguir</button>".html_safe %>
+        <% if user_signed_in? %>
+          <% if current_user.type == "Chef" and current_user.id == @chef.id%>
+            <%= link_to "<button class='btn btn-embossed btn-primary' >Nuevo plato</button>".html_safe, new_dish_path %>
+          <%end%>
+          <% if current_user.id != @chef.id%>
+            <%= link_to "<button class='btn btn-embossed btn-danger' >Seguir</button>".html_safe %>
+          <%end%>
         <%end%>
       </div>
     </div>
