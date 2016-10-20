@@ -32,14 +32,14 @@ es:
       about_us: "Sobre nosotros"
       contact_us: "Contáctenos"
       change_your_password: "Cambiar contraseña"
-      dishs: "Platos"
+      dishes: "Platos"
       your_order: "Tu pedido"
       about_us: "¿Quienes somos?"
       contact_us: "Contactenos"
-  
-  users: 
-    edit_profile:                  
-        edit_profile: "Editar perfil"        
+
+  users:
+    edit_profile:
+        edit_profile: "Editar perfil"
         confirm: "Confirmar"
 
   home:
@@ -49,10 +49,10 @@ es:
       construction_2: "Estamos trabajando para hacer este sitio mejor para ti."
       sign_in: "Iniciar sesión"
       sign_up: "Regístrate"
-      dishs: "Platos"
+      dishes: "Platos"
       your_order: "Tu pedido"
-      about_us: "¿Quienes somos?"
-      contact_us: "Contactenos"
+      about_us: "¿Quiénes somos?"
+      contact_us: "Contáctenos"
       forget_about_cooking_at_home: "Comida casera a domicilio, olvídate de cocinar"
       favourite_chef: "¡Selecciona tu chef favorito!"
       chef_1: "Su especialidad el churrasco"
