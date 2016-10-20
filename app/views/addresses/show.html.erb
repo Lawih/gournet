@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @address.user %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @address.name %>
 </p>
@@ -26,4 +21,5 @@
 </p>
 
 <%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Destroy', @address, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', addresses_path %>
