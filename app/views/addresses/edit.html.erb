@@ -1,6 +1,8 @@
-<h1>Editing Address</h1>
+<div class="container" align="Center">
+  <h2>Editing Address</h2>
 
-<%= render 'form', address: @address %>
+  <%= render 'form', address: @address %>
 
-<%= link_to 'Destroy', @address, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', addresses_path %>
+  <%= link_to 'Eliminar', @address, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Atras', addresses_path %>
+</div>

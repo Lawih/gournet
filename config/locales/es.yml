@@ -67,6 +67,17 @@ es:
       email: "Su correo electrónico"
       team_description: "Somos un equipo de futuros Ingenieros e Ingenieras de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos."
 
+  addresses:
+    show:
+      Name: "Nombre"
+      Address: "Dirección"
+      Latitude: "Latitud"
+      Longitude: "Longitud"
+    form:
+      Name: "Nombre"
+      Address: "Dirección"
+      Latitude: "Latitud"
+      Longitude: "Longitud"
 
   contacts:
     new:
