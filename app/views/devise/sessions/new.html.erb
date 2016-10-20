@@ -9,18 +9,17 @@
     <div class="field">
       <%= f.text_field  :login, autofocus: true %>
     </div>
-
     <div class="field">
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
     <% if devise_mapping.rememberable? -%>
         <%= f.check_box :remember_me, :inline =>true%>
     <% end -%>
-
-    <div class="actions">
-      <%= f.submit t('.sign_in') %>
+    <div class="actions text-center">
+      <%= f.submit t('.sign_in'), :class => "btn btn-embossed btn-primary" %>
+      <br /><br />
+      <%= render "devise/shared/links" %>
     </div>
-    <%= render "devise/shared/links" %>
   </div>
   </div>
 <% end %>
