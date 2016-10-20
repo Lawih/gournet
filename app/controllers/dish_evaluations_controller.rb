@@ -1,14 +1,6 @@
 class DishEvaluationsController < ApplicationController
-  before_action :set_dish_evaluation, only: [:show, :edit, :update, :destroy, :edit_comment]
+  before_action :set_dish_evaluation, only: [:show, :edit, :update, :destroy]
 
-
-  def edit_comment
-    if request.xhr?
-      render "edit_comment.js.erb"
-    else
-    redirect_to root_path
-    end
-  end
 
   # GET /dish_evaluations
   # GET /dish_evaluations.json
