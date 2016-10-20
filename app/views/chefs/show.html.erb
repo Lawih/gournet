@@ -9,14 +9,20 @@
           <h3><%= @chef.username %></h3>
         </div>
         <div class="panel-body">
-            <h4><%= @chef.name unless @chef.name.blank? %>
-            <%= @chef.lastname unless @chef.lastname.blank? %></h4>
-            <h4><%= @chef.email unless @chef.email.blank? %></h4>
-            <h4><%= @chef.birthday unless @chef.birthday.blank? %></h4>
-            <h4><%= @chef.category unless @chef.category.blank? %></h4>
             <h4><%= @chef.type unless @chef.type.blank? %></h4>
-            <h4><%= @chef.bio unless @chef.bio.blank? %></h4>
+            <h5><%= @chef.category unless @chef.category.blank? %></h5>
+            <h5><%= @chef.name unless @chef.name.blank? %>
+            <%= @chef.lastname unless @chef.lastname.blank? %></h5>
+            <h5><%= @chef.email unless @chef.email.blank? %></h5>
+            <h5><%= @chef.birthday unless @chef.birthday.blank? %></h5>
+            <h5><%= @chef.bio unless @chef.bio.blank? %></h5>
         </div>
+        <% if current_user.type == "Chef" and current_user.id == @chef.id%>
+          <%= link_to "<button class='btn btn-embossed btn-primary' >Nuevo plato</button>".html_safe, new_dish_path %>
+        <%end%>
+        <% if current_user.id != @chef.id%>
+          <%= link_to "<button class='btn btn-embossed btn-danger' >Seguir</button>".html_safe %>
+        <%end%>
       </div>
     </div>
 

@@ -11,9 +11,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if @user.type == 'Chef'
-        redirect_to chef_path(@user)
-    end
+    @followings = @user.followings
+    @favorite_dishes = @user.favorite_dishes 
+    #if user_is_chef?
+    #    redirect_to chef_path(@user)
+    #end
   end
 
   # GET /users/new
@@ -53,7 +55,7 @@ class UsersController < ApplicationController
   #     end
   #   end
   # end
-  #
+
   # # DELETE /users/1
   # # DELETE /users/1.json
   # def destroy
@@ -64,19 +66,19 @@ class UsersController < ApplicationController
   #   end
   # end
   #
-  # def edit_profile
-  #     if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
-  #         @user = User.find(current_user.id)
-  #         if @user.update(user_params)
-  #             sign_in(@user, :bypass => true)
-  #             redirect_to root_path, notice: 'Hemos guardado tu email correctamente.'
-  #         else
-  #             @show_errors = true
-  #         end
-  #     else
-  #       @show_errors = true
-  #     end
-  # end
+  def edit_profile
+      if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
+          @user = User.find(current_user.id)
+          if @user.update(user_params)
+              sign_in(@user, :bypass => true)
+              redirect_to root_path, notice: 'Hemos guardado tu email correctamente.'
+          else
+              @show_errors = true
+          end
+      else
+        @show_errors = true
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -84,15 +86,15 @@ class UsersController < ApplicationController
       @user = User.find_by_username(params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
-    # def user_params
-    #   params.require(:user).permit(:name, :lastname, :username, :birthday, :phone, :picture, :category, :bio)
-    # end
+    def user_params
+       params.require(:user).permit(:name, :lastname, :username, :birthday, :phone, :picture, :category, :bio)
+    end
 
-    # def user_is_chef?
-    #   if(@user)
-    #       @user.type == 'Chef'
-    #   else
-    #       false
-    #   end
-    # end
+    def user_is_chef?
+      if(@user)
+          @user.type == 'Chef'
+      else
+          false
+      end
+    end
 end

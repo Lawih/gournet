@@ -44,6 +44,14 @@
   <div class="field">
     <%= f.text_field :phone, autofocus: true %>
   </div>
+  <% if current_user.type == "Chef"%>
+    <div class="field">
+      <%= f.text_field :category, autofocus: true %><em>(Campo opcional)</em>
+    </div>
+    <div class="field">
+      <%= f.text_area :bio, autofocus: true %><em>(Campo opcional)</em>
+    </div>
+  <%end%>
 
   <div>
     <%= f.submit t('.confirm') %>
