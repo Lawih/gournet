@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     resources :tag_dishes
     resources :tags
     resources :favorite_dishes
-    resources :dish_evaluations 
+    resources :dish_evaluations do
+      member do
+        get "edit_comment", to: :edit_comment
+      end
+    end
     resources :dish_ingredients
     resources :user_allergies
     resources :allergies
