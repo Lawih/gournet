@@ -75,10 +75,17 @@
                         Menu <span class="caret"></span> </a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                            <%= link_to t('.chefs'), chefs_path%>
+                            <%= link_to t('.chefs'), chefs_path %>
                         </li>
                         <li class="dropdown-submenu">
-                            <%= link_to t('.dishes'),dishes_path%>
+                            <%= link_to t('.dishes'),dishes_path %>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <%= link_to t('.contact'), new_contact_path %>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <%= link_to t('.about_us'), static_pages_about_us_path %>
                         </li>
                     </ul>
                 </li>
