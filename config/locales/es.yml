@@ -8,7 +8,7 @@ es:
         username: "Usuario"
         lastname: "Apellido"
         birthday: "Cumpleaños"
-        phone: "Telefono"
+        phone: "Teléfono"
 
   mail_form:
     attributes:
@@ -34,8 +34,8 @@ es:
       change_your_password: "Cambiar contraseña"
       dishes: "Platos"
       your_order: "Tu pedido"
-      about_us: "¿Quienes somos?"
-      contact_us: "Contactenos"
+      about_us: "¿Quiénes somos?"
+      contact_us: "Contáctenos"
 
   users:
     edit_profile:
