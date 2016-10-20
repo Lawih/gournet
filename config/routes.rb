@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     resources :chefs do
         resources :dishes
     end
+
     resources :dishes
+
     resources :order_allergies
     resources :addresses
     resources :offers
@@ -26,7 +28,11 @@ Rails.application.routes.draw do
     resources :tag_dishes
     resources :tags
     resources :favorite_dishes
-    resources :dish_evaluations
+    resources :dish_evaluations do
+      member do
+        get "edit_comment", to: :edit_comment
+      end
+    end
     resources :dish_ingredients
     resources :user_allergies
     resources :allergies
@@ -35,9 +41,9 @@ Rails.application.routes.draw do
     resources :delivery_people
     resources :contacts, only: [:new, :create]
 
-    #resources :users, :only => [:show], path: '' do
-    #    resources :dishes
-    #end
+    resources :users, :only => [:show], path: '' do
+        resources :dishes
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
