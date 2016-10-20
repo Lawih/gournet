@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
+<p class="lead" align="Center" style="margin-top:0">
 
-<p>
-  <strong>Name:</strong>
-  <%= @address.name %>
-</p>
+    <strong>Name:</strong>
+    <%= @address.name %>
+    <br>
 
-<p>
-  <strong>Address:</strong>
-  <%= @address.address %>
-</p>
+    <strong>Address:</strong>
+    <%= @address.address %>
+    <br>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @address.latitude %>
-</p>
+    <strong>Latitude:</strong>
+    <%= @address.latitude %>
+    <br>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @address.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Destroy', @address, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', addresses_path %>
+    <strong>Longitude:</strong>
+    <%= @address.longitude %>
+     <br>
+     
+    <%= link_to 'Edit', edit_address_path(@address),class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+    <%= link_to 'Back', addresses_path,class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+  </p>
+    
