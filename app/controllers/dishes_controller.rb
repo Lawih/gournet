@@ -11,11 +11,7 @@ class DishesController < ApplicationController
         @dishes = Chef.find_by_username(params[:chef_id]).dishes
     elsif(params[:user_id])
         @dishes = Chef.find_by_username(params[:user_id]).dishes
-    else
-        @dishes = Dish.all
-    end
-
-    if params[:search]
+    elsif params[:search]
       @dishes = Dish.search(params[:search]).order("created_at DESC")
     else
       @dishes = Dish.all.order('created_at DESC')

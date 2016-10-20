@@ -10,11 +10,17 @@ class User < ApplicationRecord
 
   has_many :identity, dependent: :delete_all
   has_many :oders
+
   has_many :followings
   has_many :chefs, through: :followings
+
   has_and_belongs_to_many :allergies, join_table: :user_allergies
   has_many :dish_evaluations
-  has_and_belongs_to_many :dishes, join_table: :favorite_dishes
+
+  has_many :favorite_dishes#ADD AL
+  has_many :dishes, through: :favorite_dishes#ADD AL
+  #has_and_belongs_to_many :dishes, join_table: :favorite_dishes #ADD AL
+
   has_many :addresses
 
   #if you want email to be case insensitive, you should add
