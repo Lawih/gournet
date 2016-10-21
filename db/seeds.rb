@@ -69,3 +69,6 @@ Following.create(chef_id: 12, user_id: 1, is_favorite: false)
 Following.create(chef_id: 13, user_id: 2, is_favorite: true)
 Following.create(chef_id: 8, user_id: 4, is_favorite: true)
 Following.create(chef_id: 7, user_id: 1, is_favorite: false)
+
+
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-10-21 07:22:00", max_date: "2016-10-21 05:22:00", is_active: true)

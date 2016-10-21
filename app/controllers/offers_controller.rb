@@ -1,10 +1,18 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  after_action :verify_authorized, except: :index
 
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    #@offers = Offer.all
+    if(params[:chef_id])
+        @offers = Chef.find_by_username(params[:chef_id]).offers
+    elsif(params[:user_id])
+        @offers = Chef.find_by_username(params[:user_id]).offers
+    else
+        @offers = Offer.all
+    end
   end
 
   # GET /offers/1
@@ -15,6 +23,8 @@ class OffersController < ApplicationController
   # GET /offers/new
   def new
     @offer = Offer.new
+    @offer.dish = Dish.find(params[:dish_id])
+    authorize @offer
   end
 
   # GET /offers/1/edit
@@ -25,6 +35,7 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
+    authorize @offer
 
     respond_to do |format|
       if @offer.save
@@ -65,6 +76,7 @@ class OffersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
+      authorize @offer
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

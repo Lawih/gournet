@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.integer  "amount"
     t.datetime "delivery_date"
     t.datetime "max_date"
+    t.boolean  "is_active"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["dish_id"], name: "index_offers_on_dish_id", using: :btree

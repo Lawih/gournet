@@ -20,5 +20,10 @@
   <%= @offer.max_date %>
 </p>
 
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
-<%= link_to 'Back', offers_path %>
+<p>
+  <strong>Active:</strong>
+  <%= @offer.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_chef_offer_path(@offer.dish.chef,@offer) %> |
+<%= link_to 'Back', chef_offers_url(@offer.dish.chef) %>

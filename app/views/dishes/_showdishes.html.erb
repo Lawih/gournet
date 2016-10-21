@@ -4,22 +4,52 @@
       <% if chef != nil%>
         <a href= "<%= chef_path(chef) %>"><%= chef.username %></a> <%= divide %>
       <%end%>
-    <a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>
-  </br>
-  </br>
-  <div class=col-md-3 >
-    <div class="imgdish-div">
-      <img src="<%=dish.picture%>" class="img-circle">
-    </div>
+    <a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3>
   </div>
-  <div class=col-md-9 >
-    <div class=col-md-12 ><b>Description: </b><%= dish.description %></div>
-    <div class=col-md-3 >Score: <%= dish.score %></div>
-    <div class=col-md-4 >Price:  <%= dish.price %></div>
-    <div class=col-md-4 >Calories: <%= dish.calories %></div>
-    <div class=col-md-1 ><td><%= link_to 'Show', dish %></td>
-        <td><%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %></td>
-        <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %></td>
-    </div>
+  </br>
+  <div class=col-md-12>
+      <div class=col-md-3 >
+        <div class="imgdish-div">
+          <img src="<%=dish.picture%>" class="img-circle">
+        </div>
+      </div>
+      <div class=col-md-9 >
+        <div class=col-md-12 ><b>Description: </b><%= dish.description %></div>
+        <div class=col-md-3 >Score: <%= dish.score %></div>
+        <div class=col-md-4 >Price:  <%= dish.price %></div>
+        <div class=col-md-4 >Calories: <%= dish.calories %></div>
+        <div class=col-md-1 >
+            <td><%= link_to 'Show', dish %></td>
+            <td><%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %></td>
+            <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %></td>
+        </div>
+      </div>
+      <% if dish.offer %>
+          <h4> Oferta actual: </h4>
+          <div class=col-md-3 >Amount: <%= dish.offer.amount %> </div>
+          <div class=col-md-3 >For: <%= dish.offer.delivery_date %> </div>
+          <div class=col-md-3 >Before: <%= dish.offer.max_date %> </div>
+          <% if policy(dish.offer).edit? %>
+            <div class=col-md-3 >
+                <a href= "<%= edit_chef_offer_url(dish.chef, dish.offer) %>" class="btn btn-embossed btn-primary"> Editar </a>
+            </div>
+          <% else %>
+            <div class=col-md-3 >
+                <% if user_signed_in? %>
+                    <a href= "<%= new_user_order_url(current_user, :dish_id => dish.id) %>" class="btn btn-embossed btn-primary"> Ordenar </a>
+                <% else %>
+                    <a href= "<%= new_user_session_path %>" class="btn btn-embossed btn-primary"> Ordenar </a>
+                <% end %>
+            </div>
+          <% end %>
+       <% else %>
+          <% if policy(dish).edit? %>
+            <div class=col-md-12 >
+              <a href= "<%= new_chef_offer_url(dish.chef, :dish_id => dish.id ) %>" class="btn btn-embossed btn-primary"> Ofertar </a>
+            </div>
+          <% end %>
+      <% end %>
   </div>
+  <hr>
+  <hr>
 </div>

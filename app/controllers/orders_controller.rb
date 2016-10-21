@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    if(params[:user_id])
+      @orders = User.find_by_username(params[:user_id]).orders
+    else
+      @orders = Order.all
+    end
   end
 
   # GET /orders/1
@@ -14,7 +18,9 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    if(params[:dish_id])
+        @order = Order.new(:dish => Dish.find(params[:dish_id]))
+    end
   end
 
   # GET /orders/1/edit
@@ -25,6 +31,8 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.user = current_user
+    @order.status = 0
 
     respond_to do |format|
       if @order.save
@@ -42,6 +50,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+        offer_callback
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -69,6 +78,11 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :dish_id, :delivery_person_id, :amount, :date, :comment, :status)
+      params.require(:order).permit(:dish_id, :delivery_person_id, :amount, :date, :comment, :status)
+    end
+
+    def offer_callback
+        offer = @order.dish.offer
+        offer.update(amount: (offer.amount - @order.amount ))
     end
 end
