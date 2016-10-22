@@ -16,6 +16,8 @@
     <%= f.text_field :dish_id %>
   </div>
 
+    <%= f.hidden_field :dish_id, {:value => params[:dish_id]} %>
+
   <div class="field">
     <%= f.label :amount %>
     <%= f.number_field :amount %>

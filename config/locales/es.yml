@@ -1,6 +1,12 @@
 es:
   # Models
   activerecord:
+
+    models:
+      order:
+        one: "Orden"
+        other: "Ordenes"
+
     attributes:
       user: #TODO
         name: "Nombre"
@@ -9,6 +15,12 @@ es:
         lastname: "Apellido"
         birthday: "Cumpleaños"
         phone: "Teléfono"
+
+      order:
+        amount: "Cantidad"
+        date: "Fecha"
+        status: "Estado"
+        comment: "Comentario"
 
   mail_form:
     attributes:
@@ -67,6 +79,10 @@ es:
       email: "Su correo electrónico"
       team_description: "Somos un equipo de futuros Ingenieros e Ingenieras de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos."
 
+  orders:
+    new:
+      new_order: "Ordena Ahora"
+      new_order_back: "Volver al plato"
 
   contacts:
     new:
