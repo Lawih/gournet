@@ -14,13 +14,13 @@ Diner.create( username:"Lawiih", email: "lauvlvlvl@gmail.com", password: "123456
 Diner.create( username:"AndresL", email: "andresl@gmail.com", password: "123456", name: "Andres", lastname: "Linares", picture: "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png")
 Diner.create( username:"JuanC", email: "juanc@gmail.com", password: "123456", name: "Juan", lastname: "Castrillon", picture: "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png")
 
-Chef.create( username: "LuisCS", email: "luissazon@hotmail.com", password: "123456", name: "Luis", lastname: "Con Sazon", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
-Chef.create( username: "Sambuco", email: "sambuco@hotmail.com", password: "123456", name: "Santiago", lastname: "Bufon", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
-Chef.create( username: "Esmeralda", email: "esmeralda1927@hotmail.com", password: "123456", name: "Esmeralda", lastname: "De los rios", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
-Chef.create( username:"DoñaBlanquita", email: "doniablanquita@gmail.com", password: "123456", name: "Blanca", lastname: "De arepa", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
-Chef.create( username: "Luisa", email: "luisasazonl@hotmail.com", password: "123456", name: "Luisa", lastname: "Con Sazon", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
-Chef.create( username: "Andres", email: "andreslopez@hotmail.com", password: "123456", name: "Andres", lastname: "Lopez", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
-Chef.create( username: "Felipe", email: "felipebecerra@hotmail.com", password: "123456", name: "Felipe", lastname: "Becerra", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username: "LuisCS", email: "luissazon@hotmail.com", password: "123456", name: "Luis", lastname: "Con Sazon", bio:"Cooking monster.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username: "Sambuco", email: "sambuco@hotmail.com", password: "123456", name: "Santiago", lastname: "Bufon", bio:"Me gusta cocinar.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username: "Esmeralda", email: "esmeralda1927@hotmail.com", password: "123456", name: "Esmeralda", lastname: "De los rios", bio:"Cocinar me gusta.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username:"DoñaBlanquita", email: "doniablanquita@gmail.com", password: "123456", name: "Blanca", lastname: "De arepa", bio:"Me gusta cocinar.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username: "LuisaC", email: "luisasazonl@hotmail.com", password: "123456", name: "Luisa", lastname: "Con Sazon", bio:"Me gusta cocinar.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username: "Andres", email: "andreslopez@hotmail.com", password: "123456", name: "Andres", lastname: "Lopez", bio:"Me gusta cocinar.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
+Chef.create( username: "Felipe", email: "felipebecerra@hotmail.com", password: "123456", name: "Felipe", lastname: "Becerra", bio:"Me gusta cocinar.", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
 
 
 Ingredient.create( name: "Tomate" )
