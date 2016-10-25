@@ -1,0 +1,11 @@
+default: &default
+  cloud_storage:
+    bucket: gournet_photos
+    access_key_id: GOOGVCBYWPMLTCYQ5WPA
+    secret_access_key: 8hsqj6qaabUI78BTqKn/JYS/jD0AjBM8aXIaQZT4
+
+development:
+  <<: *default
+
+production:
+  <<: *default

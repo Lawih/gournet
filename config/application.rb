@@ -13,5 +13,10 @@ module Gournet
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :en
     I18n.available_locales = [:en, :es]
+
+    config.x.settings = Rails.application.config_for :settings
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

@@ -94,3 +94,5 @@ gem 'will_paginate'
 
 # Gemfile
 gem 'filterrific'
+
+gem 'fog'

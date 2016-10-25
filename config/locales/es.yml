@@ -54,7 +54,7 @@ es:
       new_dish: "Nuevo plato"
 
   users:
-    edit_profile:
+    form:
         edit_profile: "Editar perfil"
         confirm: "Confirmar"
 
