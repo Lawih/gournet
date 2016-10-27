@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     # get 'static_pages/about_us', as: "about_us"
     get 'static_pages/about_us'
 
+
     resources :chefs do
+        member do
+          get "createFollow", to: :createFollow
+        end
         resources :dishes
     end
 
