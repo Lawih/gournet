@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-
-  <input readonly="readonly" value="<%= current_user.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
+  <% if user_signed_in? %>
+    <input readonly="readonly" value="<%= current_user.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
+  <%end%>
   <div class="field">
     <%= f.text_field :name %>
   </div>

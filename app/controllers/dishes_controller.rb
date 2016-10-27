@@ -4,18 +4,40 @@ class DishesController < ApplicationController
   after_action :verify_authorized, except: :index
   #after_action :verify_policy_scoped, only: :index
 
+
   # GET /dishes
   # GET /dishes.json
   def index
-    if(params[:chef_id])
-        @dishes = Chef.find_by_username(params[:chef_id]).dishes
-    elsif(params[:user_id])
-        @dishes = Chef.find_by_username(params[:user_id]).dishes
-    elsif params[:search]
-      @dishes = Dish.search(params[:search]).order("created_at DESC")
-    else
-      @dishes = Dish.all.order('created_at DESC')
+
+    @filterrific = initialize_filterrific(
+      Dish,
+      params[:filterrific],
+      select_options: {
+       sorted_by: Dish.options_for_sorted_by
+      },
+    ) or return
+    @dishes = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
     end
+
+    def reset_filterrific
+      # Clear session persistence
+      session[:filterrific_restaurants] = nil
+      # Redirect back to the index action for default filter settings.
+      redirect_to action: :index
+    end
+
+    if params[:chef_id]
+      @dishes = Chef.find_by_username(params[:chef_id]).dishes.page(params[:page]).per_page(6)
+    elsif params[:user_id]
+      @dishes = Chef.find_by_username(params[:user_id]).dishes.page(params[:page]).per_page(6)
+    elsif params[:search]
+      @dishes = Dish.search(params[:search]).order("price DESC").page(params[:page]).per_page(6)
+    end
+
   end
 
   # GET /dishes/1

@@ -18,7 +18,7 @@
   <% end %>
 
   <div>
-    <%= f.text_field :username, autofocus: true%>(Campo Obligatorio)
+    <%= f.text_field :username, autofocus: true%>
   </div>
 
   <div>
@@ -30,19 +30,19 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :name, autofocus: true %><em>(Campo opcional)</em>
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.text_field :lastname, autofocus: true %><em>(Campo opcional)</em>
+    <%= f.text_field :lastname, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.date_field :birthday, autofocus: true %><em>(Formato fecha YYYY-MM-DD)</em>
+    <%= f.date_field :birthday, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.text_field :phone, autofocus: true %><em>(Campo opcional)</em>
+    <%= f.text_field :phone, autofocus: true %>
   </div>
   <% if current_user.type == "Chef"%>
     <div class="field">

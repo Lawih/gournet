@@ -13,6 +13,7 @@
     <%= csrf_meta_tags %>
 
     <!-- NavBar-->
+    <!-- NavBar-->
     <nav class="navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -36,58 +37,59 @@
                 </div>
 
                 <ul class="nav navbar-nav">
-                <% if user_signed_in? %>
-                    <li class="menuItem">
-                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                            <%=current_user.username%> <span class="caret"></span> </a>
-                        <ul class="dropdown-menu">
-                            <% if current_user.type == "Chef" %>
+                  <% if user_signed_in? %>
+                      <li class="menuItem">
+                          <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                              <%=current_user.username%> <span class="caret"></span> </a>
+                          <ul class="dropdown-menu">
                               <li class="dropdown-submenu">
-                                <%= link_to "Nuevo plato", new_dish_path %>
+                                <%= link_to t('.Mis_direcciones'), addresses_path%>
+                              </li>
+                              <% if current_user.type == "Chef" %>
+                                <li class="dropdown-submenu">
+                                  <%= link_to t('.new_dish'), new_dish_path %>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="dropdown-submenu">
+                                    <%= link_to t('.Perfil_user'), user_path(current_user)%>
+                                    <%= link_to t('.Perfil_chef'), chef_path(current_user)%>
+                                </li>
+                                <li class="divider"></li>
+                              <% else %>
+                                <li class="dropdown-submenu">
+                                  <%= link_to t('.profile'), user_path(current_user)%>
+                                </li>
+                              <% end%>
+                              <li class="dropdown-submenu">
+                                  <%= link_to t('.edit_profile'), edit_profile_path%>
+                              </li>
+                              <li class="dropdown-submenu">
+                                  <%= link_to t('.change_your_password'), edit_user_registration_path%>
                               </li>
                               <li class="divider"></li>
-                              <li class="dropdown-submenu">
-                                  <%= link_to t('.profile')+" "+t('.user'), user_path(current_user)%>
-                                  <%= link_to t('.profile')+" "+t('.chef'), chef_path(current_user)%>
+                              <li class="menuItem">
+                                  <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
                               </li>
-                            <% else %>
-                              <li class="dropdown-submenu">
-                                <%= link_to t('.profile'), user_path(current_user)%>
-                              </li>
-                            <% end%>
-                            <li class="dropdown-submenu">
-                                <%= link_to t('.Mis_direcciones'), addresses_path%>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <%= link_to t('.edit_profile'), edit_profile_path%>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <%= link_to t('.change_your_password'), edit_user_registration_path%>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="menuItem">
-                                <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
-                            </li>
-                        </ul>
-                    </li>
-                <%else%>
-                    <li class="menuItem">
-                        <%= link_to t('.sign_in'), new_user_session_path%>
-                    </li>
-                    <li class="menuItem">
-                        <%= link_to t('.sign_up'), new_user_registration_path%>
-                    </li>
-                <% end%>
+                          </ul>
+                      </li>
+                  <%else%>
+                      <li class="menuItem">
+                          <%= link_to t('.sign_in'), new_user_session_path%>
+                      </li>
+                      <li class="menuItem">
+                          <%= link_to t('.sign_up'), new_user_registration_path%>
+                      </li>
+                  <% end%>
 
                 <li class="menuItem">
                     <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
                         Menu <span class="caret"></span> </a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                            <%= link_to t('.chefs'), chefs_path %>
+                            <%= link_to t('.chefs'), chefs_path%>
                         </li>
                         <li class="dropdown-submenu">
-                            <%= link_to t('.dishes'),dishes_path %>
+                            <%= link_to t('.dishes'), dishes_path%>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-submenu">
@@ -98,7 +100,6 @@
                         </li>
                     </ul>
                 </li>
-
                 </ul>
             </div>
         </div>
@@ -115,19 +116,39 @@
     <%= yield %>
 </body>
 <footer>
-    <center>
-        <div class="col-md-12">
-          <div class="col-md-4">
-            <%= link_to t('.about_us'), static_pages_about_us_path %> |
-            <%= link_to t('.contact_us'), new_contact_path %>
-          </div>
-          <div class="col-md-4"></div>
-          <div class="col-md-4">
-            <%= link_to_unless I18n.locale == :en, "English", locale: :en %>|<%= link_to_unless I18n.locale == :es, "Spanish", locale: :es %>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="col-md-4">
+        <h2 class="footer-title">Acerca</h2>
+
+          <%= link_to t('.about_us'), static_pages_about_us_path %> |
+          <%= link_to t('.contact_us'), new_contact_path %>
         </div>
-        <p> Copyright 2016</p>
-        <br> </center>
+        <div class="col-md-4">
+        <h2 class="footer-title">Chefs</h2>
+          <%= link_to "Nuestros chefs", chefs_path%><br>
+        </div>
+        <div class="col-md-4">
+        <h2 class="footer-title">Platos</h2>
+
+          <%= link_to "Menu del día", dishes_path%><br>
+        </div>
+
+
+      </div> <!-- /col-xs-7 -->
+
+      <div class="col-md-5">
+        <div class="footer-banner">
+          <h3 class="footer-title">GourNet</h3>
+          <ul>
+            <li>Bogotá, Colombia</li>
+          </ul>
+            <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 </html>

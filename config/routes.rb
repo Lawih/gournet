@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     #devise_for :users
     root :to => 'home#index'
     get 'home/index'
+    # get 'static_pages/about_us', as: "about_us"
     get 'static_pages/about_us'
 
     resources :chefs do

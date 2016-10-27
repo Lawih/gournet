@@ -16,6 +16,12 @@ en:
         birthday: "Birthday"
         phone: "Phone"
         edit_profile: "Edit Profile"
+      dish:
+        name: "Name"
+        description: "Description"
+        score: "Score"
+        price: "Price"
+        calories: "Calories"
 
       addresses:
         Name: "Name"
@@ -85,6 +91,7 @@ en:
       subscription: "Make your subscription"
       email: "Email"
       team_description: "We are a team of future System and Computer Engineers of the Universidad Nacional de Colombia, entrepreneurial and creative."
+      join_us: "Want to be one of our Chefs?"
 
   addresses:
     show:

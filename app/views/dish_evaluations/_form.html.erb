@@ -1,4 +1,4 @@
-<%= form_for(@dish_evaluation) do |f| %>
+<%= bootstrap_form_for(@dish_evaluation) do |f| %>
   <% if @dish_evaluation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@dish_evaluation.errors.count, "error") %> prohibited this dish_evaluation from being saved:</h2>
@@ -11,33 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
+  <input readonly="readonly" value="<%= current_user.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
+  <input readonly="readonly" value="<%= @dish_evaluation.dish.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
 
   <div class="field">
-    <%= f.label :dish_id %>
-    <%= f.text_field :dish_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :score_time %>
     <%= f.number_field :score_time %>
   </div>
 
   <div class="field">
-    <%= f.label :score_quality %>
     <%= f.number_field :score_quality %>
   </div>
 
   <div class="field">
-    <%= f.label :score_visual %>
     <%= f.number_field :score_visual %>
   </div>
 
   <div class="field">
-    <%= f.label :comment %>
     <%= f.text_area :comment %>
   </div>
 

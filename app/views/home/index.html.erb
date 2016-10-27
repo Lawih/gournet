@@ -57,13 +57,15 @@
                           <ul class="dropdown-menu">
                               <% if current_user.type == "Chef" %>
                                 <li class="dropdown-submenu">
-                                  <%= link_to "Nuevo plato", new_dish_path %>
+                                  <%= link_to t('.new_dish'), new_dish_path %>
                                 </li>
                                 <li class="divider"></li>
+                                <li class="dropdown-header"><%= t('.profile') %></li>
                                 <li class="dropdown-submenu">
-                                    <%= link_to t('.profile')+" "+t('.user'), user_path(current_user)%>
-                                    <%= link_to t('.profile')+" "+t('.chef'), chef_path(current_user)%>
+                                    <%= link_to t('.user'), user_path(current_user)%>
+                                    <%= link_to t('.chef'), chef_path(current_user)%>
                                 </li>
+                                <li class="divider"></li>
                               <% else %>
                                 <li class="dropdown-submenu">
                                   <%= link_to t('.profile'), user_path(current_user)%>
@@ -276,16 +278,16 @@
     <div class="container">
       <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center white">
-        <h2><%= t('.GourNet')%></h2>
+        <h2>GourNet</h2>
       </div>
       <div class="col-md-6 col-md-offset-3 text-center">
         <div class="mockup-content">
             <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
-              <<button type="button "><span><%= t('.¿Quieres hacer parte de nuestros Chefs')%></span></button>
+              <<button type="button "><span><%= t('.join_us')%></span></button>
               <div class="morph-content">
                 <div>
                   <div class="content-style-form content-style-form-4 ">
-                    <h2 class="morph-clone"><%= t('.¿Quieres hacer parte de nuestros Chefs?')%></h2>
+                    <h2 class="morph-clone"><%= t('.join_us')%></h2>
                     <form>
                       <center><h3><%= t('.Proximamente')%></h3></center>
                     </form>
