@@ -66,7 +66,7 @@ class User < ApplicationRecord
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
-      username = auth.info.nickname
+      username = auth.info.username
 
       # Create the user if it's a new registration
       if user.nil?
@@ -75,9 +75,11 @@ class User < ApplicationRecord
           user = User.new(
             email: email ? email : "#{auth.uid}@change-me.com",
             username: username ? username : "#{auth.uid}",
-            picture: auth.info.image_url,
-            name: auth.info.name,
+            picture: auth.info.image.split + "?type=large",
+            name: auth.info.first_name,
+            lastname: auth.info.last_name,
             password: password,
+            birthday: auth.info.birthday,
             password_confirmation: password
           )
         elsif auth.provider == 'google_oauth2'
@@ -85,7 +87,9 @@ class User < ApplicationRecord
             email: email ? email : "#{auth.uid}@change-me.com",
             username: username ? username : "#{auth.uid}",
             picture: auth.info.image,
-            name: auth.info.name,
+            name: auth.info.first_name,
+            lastname: auth.info.last_name,
+            birthday: auth.info.birthday,
             password: password,
             password_confirmation: password
           )
