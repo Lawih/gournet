@@ -66,7 +66,7 @@ class User < ApplicationRecord
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
-      username = auth.info.username
+      username = auth.info.nickname
 
       # Create the user if it's a new registration
       if user.nil?
@@ -75,7 +75,7 @@ class User < ApplicationRecord
           user = User.new(
             email: email ? email : "#{auth.uid}@change-me.com",
             username: username ? username : "#{auth.uid}",
-            picture: auth.info.image,
+            picture: auth.info.image_url,
             name: auth.info.name,
             password: password,
             password_confirmation: password
