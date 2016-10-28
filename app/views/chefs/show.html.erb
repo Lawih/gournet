@@ -17,24 +17,29 @@
             <h5><%= @chef.birthday unless @chef.birthday.blank? %></h5>
             <h5><%= @chef.bio unless @chef.bio.blank? %></h5>
         </div>
-        <%flag = true%>
+        <%flag = true
+          follow = nil%>
         <% if user_signed_in? %>
           <% if current_user.type == "Chef" and current_user.id == @chef.id%>
             <%= link_to "<button class='btn btn-embossed btn-primary' >Nuevo plato</button>".html_safe, new_dish_path %>
           <%end%>
           <% if current_user.id != @chef.id%>
-            <% @followings.each do |following| %>
-              <% if following.user.id == current_user.id
-                flag = false
-                break
-              end%>
+            <%if @followings !=nil%>
+              <% @followings.each do |following| %>
+                <% if following.user.id == current_user.id
+                  flag = false
+                  follow = following
+                  break
+                end%>
+              <%end%>
             <%end%>
             <%if flag%>
               <%= link_to "<button class='btn btn-embossed btn-warning' >Seguir</button>".html_safe,
-                {:action => "createFollow", :chef_id => @chef.id, :user_id => current_user.id, :chef => @chef}%>
+                new_following_path(follow, :chef_id => @chef.id, :user_id => current_user.id, :chef => @chef),
+                method: :get %>
             <%else%>
               <%= link_to "<button class='btn btn-embossed btn-danger' >Dejar de seguir</button>".html_safe,
-                {:action => "createFollow", :chef_id => @chef.id, :user_id => current_user.id, :chef => @chef}%>
+              following_path(follow, :chef => @chef), method: :delete %>
             <%end%>
           <%end%>
         <%end%>

@@ -44,6 +44,7 @@ class DishesController < ApplicationController
   # GET /dishes/1.json
   def show
     @dish_evaluations = @dish.dish_evaluations
+    @favorite_dishes = @dish.favorite_dishes
   end
 
   # GET /dishes/new

@@ -14,7 +14,10 @@ class FavoriteDishesController < ApplicationController
 
   # GET /favorite_dishes/new
   def new
-    @favorite_dish = FavoriteDish.new
+    #@favorite_dish = FavoriteDish.new
+    @favorite_dish = FavoriteDish.new(user_id: params[:user_id],dish_id: params[:dish_id])
+    @favorite_dish.save
+    redirect_to "/dishes/"+params[:dish_id]
   end
 
   # GET /favorite_dishes/1/edit

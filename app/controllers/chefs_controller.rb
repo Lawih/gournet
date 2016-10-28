@@ -2,17 +2,6 @@ class ChefsController < ApplicationController
 
   before_action :set_user, only: [:show]
 
-
-
-  #POST /chefs
-  def createFollow
-    @following = Following.new(chef_id: params[:chef_id],
-                                user_id: params[:user_id],
-                                is_favorite: false)
-    @following.save
-    redirect_to params[:chef]
-  end
-
   # GET /chefs
   # GET /chefs.json
   def index

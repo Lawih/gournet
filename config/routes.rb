@@ -18,9 +18,6 @@ Rails.application.routes.draw do
 
 
     resources :chefs do
-        member do
-          get "createFollow", to: :createFollow
-        end
         resources :dishes
     end
 
