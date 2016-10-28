@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @followings = @user.followings
+    #@followings = @user.followings
+    @followings = Following.all
     @favorite_dishes = @user.favorite_dishes 
     #if user_is_chef?
     #    redirect_to chef_path(@user)
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
           @user = User.find(current_user.id)
           if @user.update(user_params)
               sign_in(@user, :bypass => true)
-              redirect_to root_path, notice: 'Hemos guardado tu email correctamente.'
+              redirect_to root_path, notice: 'Datos actualizados correctamente.'
           else
               @show_errors = true
           end

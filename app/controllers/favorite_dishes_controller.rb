@@ -58,10 +58,11 @@ class FavoriteDishesController < ApplicationController
   # DELETE /favorite_dishes/1.json
   def destroy
     @favorite_dish.destroy
-    respond_to do |format|
-      format.html { redirect_to favorite_dishes_url, notice: 'Favorite dish was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to "/dishes/"+params[:dish_id]
+    #respond_to do |format|
+    #  format.html { redirect_to favorite_dishes_url, notice: 'Favorite dish was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private

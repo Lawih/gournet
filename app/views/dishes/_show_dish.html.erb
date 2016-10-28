@@ -6,11 +6,13 @@
     <%end%>
     <% if user_signed_in? %>
       <% if current_user.id != dish.chef.id%>
-        <%flag = true%>
+        <%flag = true
+          favorite = nil%>
           <%if dish.favorite_dishes !=nil%>
             <% dish.favorite_dishes.each do |favorite_dishe| %>
               <% if favorite_dishe.user.id == current_user.id
                 flag = false
+                favorite = favorite_dishe
                 break
                 end%>
             <%end%>
@@ -20,7 +22,8 @@
               new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id),
               method: :get %></h3>
           <%else%>
-            <!--<%= link_to "<button class='btn btn-danger btn-sm'>NO Guardar</button>".html_safe%>--></h3>
+            <%= link_to "<button class='btn btn-danger btn-sm'>Eliminar de guardados</button>".html_safe,
+            favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %></h3>
           <%end%>
 
       <%end%>
