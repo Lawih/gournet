@@ -105,6 +105,18 @@ en:
       Latitude: "Latitude"
       Longitude: "Longitude"
 
+  addresses:
+    show:
+      Name: "Name"
+      Address: "Address"
+      Latitude: "Latitude"
+      Longitude: "Longitude"
+    form:
+      Name: "Name"
+      Address: "Address"
+      Latitude: "Latitude"
+      Longitude: "Longitude"
+
 
   contacts:
     new:

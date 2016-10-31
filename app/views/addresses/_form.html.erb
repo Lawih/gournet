@@ -15,7 +15,6 @@
           </div>
         <% end %>
 
-
         <div class="field">
            <p class="lead" align="Center" style="margin-top:0"><%=current_user.name%> <%=current_user.lastname%></p>
           <input readonly="readonly" value="<%=current_user.id%>" type="email" name="address[user_id]" id="address_user_id" style="display:none">
@@ -27,14 +26,6 @@
 
         <div class="field">
           <%= f.text_field :address %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :latitude %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :longitude %>
         </div>
 
         <div class="actions" align="Center">
