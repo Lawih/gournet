@@ -6,9 +6,9 @@ class OffersController < ApplicationController
   # GET /offers.json
   def index
     #@offers = Offer.all
-    if params[:chef_id]
+    if(params[:chef_id])
         @offers = Chef.find_by_username(params[:chef_id]).offers
-    elsif params[:user_id]
+    elsif(params[:user_id])
         @offers = Chef.find_by_username(params[:user_id]).offers
     else
         @offers = Offer.all
@@ -22,11 +22,9 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
-    if params[:dish_id]
-      @offer = Offer.new(:dish => Dish.find(params[:dish_id]))
-      authorize @offer
-    end
-
+    @offer = Offer.new
+    @offer.dish = Dish.find(params[:dish_id])
+    authorize @offer
   end
 
   # GET /offers/1/edit

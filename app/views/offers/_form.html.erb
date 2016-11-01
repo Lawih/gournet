@@ -1,4 +1,4 @@
-<%= form_for [@chef, @offer] do |f| %>
+<%= bootstrap_form_for  [@chef, @offer] do |f| %>
   <% if offer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
@@ -11,25 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :dish_id %>
-    <%= f.text_field :dish_id %>
+  <div>
+    <h3> <%= @offer.dish.name %> </h3>
   </div>
 
-    <%= f.hidden_field :dish_id, {:value => params[:dish_id]} %>
+  <%= f.hidden_field :dish_id, {:value => params[:dish_id]} %>
 
   <div class="field">
-    <%= f.label :amount %>
     <%= f.number_field :amount %>
   </div>
 
   <div class="field">
-    <%= f.label :delivery_date %>
     <%= f.datetime_select :delivery_date %>
   </div>
 
   <div class="field">
-    <%= f.label :max_date %>
     <%= f.datetime_select :max_date %>
   </div>
 

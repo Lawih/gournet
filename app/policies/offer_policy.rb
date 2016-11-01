@@ -5,10 +5,10 @@ class OfferPolicy < DishPolicy
     end
   end
 
-  private
+private
 
-    def user_is_owner?
-      @user == @record.dish.chef
-    end
+  def user_is_owner?
+    @user == @record.dish.chef
+  end
 
 end

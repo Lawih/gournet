@@ -83,8 +83,17 @@ en:
 
   orders:
     new:
-      new_order: "New order"
+      new_order: "New Order"
       new_order_back: "Back to dish"
+
+  offers:
+    new:
+      new_offer: "New Offer"
+      new_offer_back: "Back to dishes"
+    edit:
+      edit_offer: "Edit Offer"
+      edit_offer_back: "Back to dishes"
+      show_offer: "Show"
 
   contacts:
     new:

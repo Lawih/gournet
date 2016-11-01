@@ -20,7 +20,7 @@
   <%= f.hidden_field :dish_id, {:value => params[:dish_id]} %>
 
   <div class="field">
-    <%= f.select :amount, (0 .. order.dish.offer.amount) %>
+    <%= f.select :amount, (1 .. order.dish.offer.amount) %>
   </div>
 
   <div class="field">
@@ -34,6 +34,4 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-</div>
-</div>
 <% end %>
