@@ -17,12 +17,17 @@
               </div>
           <% end %>
 
-          <div class="field">
-            <%= f.label :user_picture %>
-            <%= f.file_field :user_picture %>
+          <div class="wrapper">
+            <%= f.file_field :user_picture, class: 'no-image', id: 'img-result' %>
+          </div>
+          <button class="show-button">Show server request</button>
+          <div class="upload-result">
+            <button class="hide-button">Close</button>
+            <pre class="upload-result__content">
+            </pre>
           </div>
 
-          <div>
+          <div style="margin-top: 5cm">
             <%= f.text_field :username, autofocus: true%>
           </div>
 
