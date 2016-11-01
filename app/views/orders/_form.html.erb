@@ -1,4 +1,4 @@
-<%= bootstrap_form_for [@user, order] do |f| %>
+<%= bootstrap_form_for [@user, @order] do |f| %>
 
   <% if order.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +17,7 @@
     <h5> <%= order.dish.chef.username %> </h5>
   </div>
 
-  <%= f.hidden_field :dish_id, {:value => params[:dish_id]} %>
+  <%= f.hidden_field :offer_id, {:value => params[:offer_id]} %>
 
   <div class="field">
     <%= f.select :amount, (1 .. order.dish.offer.amount) %>

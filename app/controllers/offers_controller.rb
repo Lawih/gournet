@@ -5,7 +5,6 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    #@offers = Offer.all
     if params[:chef_id]
         @offers = Chef.find_by_username(params[:chef_id]).offers
     elsif params[:user_id]

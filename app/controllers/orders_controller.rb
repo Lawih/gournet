@@ -18,8 +18,9 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    if params[:dish_id]
-        @order = Order.new(:dish => Dish.find(params[:dish_id]))
+    if params[:offer_id]
+        @order = Order.new(:offer => Offer.find(params[:offer_id]))
+        @user = current_user
     end
   end
 

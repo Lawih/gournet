@@ -70,5 +70,10 @@ Following.create(chef_id: 13, user_id: 2, is_favorite: true)
 Following.create(chef_id: 8, user_id: 4, is_favorite: true)
 Following.create(chef_id: 7, user_id: 1, is_favorite: false)
 
-
-Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-10-21 07:22:00", max_date: "2016-10-21 05:22:00", is_active: true)
+# Rotten
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-10-21 07:00:00", max_date: "2016-10-21 05:00:00", is_active: true)
+Offer.create(dish_id: 1, amount: 10, delivery_date: "2016-10-22 07:00:00", max_date: "2016-10-22 05:00:00", is_active: true)
+# Not Rotten
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-12-21 07:00:00", max_date: "2016-12-21 05:00:00", is_active: true)
+Offer.create(dish_id: 1, amount: 10, delivery_date: "2016-12-22 07:00:00", max_date: "2016-12-22 05:00:00", is_active: true)
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-12-21 07:00:00", max_date: "2016-12-21 05:00:00", is_active: false)
