@@ -1,14 +1,12 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  after_action :verify_authorized, except: :index
+  after_filter :verify_policy_scoped, :only => :index
 
   # GET /orders
   # GET /orders.json
   def index
-    if(params[:user_id])
-      @orders = User.find_by_username(params[:user_id]).orders
-    else
-      @orders = Order.all
-    end
+    @orders = policy_scope(Order)
   end
 
   # GET /orders/1
@@ -20,7 +18,7 @@ class OrdersController < ApplicationController
   def new
     if params[:offer_id]
         @order = Order.new(:offer => Offer.find(params[:offer_id]))
-        @user = current_user
+        authorize @order
     end
   end
 
@@ -32,11 +30,10 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.user = current_user
-    @order.status = 0
-
+    authorize @order
     respond_to do |format|
       if @order.save
+        offer_callback
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -45,6 +42,7 @@ class OrdersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
@@ -75,15 +73,16 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+      authorize @order
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:dish_id, :delivery_person_id, :amount, :date, :comment, :status)
+      params.require(:order).permit(:user_id, :offer_id, :delivery_person_id, :amount, :date, :comment, :status)
     end
 
     def offer_callback
-        offer = @order.dish.offer
-        offer.update(amount: (offer.amount - @order.amount ))
+      offer = @order.offer
+      offer.update(amount: (offer.amount - @order.amount ))
     end
 end

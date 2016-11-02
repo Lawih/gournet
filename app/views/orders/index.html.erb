@@ -20,7 +20,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.user.username %></td>
-        <td><%= order.dish.name %></td>
+        <td><%= order.offer.dish.name %></td>
         <td><%= order.delivery_person %></td>
         <td><%= order.amount %></td>
         <td><%= order.date %></td>

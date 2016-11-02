@@ -24,10 +24,8 @@ private
   end
 
   def user_is_chef?
-    if(@user)
+    if @user
         @user.type == 'Chef'
-    else
-        false
     end
   end
 
