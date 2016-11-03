@@ -115,3 +115,18 @@
     overflow-wrap: break-word;
   }
 }
+
+.form-group{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#button-to-hide{
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
