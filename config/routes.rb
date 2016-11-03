@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     
     resources :dishes
     resources :offers
+    get '/requests', to: "orders#requests"
+
     resources :orders
 
     resources :order_allergies
@@ -46,9 +48,7 @@ Rails.application.routes.draw do
     resources :delivery_people
     resources :contacts, only: [:new, :create]
 
-    resources :users, :only => [:show], path: '' do
-        resources :orders
-    end
+    resources :users, :only => [:show], path: ''
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

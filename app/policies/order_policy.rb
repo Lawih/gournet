@@ -12,11 +12,12 @@ class OrderPolicy < ApplicationPolicy
 
   private
 
-      def user_is_admin?
-        if @user
-          @user.type == 'Admin'
-        end
+    def user_is_admin?
+      if @user
+        @user.type == 'Admin'
       end
+    end
+
   end
 
   def show?

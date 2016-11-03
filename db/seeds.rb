@@ -84,4 +84,9 @@ Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-12-21 07:00:00", max_d
 
 #
 Order.create(user_id: 1,offer_id: 3, amount: 5, date: "2016-12-21 08:00:00", comment: "Quiero 5 bandejas sin chicharron, gracias")
+Order.create(user_id: 1,offer_id: 5, amount: 3, date: "2016-12-21 08:00:00", comment: "Quiero 3 pescados, gracias")
+Order.create(user_id: 2,offer_id: 3, amount: 5, date: "2016-12-21 08:00:00", comment: "Deme 5 bandejas calientes, gracias")
+Order.create(user_id: 2,offer_id: 5, amount: 2, date: "2016-12-21 08:00:00", comment: "Deme 2 pescados sin chicharron, gracias")
+Order.create(user_id: 2,offer_id: 6, amount: 1, date: "2016-12-21 08:00:00", comment: "Deme un ajiaco, gracias")
+Order.create(user_id: 1,offer_id: 6, amount: 1, date: "2016-12-21 08:00:00", comment: "Quiero un ajiaco, gracias")
 

@@ -25,7 +25,6 @@ class OffersController < ApplicationController
       @offer = Offer.new(:dish => Dish.find(params[:dish_id]))
       authorize @offer
     end
-
   end
 
   # GET /offers/1/edit
@@ -73,7 +72,8 @@ class OffersController < ApplicationController
     end
   end
 
-  private
+private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])

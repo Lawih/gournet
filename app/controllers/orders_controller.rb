@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized, except: :index
+  after_action :verify_authorized, except: [:index, :requests]
   after_filter :verify_policy_scoped, :only => :index
 
   # GET /orders
@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     if params[:offer_id]
-        @order = Order.new(:offer => Offer.find(params[:offer_id]))
-        authorize @order
+      @order = Order.new(:offer => Offer.find(params[:offer_id]))
+      authorize @order
     end
   end
 
@@ -69,7 +69,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
+  # Orders to my offers
+  def requests
+    dishes = Dish.find_by chef: current_user
+  end
+
+private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
