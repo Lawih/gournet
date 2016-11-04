@@ -1,3 +1,13 @@
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1778390422403429";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="col-md-12" >
   <div class="col-md-12" >
     <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a></h3>
@@ -25,7 +35,11 @@
             <%= link_to "<button class='btn btn-danger btn-sm'>Eliminar de guardados</button>".html_safe,
             favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %>
           <%end%>
-
+          <% if Identity.find_by_user_id(current_user.id) != nil%>
+            <% if Identity.find_by_user_id(current_user.id).provider == "facebook"%>
+              <div class="fb-like" data-href="https://gournet.herokuapp.com/es/dishes/<%= dish.id %>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+            <%end%>
+          <%end%>
       <%end%>
     <%end%>
   </div>
