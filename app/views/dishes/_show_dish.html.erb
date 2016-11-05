@@ -4,15 +4,15 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1778390422403429";
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=1646406112338578";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="col-md-12" >
   <div class="col-md-12" >
-    <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a></h3>
+    <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a> -
     <% if chef != nil%>
-      <h4><a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a></h4>
+      <a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a>
     <%end%>
     <% if user_signed_in? %>
       <% if current_user.id != dish.chef.id%>
@@ -30,18 +30,13 @@
           <%if flag%>
             <%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe,
               new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id),
-              method: :get %></h3>
+              method: :get %>
           <%else%>
             <%= link_to "<button class='btn btn-danger btn-sm'>Eliminar de guardados</button>".html_safe,
-            favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %></h3>
-          <%end%>
-          <% if Identity.find_by_user_id(current_user.id) != nil%>
-            <% if Identity.find_by_user_id(current_user.id).provider == "facebook"%>
-              <div class="fb-like" data-href="https://gournet.herokuapp.com/es/dishes/<%= dish.id %>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-            <%end%>
+            favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %>
           <%end%>
       <%end%>
-    <%end%>
+    <%end%></h3>
   </div>
   </br>
   </br>
@@ -56,6 +51,21 @@
     <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
     <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
     <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
+    <% if user_signed_in? %>
+      <meta property="og:description" content="<%=dish.description%>"/>
+      <meta property="og:image" content="<%=dish.picture%>"/>
+      <meta property="og:title" content="<%=dish.name%>"/>
+      <% if Identity.find_by_user_id(current_user.id) != nil%>
+        <% if Identity.find_by_user_id(current_user.id).provider == "facebook"%>
+            <div class="fb-share-button"
+               data-href="https://gournet.herokuapp.com/es/dishes/<%=dish.id%>"
+               data-layout="box_count"
+               data-size="large"
+               data-mobile-iframe="false">
+            </div>
+        <%end%>
+      <%end%>
+    <%end%>
     <div class="col-md-12" >
         <% if viewmore == true%><%= link_to "<button class='btn btn-embossed btn-primary' >Ver mas</button>".html_safe, dish %><%end%>
         <%= link_to "<button class='btn btn-embossed btn-primary' >Editar</button>".html_safe, edit_dish_path(dish) if policy(dish).edit? %>
