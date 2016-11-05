@@ -65,9 +65,7 @@ class User < ApplicationRecord
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
-      username = auth.info.username
-
-      data = auth[:info][:nickname]
+      username = auth.info.email.split("@")[0]
       # Create the user if it's a new registration
       if user.nil?
          password = Devise.friendly_token[0,20]
@@ -77,7 +75,7 @@ class User < ApplicationRecord
             username: username ? username : "#{auth.uid}",
             picture: auth.info.image + "?type=large",
             name: auth.info.name,
-            lastname: data,
+            lastname: auth.info.last_name,
             password: password,
             birthday: auth.info.birthday,
             password_confirmation: password
@@ -89,7 +87,7 @@ class User < ApplicationRecord
             picture: auth.info.image,
             name: auth.info.first_name,
             lastname: auth.info.last_name,
-            birthday: auth.info.birthday,
+            birthday: auth[:extra][:raw_info][:birthday],
             password: password,
             password_confirmation: password
           )
