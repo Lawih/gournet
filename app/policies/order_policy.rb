@@ -21,8 +21,8 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def show?
-    if !@user.nil?
-      return user_is_owner?
+    unless @user.nil?
+      user_is_owner? || chef_is_owner? || user_is_admin?
     end
   end
 
@@ -49,8 +49,20 @@ class OrderPolicy < ApplicationPolicy
 
 private
 
+  # if you make the order
   def user_is_owner?
     @user == @record.user
+  end
+
+  # if the order was made to you
+  def chef_is_owner?
+    @user == @record.offer.dish.chef
+  end
+
+  def user_is_admin?
+    if @user
+      @user.type == 'Admin'
+    end
   end
 
 end

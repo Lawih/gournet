@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:requests]
   after_action :verify_authorized, except: [:index, :requests]
   after_filter :verify_policy_scoped, :only => :index
 
@@ -71,7 +72,7 @@ class OrdersController < ApplicationController
 
   # Orders to my offers
   def requests
-    dishes = Dish.find_by chef: current_user
+    @orders = Order.joins(offer: [dish: :chef]).where("users.id = ?", current_user.id).order(created_at: :desc)
   end
 
 private
