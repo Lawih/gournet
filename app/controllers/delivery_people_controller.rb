@@ -4,7 +4,7 @@ class DeliveryPeopleController < ApplicationController
   # GET /delivery_people
   # GET /delivery_people.json
   def index
-    @delivery_people = DeliveryPerson.all
+    @delivery_people = DeliveryPerson.paginate(:page => params[:page], :per_page => 2)
   end
 
   # GET /delivery_people/1

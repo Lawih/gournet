@@ -12,7 +12,9 @@ class ChefsController < ApplicationController
   # GET /chefs/1.json
   def show
       @dishes = @chef.dishes
+      @followings = @chef.followings
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

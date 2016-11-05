@@ -1,4 +1,16 @@
 es:
+  will_paginate:
+    next_label: "Siguiente →"
+    previous_label: "← Anterior"
+
+  time:
+    formats:
+      day: "%A %d, %b %y"
+      hour: "%I:%M %p"
+
+  date:
+    day_names: [Domingo, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado]
+
   # Models
   activerecord:
 
@@ -26,7 +38,13 @@ es:
       offer:
           amount: "Cantidad"
           delivery_date: "Fecha de entrega"
-          max_date: "Fecha maxima de pedido"
+          max_date: "Pedir antes de"
+      dish:
+        name: "Nombre"
+        description: "Descripción"
+        score: "Puntuación"
+        price: "Precio"
+        calories: "Calorias"
 
   mail_form:
     attributes:
@@ -54,6 +72,12 @@ es:
       your_order: "Tu pedido"
       about_us: "¿Quiénes somos?"
       contact_us: "Contáctenos"
+      profile: "Perfil"
+      user: "Usuario"
+      chef: "Chef"
+      edit_profile: "Editar perfil"
+      change_your_password: "Cambiar contraseña"
+      new_dish: "Nuevo plato"
 
   users:
     edit_profile:
@@ -84,10 +108,17 @@ es:
       subscription: "Suscribirse"
       email: "Su correo electrónico"
       team_description: "Somos un equipo de futuros Ingenieros e Ingenieras de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos."
+      join_us: "¿Quieres hacer parte de nuestros Chefs?"
+      profile: "Perfil"
+      user: "Usuario"
+      chef: "Chef"
+      edit_profile: "Editar perfil"
+      change_your_password: "Cambiar contraseña"
+      new_dish: "Nuevo plato"
 
   orders:
     new:
-      new_order: "Ordena Ahora"
+      new_order: "Ordenar"
       new_order_back: "Volver al plato"
 
   offers:
@@ -98,6 +129,18 @@ es:
       edit_offer: "Editar Oferta"
       edit_offer_back: "Volver a platos"
       show_offer: "Ver"
+
+  addresses:
+    show:
+      Name: "Nombre"
+      Address: "Dirección"
+      Latitude: "Latitud"
+      Longitude: "Longitud"
+    form:
+      Name: "Nombre"
+      Address: "Dirección"
+      Latitude: "Latitud"
+      Longitude: "Longitud"
 
   contacts:
     new:

@@ -1,13 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<h1 align="center">Dishes</h1>
+<h3 align="center"><%=t('layouts.application.dishes') %></h3>
+<br/>
 
+<div class="container">
+    <div class="col-md-6 ">
+    </div>
+    <div class="col-md-6 ">
 
-  <div class="container-fluid">
-    <% @dishes.each do |dish| %>
-      <%=render "dishes/showdishes", dish: dish, chef: dish.chef, divide: " - "  %>
-    <% end %>
-  </div>
+    <div class="col-md-3 ">
+      Ordenar por:
+    </div>
+    <div class="col-md-6 ">
+      <%= form_for_filterrific @filterrific do |f| %>
+        <div>
+          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { :class => 'selectpicker' }) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3 ">
+      <div>
+        <%= link_to(
+          'Restablecer filtros',
+          reset_filterrific_url,
+          class: "btn btn-embossed btn-primary"
+        ) %>
+      </div>
+      <%# add an automated spinner to your form when the list is refreshed %>
+      <%= render_filterrific_spinner %>
+    </div>
+    </div>
+</div>
+
+<%= render(
+  partial: 'dishes/list',
+  locals: { dishes: @dishes }
+) %>
+
+<div class="col-md-12  text-center">
+  <h4>
+  <ul class=”pagination”>
+    <li class=”disabled”> <%= will_paginate @dishes %></li>
+  </ul>
+</h4>
+</div>
 <!--
 <table>
   <thead>

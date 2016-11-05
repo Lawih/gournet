@@ -14,7 +14,12 @@ class FollowingsController < ApplicationController
 
   # GET /followings/new
   def new
-    @following = Following.new
+    #@following = Following.new
+    @chef = params[:chef]
+    @following = Following.new(chef_id: params[:chef_id],user_id: params[:user_id],
+    is_favorite: false)
+    @following.save
+    redirect_to "/chefs/"+@chef
   end
 
   # GET /followings/1/edit
@@ -55,10 +60,12 @@ class FollowingsController < ApplicationController
   # DELETE /followings/1.json
   def destroy
     @following.destroy
-    respond_to do |format|
-      format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @chef = params[:chef]
+    redirect_to "/chefs/"+@chef
+    #respond_to do |format|
+    #  format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private

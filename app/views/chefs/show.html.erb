@@ -9,14 +9,40 @@
           <h3><%= @chef.username %></h3>
         </div>
         <div class="panel-body">
-            <h4><%= @chef.name unless @chef.name.blank? %>
-            <%= @chef.lastname unless @chef.lastname.blank? %></h4>
-            <h4><%= @chef.email unless @chef.email.blank? %></h4>
-            <h4><%= @chef.birthday unless @chef.birthday.blank? %></h4>
-            <h4><%= @chef.category unless @chef.category.blank? %></h4>
             <h4><%= @chef.type unless @chef.type.blank? %></h4>
-            <h4><%= @chef.bio unless @chef.bio.blank? %></h4>
+            <h5><%= @chef.category unless @chef.category.blank? %></h5>
+            <h5><%= @chef.name unless @chef.name.blank? %>
+            <%= @chef.lastname unless @chef.lastname.blank? %></h5>
+            <h5><%= @chef.email unless @chef.email.blank? %></h5>
+            <h5><%= @chef.birthday unless @chef.birthday.blank? %></h5>
+            <h5><%= @chef.bio unless @chef.bio.blank? %></h5>
         </div>
+        <%flag = true
+          follow = nil%>
+        <% if user_signed_in? %>
+          <% if current_user.type == "Chef" and current_user.id == @chef.id%>
+            <%= link_to "<button class='btn btn-embossed btn-primary' >Nuevo plato</button>".html_safe, new_dish_path %>
+          <%end%>
+          <% if current_user.id != @chef.id%>
+            <%if @followings !=nil%>
+              <% @followings.each do |following| %>
+                <% if following.user.id == current_user.id
+                  flag = false
+                  follow = following
+                  break
+                end%>
+              <%end%>
+            <%end%>
+            <%if flag%>
+              <%= link_to "<button class='btn btn-embossed btn-warning' >Seguir</button>".html_safe,
+                new_following_path(follow, :chef_id => @chef.id, :user_id => current_user.id, :chef => @chef),
+                method: :get %>
+            <%else%>
+              <%= link_to "<button class='btn btn-embossed btn-danger' >Dejar de seguir</button>".html_safe,
+              following_path(follow, :chef => @chef), method: :delete %>
+            <%end%>
+          <%end%>
+        <%end%>
       </div>
     </div>
 
@@ -25,7 +51,7 @@
     <div class=col-md-8 >
         <div class="container-fluid">
         <% @dishes.each do |dish| %>
-        <%=render "dishes/showdishes", dish: dish , chef: nil, divide: ""  %>
+        <%=render "dishes/show_dish", dish: dish , chef: nil, divide: "",viewmore: true  %>
         <!--
           <div class=col-md-12 >
               <div class=col-md-12 ><h3><a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>

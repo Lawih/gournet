@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:requests]
+  before_action :authenticate_user!, only: [:requests, :new]
   after_action :verify_authorized, except: [:index, :requests]
   after_filter :verify_policy_scoped, :only => :index
 

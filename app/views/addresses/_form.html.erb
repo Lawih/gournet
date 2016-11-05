@@ -1,42 +1,37 @@
-<%= form_for(address) do |f| %>
-  <% if address.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+<div class="container" align="Center">
+  <%= bootstrap_form_for(address) do |f| %>
+    <div class="row"  align="Center">
+      <div class=col-md-4 align="left"></div>
+      <div class=col-md-4 align="left">
+        <% if address.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
 
-      <ul>
-      <% address.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% address.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+           <p class="lead" align="Center" style="margin-top:0"><%=current_user.name%> <%=current_user.lastname%></p>
+          <input readonly="readonly" value="<%=current_user.id%>" type="email" name="address[user_id]" id="address_user_id" style="display:none">
+        </div>
+
+        <div class="field">
+          <%= f.text_field :name%>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="actions" align="Center">
+          <%= f.submit%>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
   </div>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
-  </div>
-
-  <div class="field">
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

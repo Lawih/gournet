@@ -14,7 +14,10 @@ class FavoriteDishesController < ApplicationController
 
   # GET /favorite_dishes/new
   def new
-    @favorite_dish = FavoriteDish.new
+    #@favorite_dish = FavoriteDish.new
+    @favorite_dish = FavoriteDish.new(user_id: params[:user_id],dish_id: params[:dish_id])
+    @favorite_dish.save
+    redirect_to "/dishes/"+params[:dish_id]
   end
 
   # GET /favorite_dishes/1/edit
@@ -55,10 +58,11 @@ class FavoriteDishesController < ApplicationController
   # DELETE /favorite_dishes/1.json
   def destroy
     @favorite_dish.destroy
-    respond_to do |format|
-      format.html { redirect_to favorite_dishes_url, notice: 'Favorite dish was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to "/dishes/"+params[:dish_id]
+    #respond_to do |format|
+    #  format.html { redirect_to favorite_dishes_url, notice: 'Favorite dish was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private

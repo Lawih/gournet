@@ -24,7 +24,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'geocoder'
+gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -54,6 +55,7 @@ gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'bootstrap-social-rails'
+gem 'bootstrap-select-rails'
 
 # Devise gem
 gem 'devise'
@@ -86,3 +88,9 @@ gem 'modernizr-rails'
 group :production do
   gem 'rails_12factor'
 end
+
+## Gemfile for Rails 3+, Sinatra, or Merb, Pagination
+gem 'will_paginate'
+
+# Gemfile
+gem 'filterrific'
