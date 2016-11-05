@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @order.user %>
+  <%= @order.user.username %>
 </p>
 
 <p>
   <strong>Dish:</strong>
-  <%= @order.dish %>
+  <%= @order.offer.dish.name %>
 </p>
 
 <p>
@@ -37,3 +37,14 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+
+
+<div class="order order-default">
+  <div class="order-heading">
+    <h3><%= @order.inspect %></h3>
+  </div>
+  <div class="order-body">
+    <h4> BODY </h4>
+    <h4><%= @order.inspect %></h4>
+  </div>
+</div>

@@ -81,6 +81,19 @@ en:
       email: "Email"
       team_description: "We are a team of future System and Computer Engineers of the Universidad Nacional de Colombia, entrepreneurial and creative."
 
+  orders:
+    new:
+      new_order: "New Order"
+      new_order_back: "Back to dish"
+
+  offers:
+    new:
+      new_offer: "New Offer"
+      new_offer_back: "Back to dishes"
+    edit:
+      edit_offer: "Edit Offer"
+      edit_offer_back: "Back to dishes"
+      show_offer: "Show"
 
   contacts:
     new:

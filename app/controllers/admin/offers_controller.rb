@@ -5,9 +5,10 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    if params[:chef_id]
+    #@offers = Offer.all
+    if(params[:chef_id])
         @offers = Chef.find_by_username(params[:chef_id]).offers
-    elsif params[:user_id]
+    elsif(params[:user_id])
         @offers = Chef.find_by_username(params[:user_id]).offers
     else
         @offers = Offer.all
@@ -21,10 +22,9 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
-    if params[:dish_id]
-      @offer = Offer.new(:dish => Dish.find(params[:dish_id]))
-      authorize @offer
-    end
+    @offer = Offer.new
+    @offer.dish = Dish.find(params[:dish_id])
+    authorize @offer
   end
 
   # GET /offers/1/edit
@@ -72,8 +72,7 @@ class OffersController < ApplicationController
     end
   end
 
-private
-
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])

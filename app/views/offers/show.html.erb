@@ -1,24 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="container" align="Center">
 
-<p>
-  <strong>Dish:</strong>
-  <%= @offer.dish %>
-</p>
+  <div class="row"  align="Center">
+    <div class=col-md-3 align="left"></div>
+    <div class=col-md-6 align="left">
+      <center>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @offer.amount %>
-</p>
+      <p>
+        <strong>Dish:</strong>
+        <%= @offer.dish.name %>
+      </p>
 
-<p>
-  <strong>Delivery date:</strong>
-  <%= @offer.delivery_date %>
-</p>
+      <p>
+        <strong>Amount:</strong>
+        <%= @offer.amount %>
+      </p>
 
-<p>
-  <strong>Max date:</strong>
-  <%= @offer.max_date %>
-</p>
+      <p>
+        <strong>Delivery date:</strong>
+        <%= @offer.delivery_date %>
+      </p>
 
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
-<%= link_to 'Back', offers_path %>
+      <p>
+        <strong>Max date:</strong>
+        <%= @offer.max_date %>
+      </p>
+
+      <p>
+        <strong>Active:</strong>
+        <%= @offer.is_active %>
+      </p>
+      <hr>
+      <a href= "<%= edit_chef_offer_path(@offer.dish.chef,@offer) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name"><%= t('offers.edit.edit_offer')%></span></a>
+      <a href= "<%= chef_offers_url(@offer.dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name"><%= t('offers.edit.edit_offer_back')%></span></a>
+      </center>
+    </div>
+  </div>
+  <div class="span11">
+
+  </div>
+</div>

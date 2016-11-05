@@ -22,6 +22,7 @@ Chef.create( username: "Luisa", email: "luisasazonl@hotmail.com", password: "123
 Chef.create( username: "Andres", email: "andreslopez@hotmail.com", password: "123456", name: "Andres", lastname: "Lopez", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
 Chef.create( username: "Felipe", email: "felipebecerra@hotmail.com", password: "123456", name: "Felipe", lastname: "Becerra", picture: "https://cdn1.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png")
 
+Admin.create(username: "SuperU", email: "maxpower@hotmail.com", password: "123456", name: "Super", lastname: "Usuario")
 
 Ingredient.create( name: "Tomate" )
 Ingredient.create( name: "Espinaca" )
@@ -69,3 +70,23 @@ Following.create(chef_id: 12, user_id: 1, is_favorite: false)
 Following.create(chef_id: 13, user_id: 2, is_favorite: true)
 Following.create(chef_id: 8, user_id: 4, is_favorite: true)
 Following.create(chef_id: 7, user_id: 1, is_favorite: false)
+
+# Rotten
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-10-21 07:00:00", max_date: "2016-10-21 05:00:00", is_active: true)
+Offer.create(dish_id: 1, amount: 10, delivery_date: "2016-10-22 07:00:00", max_date: "2016-10-22 05:00:00", is_active: true)
+# Not Rotten
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-12-21 07:00:00", max_date: "2016-12-21 05:00:00", is_active: true)
+Offer.create(dish_id: 1, amount: 10, delivery_date: "2016-12-22 07:00:00", max_date: "2016-12-22 05:00:00", is_active: true)
+Offer.create(dish_id: 2, amount: 10, delivery_date: "2016-12-22 07:00:00", max_date: "2016-12-22 05:00:00", is_active: true)
+Offer.create(dish_id: 3, amount: 10, delivery_date: "2016-12-22 07:00:00", max_date: "2016-12-22 05:00:00", is_active: true)
+# Inactive
+Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-12-21 07:00:00", max_date: "2016-12-21 05:00:00", is_active: false)
+
+#
+Order.create(user_id: 1,offer_id: 3, amount: 5, date: "2016-12-21 08:00:00", comment: "Quiero 5 bandejas sin chicharron, gracias")
+Order.create(user_id: 1,offer_id: 5, amount: 3, date: "2016-12-21 08:00:00", comment: "Quiero 3 pescados, gracias")
+Order.create(user_id: 2,offer_id: 3, amount: 5, date: "2016-12-21 08:00:00", comment: "Deme 5 bandejas calientes, gracias")
+Order.create(user_id: 2,offer_id: 5, amount: 2, date: "2016-12-21 08:00:00", comment: "Deme 2 pescados sin chicharron, gracias")
+Order.create(user_id: 2,offer_id: 6, amount: 1, date: "2016-12-21 08:00:00", comment: "Deme un ajiaco, gracias")
+Order.create(user_id: 1,offer_id: 6, amount: 1, date: "2016-12-21 08:00:00", comment: "Quiero un ajiaco, gracias")
+

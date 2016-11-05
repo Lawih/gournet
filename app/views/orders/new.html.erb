@@ -1,5 +1,15 @@
-<h1>New Order</h1>
+<div class="container" align="Center">
+  <h2> <%= t('.new_order')%></h2>
 
-<%= render 'form', order: @order %>
+  <div class="row"  align="Center">
+    <div class=col-md-4 align="left"></div>
+    <div class=col-md-4 align="left">
+      <%= render 'form', order: @order %>
+      <hr>
+      <a href= "<%= offer_path(params[:offer_id]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name"><%= t('.new_order_back')%></span></a>
+    </div>
+  </div>
+  <div class="span11">
 
-<%= link_to 'Back', orders_path %>
+  </div>
+</div>

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   #attr_accessor :login
 
   has_many :identity, dependent: :delete_all
-  has_many :oders
+  has_many :orders
   has_many :followings
   has_many :chefs, through: :followings
   has_and_belongs_to_many :allergies, join_table: :user_allergies

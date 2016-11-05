@@ -1,3 +1,39 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* line 7, /home/lawih/.rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_panels.scss */
+.order {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* line 16, /home/lawih/.rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_orders.scss */
+.order-body {
+  padding: 15px;
+}
+/* line 14, /home/lawih/.rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_clearfix.scss */
+.order-body:before, .order-body:after {
+  content: " ";
+  display: table;
+}
+/* line 19, /home/lawih/.rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_clearfix.scss */
+.order-body:after {
+  clear: both;
+}
+
+/* line 22, /home/lawih/.rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_orders.scss */
+.order-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.order-default {
+  border-color: #ddd;
+}

@@ -5,6 +5,7 @@ class CreateOffers < ActiveRecord::Migration[5.0]
       t.integer :amount
       t.datetime :delivery_date
       t.datetime :max_date
+      t.boolean :is_active
 
       t.timestamps
     end

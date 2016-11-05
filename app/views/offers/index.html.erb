@@ -16,7 +16,7 @@
   <tbody>
     <% @offers.each do |offer| %>
       <tr>
-        <td><%= offer.dish %></td>
+        <td><%= offer.dish.name %></td>
         <td><%= offer.amount %></td>
         <td><%= offer.delivery_date %></td>
         <td><%= offer.max_date %></td>

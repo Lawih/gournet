@@ -1,6 +1,15 @@
 es:
   # Models
   activerecord:
+
+    models:
+      order:
+        one: "Orden"
+        other: "Ordenes"
+      offer:
+        one: "Oferta"
+        other: "Ofertas"
+
     attributes:
       user: #TODO
         name: "Nombre"
@@ -9,6 +18,15 @@ es:
         lastname: "Apellido"
         birthday: "Cumpleaños"
         phone: "Teléfono"
+      order:
+        amount: "Cantidad"
+        date: "Fecha"
+        status: "Estado"
+        comment: "Comentario"
+      offer:
+          amount: "Cantidad"
+          delivery_date: "Fecha de entrega"
+          max_date: "Fecha maxima de pedido"
 
   mail_form:
     attributes:
@@ -67,6 +85,19 @@ es:
       email: "Su correo electrónico"
       team_description: "Somos un equipo de futuros Ingenieros e Ingenieras de Sistemas y Computación de la Universidad Nacional de Colombia, emprendedores y creativos."
 
+  orders:
+    new:
+      new_order: "Ordena Ahora"
+      new_order_back: "Volver al plato"
+
+  offers:
+    new:
+      new_offer: "Nueva Oferta"
+      new_offer_back: "Volver a platos"
+    edit:
+      edit_offer: "Editar Oferta"
+      edit_offer_back: "Volver a platos"
+      show_offer: "Ver"
 
   contacts:
     new:

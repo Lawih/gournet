@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.integer  "amount"
     t.datetime "delivery_date"
     t.datetime "max_date"
+    t.boolean  "is_active"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["dish_id"], name: "index_offers_on_dish_id", using: :btree
@@ -138,7 +139,7 @@ ActiveRecord::Schema.define(version: 20160925174214) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "dish_id"
+    t.integer  "offer_id"
     t.integer  "delivery_person_id"
     t.integer  "amount"
     t.datetime "date"
@@ -147,7 +148,7 @@ ActiveRecord::Schema.define(version: 20160925174214) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["delivery_person_id"], name: "index_orders_on_delivery_person_id", using: :btree
-    t.index ["dish_id"], name: "index_orders_on_dish_id", using: :btree
+    t.index ["offer_id"], name: "index_orders_on_offer_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
@@ -208,6 +209,6 @@ ActiveRecord::Schema.define(version: 20160925174214) do
   add_foreign_key "identities", "users"
   add_foreign_key "offers", "dishes"
   add_foreign_key "orders", "delivery_people"
-  add_foreign_key "orders", "dishes"
+  add_foreign_key "orders", "offers"
   add_foreign_key "orders", "users"
 end
