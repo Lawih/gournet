@@ -1,3 +1,4 @@
 class DishImage < ApplicationRecord::Base
-  mount_uploader :file, ImageUploader
+  mount_uploader :photo, PhotoUploader
+  belongs_to :dish
 end
