@@ -1,4 +1,4 @@
-class DishImage < ApplicationRecord::Base
-  mount_uploader :photo, PhotoUploader
+class DishImage < ApplicationRecord
+  mount_uploader :url, DishImageUploader
   belongs_to :dish
 end

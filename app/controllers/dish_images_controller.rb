@@ -4,6 +4,7 @@ class DishImagesController < ApplicationController
   # GET /dish_images
   # GET /dish_images.json
   def index
+    @dish_image = DishImage.new
     @dish_images = DishImage.all
   end
 

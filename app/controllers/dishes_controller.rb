@@ -66,8 +66,8 @@ class DishesController < ApplicationController
 
     respond_to do |format|
       if @dish.save
-        params[:dish_images]['photo'].each do |a|
-          @dish_image = @dish.dish_images.create!(:photo => a)
+        params[:dish_images]['url'].each do |a|
+          @dish_image = @dish.dish_images.create!(:url => a)
         end
         format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
         format.json { render :show, status: :created, location: @dish }
