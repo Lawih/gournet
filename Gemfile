@@ -70,7 +70,6 @@ gem "omniauth-google-oauth2"
 
 # Internationalization
 gem 'rails-i18n'
-
 # Allows to use multi-language with devise
 gem 'devise-i18n'
 
@@ -96,3 +95,10 @@ gem 'will_paginate'
 
 # Gemfile
 gem 'filterrific'
+
+gem 'fog'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'fog-google'
+gem 'google-api-client'
+gem 'mime-types'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107021328) do
+ActiveRecord::Schema.define(version: 20161107005648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(version: 20161107021328) do
     t.index ["user_id"], name: "index_dish_evaluations_on_user_id", using: :btree
   end
 
+  create_table "dish_images", force: :cascade do |t|
+    t.integer  "dish_id"
+    t.string   "picture_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "dish_ingredients", force: :cascade do |t|
     t.integer  "ingredient_id"
     t.integer  "dish_id"
@@ -74,7 +81,6 @@ ActiveRecord::Schema.define(version: 20161107021328) do
     t.integer  "chef_id"
     t.string   "name"
     t.text     "description"
-    t.string   "picture"
     t.float    "score"
     t.float    "price"
     t.integer  "calories"
@@ -183,18 +189,17 @@ ActiveRecord::Schema.define(version: 20161107021328) do
     t.date     "birthday"
     t.string   "phone"
     t.string   "picture"
-    t.string   "type"
+    t.string   "type",                   default: "Diner"
     t.string   "category"
     t.text     "bio"
-    t.boolean  "enabled"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "email",                  default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"

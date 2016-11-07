@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :dish_images
   devise_for :users ,controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
   namespace :admin do

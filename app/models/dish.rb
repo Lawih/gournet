@@ -7,6 +7,8 @@ class Dish < ApplicationRecord
   #has_and_belongs_to_many :users, join_table: :favorite_dishes #ADD AL
   has_many :favorite_dishes #ADD AL
   has_many :users, through: :favorite_dishes #ADD AL
+  has_many :dish_images
+  accepts_nested_attributes_for :dish_images
 
   def self.search(search)
     if search

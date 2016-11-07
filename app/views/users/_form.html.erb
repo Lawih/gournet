@@ -1,62 +1,75 @@
-<%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="container" align="Center">
+  <h3> <%= t('.edit_profile')%></h3>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= bootstrap_form_for(current_user, as: 'user', url: edit_profile_path(current_user)) do |f| %>
+
+      <div class="row"  align="Center">
+        <div class=col-md-4 align="left"></div>
+        <div class=col-md-4 align="left">
+
+          <% if ( @user!=nil && @user.errors.any?) %>
+              <div id="errorExplanation">
+                <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="wrapper" id="wrapper-image">
+            <div class="no-image" id="img-result">
+              <%= f.file_field :user_picture, id: 'button-to-hide' %>
+            </div>
+          </div>
+          
+          <button class="show-button">Show server request</button>
+          <div class="upload-result">
+            <button class="hide-button">Close</button>
+            <pre class="upload-result__content">
+            </pre>
+          </div>
+
+          <div style="margin-top: 5cm">
+            <%= f.text_field :username, autofocus: true%>
+          </div>
+
+          <div>
+            <% if not current_user.email_verified? %>
+                <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
+            <%else%>
+                <%= f.text_field :email,:readonly => true%>
+            <% end%>
+          </div>
+
+          <div class="field">
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.text_field :lastname, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.date_field :birthday, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.text_field :phone, autofocus: true %>
+          </div>
+          <% if current_user.type == "Chef"%>
+              <div class="field">
+                <%= f.text_field :category, autofocus: true %><em>(Campo opcional)</em>
+              </div>
+              <div class="field">
+                <%= f.text_area :bio, autofocus: true %><em>(Campo opcional)</em>
+              </div>
+          <%end%>
+
+          <div>
+            <%= f.submit t('.confirm') %>
+          </div>
+        </div>
+      </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birthday %>
-    <%= f.date_select :birthday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :picture %>
-    <%= f.text_field :picture %>
-  </div>
-
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.select :type, User.types.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @type != "User" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,0 +1,27 @@
+<%= form_for(dish_image) do |f| %>
+  <% if dish_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dish_image.errors.count, "error") %> prohibited this dish_image from being saved:</h2>
+
+      <ul>
+      <% dish_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dish_id %>
+    <%= f.number_field :dish_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

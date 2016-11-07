@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @dish_image.dish_id %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @dish_image.url %>
+</p>
+
+<%= link_to 'Edit', edit_dish_image_path(@dish_image) %> |
+<%= link_to 'Back', dish_images_path %>

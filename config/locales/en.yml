@@ -76,7 +76,7 @@ en:
       contact_us: "Contact"
 
   users:
-    edit_profile:
+    form:
         edit_profile: "Edit Profile"
         confirm: "Confirm"
 

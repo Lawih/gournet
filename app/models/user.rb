@@ -138,5 +138,47 @@ class User < ApplicationRecord
     @friends = facebook { |fb| fb.get_connection("me","friends?fields=id,name,picture.type(large)") }
   end
 
+  attr_accessor :user_picture
 
+  private
+
+  after_create :upload_image, if: :user_picture
+
+  def upload_image
+    image = StorageBucket.files.new(
+                                   key: "user_pictures/#{email}/#{user_picture.original_filename}",
+                                   body: user_picture.read,
+                                   public: true
+    )
+
+    image.save
+
+    update_columns picture: image.public_url
+  end
+
+  before_destroy :delete_image, if: :picture
+
+  def delete_image
+    bucket_name = StorageBucket.key
+    image_uri   = URI.parse picture
+
+    if image_uri.host == "#{bucket_name}.storage.googleapis.com"
+      # Remove leading forward slash from image path
+      # The result will be the image key, eg. "cover_images/:id/:filename"
+      image_key = image_uri.path.sub("/", "")
+      image     = StorageBucket.files.new key: image_key
+
+      image.destroy
+    end
+  end
+  # [END delete]
+
+  # [START update]
+  after_update :update_image, if: :user_picture
+
+  def update_image
+    print picture
+    delete_image if picture?
+    upload_image
+  end
 end

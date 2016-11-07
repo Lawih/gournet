@@ -42,7 +42,9 @@
   <div class="col-md-12">
     <div class="col-md-3" >
       <div class="imgdish-div">
-        <img src="<%=dish.picture%>" class="img-circle">
+        <% @dish_images.each do |p| %>
+          <%= image_tag p.picture_url%>
+        <% end %>
       </div>
     </div>
     <div class=col-md-9>
