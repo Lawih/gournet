@@ -43,7 +43,7 @@
                               <%=current_user.username%> <span class="caret"></span> </a>
                           <ul class="dropdown-menu">
                               <li class="dropdown-submenu">
-                                <%= link_to t('.Mis_direcciones'), addresses_path%>
+                                <%= link_to 'Mis direcciones', addresses_path%>
                               </li>
                               <% if current_user.type == "Chef" %>
                                 <li class="dropdown-submenu">
@@ -51,8 +51,8 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li class="dropdown-submenu">
-                                    <%= link_to t('.Perfil_user'), user_path(current_user)%>
-                                    <%= link_to t('.Perfil_chef'), chef_path(current_user)%>
+                                    <%= link_to 'Perfil usuario', user_path(current_user)%>
+                                    <%= link_to 'Perfil chef', chef_path(current_user)%>
                                 </li>
                                 <li class="divider"></li>
                               <% else %>

@@ -70,7 +70,7 @@ gem "omniauth-google-oauth2"
 
 # Internationalization
 gem 'rails-i18n'
-gem 'geocoder'
+
 # Allows to use multi-language with devise
 gem 'devise-i18n'
 

@@ -77,7 +77,7 @@ es:
       chef: "Chef"
       edit_profile: "Editar perfil"
       change_your_password: "Cambiar contraseña"
-      new_dish: "Nuevo plato"
+      new_dish: "Nuevo plato"      
 
   users:
     edit_profile:
