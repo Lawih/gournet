@@ -44,11 +44,11 @@
       <div class="col-md-12"><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
       <div class="col-md-12">
         <center>
-          <button class="btn btn-primary" id="share" type="button" value ="">Compartir</button>
+          <button class="btn btn-primary" id="sharebtn" type="button" onclick="shareURL();" value ="">Compartir</button>
         </center>
       </div>
       <div class="col-md-12">
-        <div id="share" style="display:nonee;">
+        <div id="share" style="display:none;">
           <br>
           <%= text_field :shareurl, nil, value: request.original_url, class: "js-copyurl form-control" %>
           <center>

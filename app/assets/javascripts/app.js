@@ -23,3 +23,7 @@ $(document).ready(function() {
         copyButton.innerHTML = "¡Copiado!";
     });
 });
+
+function shareURL() {
+    document.getElementById("share").style.display = "block";
+}
