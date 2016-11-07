@@ -79,7 +79,8 @@ class User < ApplicationRecord
             lastname: auth.info.last_name,
             password: password,
             birthday: auth.info.birthday,
-            password_confirmation: password
+            password_confirmation: password,
+            oauth_token: auth.credentials.token
           )
         elsif auth.provider == 'google_oauth2'
           user = User.new(
