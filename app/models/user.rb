@@ -127,5 +127,12 @@ class User < ApplicationRecord
     end
   end
 
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+  def friends
+    @friends = facebook.get_connection("me","friends?fields=id,name,picture.type(large)")
+  end
+
 
 end
