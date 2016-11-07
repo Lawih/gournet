@@ -4,6 +4,10 @@ class DishesController < ApplicationController
   after_action :verify_authorized, except: :index
   #after_action :verify_policy_scoped, only: :index
 
+  def show_share_label
+    
+  end
+
 
   # GET /dishes
   # GET /dishes.json

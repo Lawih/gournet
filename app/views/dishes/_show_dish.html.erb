@@ -41,10 +41,24 @@
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
-      <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
+      <div class="col-md-12"><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
+      <div class="col-md-12">
+        <center>
+          <button class="btn btn-primary" id="share" type="button" value ="">Compartir</button>
+        </center>
+      </div>
+      <div class="col-md-12">
+        <div id="share" style="display:nonee;">
+          <br>
+          <%= text_field :shareurl, nil, value: request.original_url, class: "js-copyurl form-control" %>
+          <center>
+          <button class="btn btn-primary js-copybutton" id="copyurl" type="button" value ="">Copiar</button>
+          </center>
+        </div>
+      </div>
       <div class="col-md-12" >
           <% if viewmore %>
-            <%= link_to "<button class='btn btn-embossed btn-primary' >Ver mas</button>".html_safe, dish %>
+            <%= link_to "<button class='btn btn-embossed btn-primary' >Ver más</button>".html_safe, dish %>
           <%end%>
           <%= link_to "<button class='btn btn-embossed btn-primary' >Editar</button>".html_safe, edit_dish_path(dish) if policy(dish).edit? %>
           <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
