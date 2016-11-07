@@ -130,9 +130,13 @@ class User < ApplicationRecord
 
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
+     block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+      logger.info e.to_s
+      nil
   end
   def friends
-    @friends = facebook.get_connection("me","friends?fields=id,name,picture.type(large)")
+    @friends = facebook { |fb| fb.get_connection("me","friends?fields=id,name,picture.type(large)") }
   end
 
 
