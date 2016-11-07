@@ -113,6 +113,25 @@
 </head>
 
 <body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1646406112338578',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/es_LA /sdk/debug.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
     <%= yield %>
 </body>
 <footer>
@@ -145,6 +164,8 @@
             <li>Bogotá, Colombia</li>
           </ul>
             <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
+            <h3>Like Button with Faces</h3>
+            <fb:like width="200" show_faces="yes" href="https://gournet.herokuapp.com"></fb:like>
         </div>
       </div>
     </div>

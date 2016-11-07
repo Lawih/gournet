@@ -67,6 +67,9 @@ class User < ApplicationRecord
       email = auth.info.email
       user = User.find_by(email: email) if email
       username = auth.info.email.split("@")[0]
+      if User.find_by_username(username) != nil
+        username = "#{auth.uid}"
+      end
       # Create the user if it's a new registration
       if user.nil?
          password = Devise.friendly_token[0,20]

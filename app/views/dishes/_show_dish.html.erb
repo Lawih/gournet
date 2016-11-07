@@ -1,4 +1,9 @@
 
+<meta property="fb:app_id" content="1646406112338578">
+<meta property="og:title" content="<%=dish.name%>">
+<meta property="og:description" content="<%=dish.description%>">
+<meta property="og:image" content="<%=dish.picture%>" >
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -50,11 +55,8 @@
     <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
     <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
     <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
-    <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
-    <% if user_signed_in? %>
-      <meta property="og:description" content="<%=dish.description%>"/>
-      <meta property="og:image" content="<%=dish.picture%>"/>
-      <meta property="og:title" content="<%=dish.name%>"/>
+    <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %><br><br></div>
+    <% if user_signed_in?  && !viewmore%>
       <% if Identity.find_by_user_id(current_user.id) != nil%>
         <% if Identity.find_by_user_id(current_user.id).provider == "facebook"%>
             <div class="fb-share-button"
