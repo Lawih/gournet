@@ -4,6 +4,7 @@ class CreateIdentities < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.string :provider
       t.string :uid
+      t.string :oauth_token
 
       t.timestamps
     end
