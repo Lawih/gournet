@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder'
 gem 'gmaps4rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -63,6 +64,7 @@ gem 'devise'
 # Login with facebook and google
 gem "omniauth"
 gem "omniauth-facebook"
+gem "koala"
 gem "omniauth-oauth2"
 gem "omniauth-google-oauth2"
 
