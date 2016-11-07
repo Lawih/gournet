@@ -2,7 +2,6 @@
 <meta property="fb:app_id" content="1646406112338578">
 <meta property="og:title" content="<%=dish.name%>">
 <meta property="og:description" content="<%=dish.description%>">
-<meta property="og:image" content="<%=dish.picture%>" >
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -48,8 +47,10 @@
   <div class="col-md-12">
     <div class="col-md-3" >
       <div class="imgdish-div">
-        <% @dish_images.each do |p| %>
-          <%= image_tag p.picture_url%>
+        <%if @dish_images != nil%>
+          <% @dish_images.each do |p| %>
+            <%= image_tag p.picture_url%>
+          <% end %>
         <% end %>
       </div>
     </div>

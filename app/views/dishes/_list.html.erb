@@ -1,7 +1,7 @@
 <div id="filterrific_results">
   <br>
-<div class="container">
-      <% @dishes.each do |dish| %>
+  <div class="container">
+    <% @dishes.each do |dish| %>
         <div class="col-md-5 dish">
           <div class="col-md-12" >
             <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a></h3>
@@ -12,7 +12,11 @@
           <div class="col-md-12">
             <div class="col-md-6" >
               <div class="imgdish-div">
-                <img src="<%=dish.picture%>" class="img-circle">
+                <%if @dish_images != nil%>
+                  <% @dish_images.each do |p| %>
+                    <%= image_tag p.picture_url%>
+                  <% end %>
+                <% end %>
               </div>
             </div>
             <div class="col-md-6">
@@ -31,7 +35,6 @@
               <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
           </div>
         </div>
-
-      <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
