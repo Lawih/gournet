@@ -51,22 +51,19 @@
                   <%= favorite_dish.dish.name %> de
                     <%= favorite_dish.dish.chef.username %>
                       </br>
-                      <% end %>
-
-                        <div style="text-align:center">
-
+                      <% end %>    
+                      <b><font SIZE=4 COLOR="#DC768C">AMIGOS QUE USAN LA APP </font></b></br>
                           <% friends = current_user.friends %>
-
                             <%  friends.each do |f|%>
-
-                              <%= image_tag f['picture']['data']['url'] %>
-
-                                <h4 class="team-text">
+                              <div class="img-div"> 
+                                <%= image_tag f['picture']['data']['url'] %>
+                              </div>
+                              <h3>                                
                                   <%= f['name'] %>
-                                </h4>
+                              </h3>
 
-                                <% end %>
-                        </div>
+                              <% end %>           
 
   </div>
+  
 </div>
