@@ -31,8 +31,7 @@
 
   <%= f.fields_for :dish_images do |p|%>
     <div class="field">
-      <%= p.label :url %>
-      <%= p.file_field :url, :multiple => true, name: "dish_images[url][]" %>
+      <%= p.file_field :picture_url, :multiple => true, name: "dish_images[picture_url][]" %>
     </div>
   <% end %>
 

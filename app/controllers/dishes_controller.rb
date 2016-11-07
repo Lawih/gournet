@@ -66,8 +66,8 @@ class DishesController < ApplicationController
 
     respond_to do |format|
       if @dish.save
-        params[:dish_images]['url'].each do |a|
-          @dish_image = @dish.dish_images.create!(:url => a)
+        params[:dish_images]['picture_url'].each do |a|
+          @dish_image = @dish.dish_images.create!(:picture_url => a)
         end
         format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
         format.json { render :show, status: :created, location: @dish }
@@ -111,6 +111,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:chef_id, :name, :description, :picture, :score, :price, :calories, dish_images_attributes: [:id, :dish_id, :url])
+      params.require(:dish).permit(:chef_id, :name, :description, :picture, :score, :price, :calories, dish_images_attributes: [:id, :dish_id, :picture_url])
     end
 end
