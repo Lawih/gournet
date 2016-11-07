@@ -106,9 +106,8 @@ ActiveRecord::Schema.define(version: 20161107021328) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.string   "oauth_token"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
