@@ -1,28 +1,26 @@
 <%= stylesheet_link_tag 'static_pages' %>
-<body class="page">
-	<div class ="wrapper container">
-		<div class="wrapper-head row">
-			<div class="wrapper-logo row">
-                <h2 class="title"><%= t('.title') %></h2>
-			       <!-- <%= link_to image_tag('paprika_logo.jpg', :class => "logo img-responsive"), root_path %>-->
-		    </div>
-			<div class="col-md-7 col-xs-12 group-col vcenter">
-				<!--<%= image_tag('grupo.JPG', :class => "group img-responsive") %>-->
-			</div>
+<div class ="container">
+		<center>
+		<div class="col-md-12">
+      <h2 class="title"><%= t('.title') %></h2>
+	       <!-- <%= link_to image_tag('paprika_logo.jpg', :class => "logo img-responsive"), root_path %>-->
+		  <div class="col-md-7 col-xs-12 group-col vcenter">
+ 				<!--<%= image_tag('grupo.JPG', :class => "group img-responsive") %>-->
+ 			</div>
 		</div>
 
-		<div class="wrapper-body row">
+		<div class="col-md-12">
 			<h3><%= t('.team') %></h3>
 			<p class="intro-body"><%= t('.team_description') %></p>
 
-			<div class = "row team-row">
+			<div class = "col-md-12">
 				<%= image_tag('http://openplus.ca/images/person-girl-flat.png', :class => "team-photo img-responsive") %>
 				<h4 class="team-text">LAURA VIVIANA ÁLVAREZ CARVAJAL</h4>
 				<p class="team-role">Scrum master</p>
 				<p class="team-role"><%= t('.developer') %></p>
 			</div>
 
-			<div class="row team-row">
+			<div class="col-md-12">
 				<div class="col-md-6 col-xs-12">
 					<%= image_tag('http://openplus.ca/images/person-girl-flat.png', :class => "team-photo img-responsive") %>
 					<p class="team-text">LAURA ALEJANDRA CHAPARRO GUTIÉRREZ</p>
@@ -35,7 +33,7 @@
 				</div>
 			</div>
 
-			<div class="row team-row">
+			<div class="col-md-12">
 				<div class="col-md-6 col-xs-12">
 					<%= image_tag('http://www.guadagnolandia.it/images/person.png', :class => "team-photo img-responsive") %>
 					<p class="team-text">JONATHAN MARTÍNEZ CHINGATE</p>
@@ -48,5 +46,5 @@
 				</div>
 			</div>
 		</div>
+		</center>
 	</div>
-</body>

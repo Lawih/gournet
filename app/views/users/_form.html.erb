@@ -6,23 +6,22 @@
       <div class="row"  align="Center">
         <div class=col-md-4 align="left"></div>
         <div class=col-md-4 align="left">
-
-          <% if ( @user!=nil && @user.errors.any?) %>
-              <div id="errorExplanation">
-                <ul>
-                  <% @user.errors.full_messages.each do |msg| %>
-                      <li><%= msg %></li>
-                  <% end %>
-                </ul>
-              </div>
-          <% end %>
-
+        <% if ( @user!=nil && @user.errors.any?) %>
+            <div id="errorExplanation">
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <center>
           <div class="wrapper" id="wrapper-image">
             <div class="no-image" id="img-result">
               <%= f.file_field :user_picture, id: 'button-to-hide' %>
             </div>
           </div>
-          
+        </center>
           <button class="show-button">Show server request</button>
           <div class="upload-result">
             <button class="hide-button">Close</button>

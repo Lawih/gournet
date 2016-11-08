@@ -36,34 +36,41 @@
   </div>
 
   <div class="col-md-9" align="center">
+    <div class="col-md-12">
+      <b><font SIZE=4 COLOR="#DC768C">Tus chefs  favoritos </font></b></br>
+      <% @followings.each do |following| %>
+        <%if following.user == current_user%>
+          <div class="col-md-2">
+            <div class="img-face">
+              <img src="<%=following.chef.picture%>" class="img-circle">
+            </div>
+            <a href= "<%= chef_path(following.chef) %>" ><h5><%= following.chef.username %></h5></a>
+          </div>
+        <%end%>
+      <% end %>
+    </div>
 
-    <% @followings.each do |following| %>
-      <%if following.user == current_user%>
-        <b><font SIZE=4 COLOR="#DC768C">Siguiendo a </font></b>
-        <%= following.chef.username %> desde
-          <%= following.created_at %>
-            </br>
-            <%end%>
-              <% end %>
-
-                <% @favorite_dishes.each do |favorite_dish| %>
-                  <b><font SIZE=4 COLOR="#DC768C">Guardo plato </font></b>
-                  <%= favorite_dish.dish.name %> de
-                    <%= favorite_dish.dish.chef.username %>
-                      </br>
-                      <% end %>    
-                      <b><font SIZE=4 COLOR="#DC768C">AMIGOS QUE USAN LA APP </font></b></br>
-                          <% friends = current_user.friends %>
-                            <%  friends.each do |f|%>
-                              <div class="img-div"> 
-                                <%= image_tag f['picture']['data']['url'] %>
-                              </div>
-                              <h3>                                
-                                  <%= f['name'] %>
-                              </h3>
-
-                              <% end %>           
-
+    <div class="col-md-12">
+      <b><font SIZE=4 COLOR="#DC768C">Tus platos guardados </font></b></br>
+      <% @favorite_dishes.each do |favorite_dish| %>
+        <div class="col-md-2">
+          <a href= "<%= dish_path(favorite_dish.dish) %>" ><%= favorite_dish.dish.name %></a> de
+          <%= favorite_dish.dish.chef.username %>
+        </div>
+      <% end %>
+    </div>
+      </br></br></br>
+      <div class="col-md-12">
+        <b><font SIZE=4 COLOR="#DC768C">Tus amigos de Facebook en GourNet </font></b></br>
+        <% friends = current_user.friends %>
+        <%  friends.each do |f|%>
+          <div class="col-md-2">
+            <div class="img-face">
+              <img src="<%=f['picture']['data']['url']%>" class="img-circle">
+            </div>
+            <h5><%= f['name'] %></h5>
+          </div>
+        <% end %>
+      </div>
   </div>
-  
 </div>
