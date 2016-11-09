@@ -141,6 +141,16 @@ class User < ApplicationRecord
     @friends = facebook { |fb| fb.get_connection("me","friends?fields=id,name,picture.type(large)") }
   end
 
+  def shareDish(names,ids,descriptions)
+  facebook { |fb| fb.put_wall_post("GourNet", {
+      "name" => names,
+      "link" => "https://gournet.herokuapp.com/dishes/",
+      "caption" => "https://gournet.herokuapp.com/",
+      "description" => descriptions,
+      "picture" => "http://www.example.com/thumbnail.jpg"
+    })}
+  end
+
   attr_accessor :user_picture
 
   private

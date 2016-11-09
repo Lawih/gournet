@@ -5,9 +5,8 @@ class DishesController < ApplicationController
   #after_action :verify_policy_scoped, only: :index
 
   def show_share_label
-    
-  end
 
+  end
 
   # GET /dishes
   # GET /dishes.json

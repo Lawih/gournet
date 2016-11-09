@@ -7,13 +7,24 @@ class UsersController < ApplicationController
   #def index
     #@users = User.all
   #end
+  def shareDish
+    #Koala::Facebook::API.new(current_user.oauth_token).put_wall_post("GourNet", {
+    #  "name" => params[:name],
+    #  "link" => "https://gournet.herokuapp.com/dishes/"+params[:id],
+    #  "caption" => "https://gournet.herokuapp.com/",
+    #  "description" => params[:description],
+    #  "picture" => "http://www.example.com/thumbnail.jpg"
+    #})
+    current_user.shareDish(params[:name],params[:id],params[:description])
+    redirect_to '/dishes/'+params[:id]
+  end
 
   # GET /users/1
   # GET /users/1.json
   def show
     #@followings = @user.followings
     @followings = Following.all
-    @favorite_dishes = @user.favorite_dishes 
+    @favorite_dishes = @user.favorite_dishes
     #if user_is_chef?
     #    redirect_to chef_path(@user)
     #end

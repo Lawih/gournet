@@ -18,12 +18,14 @@ Rails.application.routes.draw do
     # get 'static_pages/about_us', as: "about_us"
     get 'static_pages/about_us'
 
+    match 'users/shareDish' => 'users#shareDish', via: [:get], as: :shareDish
+
 
     resources :chefs do
         resources :dishes
         resources :offers
     end
-    
+
     resources :dishes
     resources :offers
     get '/requests', to: "orders#requests"
