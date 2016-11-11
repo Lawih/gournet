@@ -59,11 +59,12 @@
         </div>
       <% end %>
     </div>
+
+    <%if current_user.friends != nil%>
       </br></br></br>
       <div class="col-md-12">
         <b><font SIZE=4 COLOR="#DC768C">Tus amigos de Facebook en GourNet </font></b></br>
-        <% friends = current_user.friends %>
-        <%  friends.each do |f|%>
+        <% current_user.friends.each do |f|%>
           <div class="col-md-2">
             <div class="img-face">
               <img src="<%=f['picture']['data']['url']%>" class="img-circle">
@@ -72,5 +73,6 @@
           </div>
         <% end %>
       </div>
+    <% end %>
   </div>
 </div>

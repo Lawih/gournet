@@ -64,21 +64,8 @@
           <% if user_signed_in? %>
             <% if Identity.find_by_user_id(current_user.id) != nil%>
               <% if Identity.find_by_user_id(current_user.id).provider == "facebook"%>
-                  <!--<div class="fb-share-button"
-                     data-href="https://gournet.herokuapp.com/es/dishes/<%=dish.id%>"
-                     data-layout="box_count"
-                     data-size="large"
-                     data-mobile-iframe="false">
-                  </div>-->
                   <%= link_to "<button class='btn' >Compartir en facebook</button>".html_safe,
                   shareDish_path(:name => dish.name,:description => dish.description,:id => dish.id), data: { confirm: '¿Estas seguro que deseas compartir el plato?' } %>
-                  <!---<%= link_to 'compaertiit',  {
-              "name" => dish.name,
-              "link" => "https://gournet.herokuapp.com/",
-              "caption" => "https://gournet.herokuapp.com/",
-              "description" => dish.description,
-              "picture" => "http://www.example.com/thumbnail.jpg"
-            } %>-->
               <%end%>
             <%end%>
           <%end%>

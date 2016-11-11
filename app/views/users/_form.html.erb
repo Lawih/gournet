@@ -50,7 +50,7 @@
           </div>
 
           <div class="field">
-            <%= f.date_field :birthday, autofocus: true %>
+            <%= f.date_select :birthday,{ :start_year => 1920, :end_year => 2016 }, autofocus: true %>
           </div>
 
           <div class="field">
