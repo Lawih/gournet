@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
   <div class="container-field dish-page">
-    <div class="col-md-12">
-    <div class="col-md-7">
-      <div class="col-md-12 ">
-        <%=render "dishes/show_dish", dish: @dish, chef: @dish.chef, divide: " - ",viewmore: false  %>
-      </div>
+    <div class="col-md-12 ">
+      <%=render "dishes/show_dish", dish: @dish, chef: @dish.chef, divide: " - ",viewmore: false  %>
     </div>
-    <div class="col-md-4 comment">
+    <br><br>
+
+    <div class="col-md-12"><!--<div class="col-md-12 comment">
+      al agregar la linea con comment genera errores--->
       <H3>Comentarios</H3>
       <%@dish_evaluations.each do |evaluation| %>
         <%=render "dish_evaluations/show", dish_evaluation: evaluation%>
       <%end%>
     </div>
-  </div>
 
+<!--
   <div class="col-md-12" align="center">
     <br><br>
     <a href= "<%= dishes_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
     <a href= "<%= chef_dishes_path(@dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
     <a href= "<%= chef_path(@dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver chef</span></a>
-    </div>
+  </div>-->
   </div>

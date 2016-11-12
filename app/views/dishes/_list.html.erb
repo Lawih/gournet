@@ -1,40 +1,47 @@
 <div id="filterrific_results">
   <br>
   <div class="container">
+    <%orient = -1%>
     <% @dishes.each do |dish| %>
-        <div class="col-md-5 dish">
-          <div class="col-md-12" >
-            <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a></h3>
-            <h4><a href= "<%= chef_path(dish.chef) %>" class="link"><%= dish.chef.username %></a></h4>
-          </div>
-          </br>
-          </br>
-          <div class="col-md-12">
-            <div class="col-md-6" >
-              <div class="imgdish-div">
-                <%if @dish_images != nil%>
-                  <% @dish_images.each do |p| %>
-                    <%= image_tag p.picture_url%>
-                  <% end %>
+        <div class="col-md-12 dish">
+          <%if orient == 1%>
+            <div class="col-md-4 pull-right wow fadeInRightBig">
+          <%else%>
+            <div class="col-md-4 wow fadeInLeftBig">
+          <%end%>
+            <div class="imgdish-div">
+              <%if @dish_images != nil%>
+                <% @dish_images.each do |p| %>
+                  <%= image_tag p.picture_url%>
                 <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-8 wow fadeInLeftBig">
+            <div class="col-md-12" >
+              <div class="col-md-8" >
+                <h3><a href="<%= dish_path(dish) %>" class="link"><%=dish.name%></a> -
+                <a href="<%= chef_path(dish.chef) %>" class="link"><%=dish.chef.username %></a></h3>
+              </div>
+              <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
+            </div>
+            <div class="col-md-12" >
+              <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
+              <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
+              <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b>
+                <%= truncate(dish.description, :length => 200) %>
+                <!--<%= dish.description %>-->
+              </div>
+              <div class="col-md-12" >
+                  <br>
+                  <%= link_to 'Ver más', dish, :class => "btn btn-embossed btn-primary " %>
+                  <%= link_to "<button class='btn btn-embossed btn-primary' >Editar</button>".html_safe, edit_dish_path(dish) if policy(dish).edit? %>
+                  <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
-              <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
-              <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
-            </div>
-          </div>
-
-          <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
-
-          <div class="col-md-12" >
-              <br>
-              <%= link_to 'Ver más', dish, :class => "btn btn-embossed btn-primary " %>
-              <%= link_to "<button class='btn btn-embossed btn-primary' >Editar</button>".html_safe, edit_dish_path(dish) if policy(dish).edit? %>
-              <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
           </div>
         </div>
+      <%orient = orient*-1%>
     <% end %>
   </div>
 </div>

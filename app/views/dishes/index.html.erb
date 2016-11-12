@@ -1,34 +1,25 @@
 <p id="notice"><%= notice %></p>
-
-<h3 align="center"><%=t('layouts.application.dishes') %></h3>
-<br/>
-
 <div class="container">
     <div class="col-md-6 ">
     </div>
     <div class="col-md-6 ">
-
-    <div class="col-md-3 ">
-      Ordenar por:
-    </div>
-    <div class="col-md-6 ">
-      <%= form_for_filterrific @filterrific do |f| %>
-        <div>
-          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { :class => 'selectpicker' }) %>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-md-3 ">
-      <div>
-        <%= link_to(
-          'Restablecer filtros',
-          reset_filterrific_url,
-          class: "btn btn-embossed btn-primary"
-        ) %>
+      <div class="col-md-3 ">
+        Ordenar por:
       </div>
-      <%# add an automated spinner to your form when the list is refreshed %>
-      <%= render_filterrific_spinner %>
-    </div>
+      <div class="col-md-6 filter">
+        <%= form_for_filterrific @filterrific do |f| %>
+            <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { :class => 'selectpicker' }) %>
+        <% end %>
+      </div>
+      <div class="col-md-3 ">
+          <%= link_to(
+            'Restablecer filtros',
+            reset_filterrific_url,
+            class: "btn btn-embossed btn-primary"
+          ) %>
+        <%# add an automated spinner to your form when the list is refreshed %>
+        <%= render_filterrific_spinner %>
+      </div>
     </div>
 </div>
 
