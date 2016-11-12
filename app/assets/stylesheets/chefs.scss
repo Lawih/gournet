@@ -51,3 +51,15 @@ div.img-face{
     width:110px;
     //-webkit-transform:translate(-50%);
 }
+
+div.index-img{
+    height:250px;
+    width:250px;
+    overflow:hidden;
+    border-radius:50%;
+}
+.index-img img{
+    height:250px;
+    width:250px;
+    //-webkit-transform:translate(-50%);
+}

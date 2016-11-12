@@ -21,7 +21,11 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">GourNet</a>
+                <% if user_signed_in? %>
+                  <a class="navbar-brand" href="<%=dishes_path%>">GourNet</a>
+                <%else%>
+                  <a class="navbar-brand" href="/">GourNet</a>
+                <%end%>
             </div>
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <div class="search-wrapper">
@@ -133,6 +137,21 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
    </script>
+
+   <!----barra siempre arriba--->
+   <script type="text/javascript">
+     jQuery(function($) {
+     $(document).ready( function() {
+     $('.navbar-default').stickUp();
+
+     });
+     });
+  </script>
+
+  <script>
+     new WOW().init();
+  </script>
+  <!----fin barra siempre arriba--->
   <div class="container">
     <div class="row">
       <div class="col-md-7">

@@ -2,7 +2,6 @@
   <% if dish.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
-
       <ul>
       <% dish.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,9 +9,11 @@
       </ul>
     </div>
   <% end %>
+
   <% if user_signed_in? %>
     <input readonly="readonly" value="<%= current_user.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
   <%end%>
+
   <div class="field">
     <%= f.text_field :name %>
   </div>

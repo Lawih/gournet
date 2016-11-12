@@ -5,7 +5,7 @@
   </div>
 
   <!-- FullScreen -->
-    <div class="intro-header">
+  <div class="intro-header">
 		<div class="col-xs-12 text-center abcen1">
       <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">GourNet</h1>
 			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"><%=t('.forget_about_cooking_at_home')%></h3>
@@ -21,13 +21,13 @@
         <!-- /.container -->
 		<div class="col-xs-12 text-center abcen wow fadeIn">
 			<div class="button_down ">
-				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
+				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#coming_soon"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
 			</div>
 		</div>
-    </div>
+  </div>
 
     <!-- NavBar-->
-    <!-- NavBar-->
+    <!-- NavBar
     <nav class="navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -118,10 +118,10 @@
             </div>
         </div>
     </nav>
-    <!-- NavBar END-->
+     NavBar END-->
 
     <!--dishes--->
-    <div id ="useit" class="content-section-a">
+    <div id ="dishes" class="content-section-a">
         <div class="container">
             <div class="row">
               <div class="col-sm-6 pull-right wow fadeInRightBig">
@@ -129,8 +129,10 @@
               </div>
 
               <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
-                  <h3 class="section-heading"> <%= @dishes[0].name %> </h3>
-                  <div class="sub-title lead3"> <%= @dishes[0].chef.name %> <br> junio 27, 2016</div>
+                  <h3 class="section-heading"> <a href= "<%= dish_path(@dishes[0]) %>" class="link"><%= @dishes[0].name %></a></h3>
+                  <div class="sub-title lead3">
+                    <a href= "<%= chef_path(@dishes[0].chef) %>" class="link"><%= @dishes[0].chef.username %></a>
+                  </div>
                   <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
                       <p>
                           <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
@@ -155,8 +157,10 @@
             </div>
 
         <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
-            <h3 class="section-heading"> <%= @dishes[1].name %> </h3>
-            <div class="sub-title lead3"> <%= @dishes[1].chef.name %> <br> junio 27, 2016</div>
+            <h3 class="section-heading"> <a href= "<%= dish_path(@dishes[1]) %>" class="link"><%= @dishes[1].name %></a></h3>
+            <div class="sub-title lead3">
+              <a href= "<%= chef_path(@dishes[1].chef) %>" class="link"><%= @dishes[1].chef.username %></a>
+            </div>
             <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
                 <p>
                     <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
@@ -170,48 +174,29 @@
 
 
   <!-- Chefs -->
-  <div id="whatis" class="content-section-b" style="border-top: 0">
-  <div class="container">
-    <div class="col-md-12 text-center wrap_title">
-      <h2>Chefs</h2>
-      <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
-      <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
-    </div>
+  <div id="Chefs" class="content-section-b" style="border-top: 0">
+    <div class="container">
+      <div class="col-md-12 text-center wrap_title">
+        <h2>Chefs</h2>
+        <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
+        <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
+      </div>
 
-    <div class="row first-chef-row">
-        <div class="col-sm-3 wow fadeInDown text-center">
-            <img src="<%= image_path('theme/chefs/profile_1.png') %>"  width="250" height="250"  alt="Generic placeholder image">
-            <h3> <%= @chefs[2].name %> </h3>
-            <p class="lead"><%= t('.chef_1')%></p>
-            <li><a href= "<%= chef_path(@chefs[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-sm-3 wow fadeInDown text-center">
-            <img src="<%= image_path('theme/chefs/profile_2.png') %>"  width="250" height="250"  alt="Generic placeholder image">
-            <h3> <%= @chefs[3].name %> </h3>
-            <p class="lead"><%= t('.chef_2')%></p>
-            <li><a href= "<%= chef_path(@chefs[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-        </div>
-        <div class="col-sm-3  wow fadeInDown text-center">
-            <img src="<%= image_path('theme/chefs/profile_3.png') %>" width="250" height="250"  alt="Generic placeholder image">
-            <h3> <%= @chefs[1].name %> </h3>
-            <p class="lead"><%= t('.chef_3')%></p>
-            <li><a href= "<%= chef_path(@chefs[2]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-            <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-        </div><!-- /.col-lg-4 -->
-
-        <div class="col-sm-3 wow fadeInDown text-center">
-            <img  src="<%= image_path('theme/chefs/profile_4.png') %>" width="250" height="250" alt="Generic placeholder image">
-            <h3> <%= @chefs[0].name %> </h3>
-            <p class="lead"><%= t('.chef_4')%></p>
-            <li><a href= "<%= chef_path(@chefs[3]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-            <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-        </div><!-- /.col-lg-4 -->
+      <div class="row first-chef-row">
+        <%for i in(0..3)%>
+          <div class="col-sm-3 wow fadeInDown text-center">
+              <div class="index-img"> <img src="<%= @chefs[i].picture%>" class="img-circle"></div>
+              <h3> <a href= "<%= chef_path(@chefs[i]) %>" class="link"><%= @chefs[i].username %></a></h3>
+              <p class="lead"><%= t('.chef_'+(i+1).to_s)%></p>
+              <li><a href= "<%= chef_path(@chefs[i]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
+          </div><!-- /.col-lg-4 -->
+        <%end%>
       </div>
     </div>
   </div>
   <!-- End Chefs -->
 
-  <div  class="content-section-c ">
+  <div id="coming_soon" class="content-section-c ">
     <div class="container">
       <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center white">
@@ -293,20 +278,4 @@
   </div>
 
   -->
-
-  <footer>
-    <script type="text/javascript">
-    jQuery(function($) {
-    $(document).ready( function() {
-    $('.navbar-default').stickUp();
-
-    });
-    });
-    </script>
-
-    <script>
-    new WOW().init();
-    </script>
-    
-  </footer>
 </body>
