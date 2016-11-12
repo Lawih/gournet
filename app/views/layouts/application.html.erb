@@ -113,6 +113,9 @@
 </head>
 
 <body>
+    <%= yield %>
+</body>
+<footer>
   <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -130,10 +133,6 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
    </script>
-
-    <%= yield %>
-</body>
-<footer>
   <div class="container">
     <div class="row">
       <div class="col-md-7">
@@ -152,23 +151,18 @@
 
           <%= link_to "Menu del día", dishes_path%><br>
         </div>
-
-
       </div> <!-- /col-xs-7 -->
 
       <div class="col-md-5">
         <div class="footer-banner">
           <h3 class="footer-title">GourNet</h3>
-          <ul>
             <li>Bogotá, Colombia</li>
-          </ul>
             <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
-            <h3>Like Button with Faces</h3>
-            <fb:like width="200" show_faces="yes" href="https://gournet.herokuapp.com"></fb:like>
+          <br>
+          <div class="fb-like" data-href="https://gournet.herokuapp.com" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
         </div>
       </div>
     </div>
   </div>
 </footer>
-
 </html>

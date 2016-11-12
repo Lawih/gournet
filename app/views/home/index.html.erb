@@ -27,6 +27,7 @@
     </div>
 
     <!-- NavBar-->
+    <!-- NavBar-->
     <nav class="navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -55,15 +56,17 @@
                           <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
                               <%=current_user.username%> <span class="caret"></span> </a>
                           <ul class="dropdown-menu">
+                              <li class="dropdown-submenu">
+                                <%= link_to 'Mis direcciones', addresses_path%>
+                              </li>
                               <% if current_user.type == "Chef" %>
                                 <li class="dropdown-submenu">
                                   <%= link_to t('.new_dish'), new_dish_path %>
                                 </li>
                                 <li class="divider"></li>
-                                <li class="dropdown-header"><%= t('.profile') %></li>
                                 <li class="dropdown-submenu">
-                                    <%= link_to t('.user'), user_path(current_user)%>
-                                    <%= link_to t('.chef'), chef_path(current_user)%>
+                                    <%= link_to 'Perfil usuario', user_path(current_user)%>
+                                    <%= link_to 'Perfil chef', chef_path(current_user)%>
                                 </li>
                                 <li class="divider"></li>
                               <% else %>
@@ -116,163 +119,97 @@
         </div>
     </nav>
     <!-- NavBar END-->
-  <!-- What is -->
+
+    <!--dishes--->
+    <div id ="useit" class="content-section-a">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-6 pull-right wow fadeInRightBig">
+                    <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
+              </div>
+
+              <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
+                  <h3 class="section-heading"> <%= @dishes[0].name %> </h3>
+                  <div class="sub-title lead3"> <%= @dishes[0].chef.name %> <br> junio 27, 2016</div>
+                  <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
+                      <p>
+                          <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
+                          <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
+                      </p>
+              </div>
+            </div>
+        </div>
+    </div>      <!-- /.container -->
+
+    <div class="content-section-b">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-6 wow fadeInLeftBig">
+                <div id="owl-demo-1" class="owl-carousel">
+                  <a href="img/iphone.png" class="image-link">
+                    <div class="item">
+                      <%= image_tag "http://cdn.noticiaaldia.com/wp-content/uploads/2015/08/00041517915417f854ff2d94f7acd3b8.jpg", :title => "example", :class=>"img-responsive img-rounded" %>
+                    </div>
+                  </a>
+                </div>
+            </div>
+
+        <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
+            <h3 class="section-heading"> <%= @dishes[1].name %> </h3>
+            <div class="sub-title lead3"> <%= @dishes[1].chef.name %> <br> junio 27, 2016</div>
+            <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
+                <p>
+                    <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
+                    <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--end dishes-->
+
+
+  <!-- Chefs -->
   <div id="whatis" class="content-section-b" style="border-top: 0">
   <div class="container">
-    <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+    <div class="col-md-12 text-center wrap_title">
       <h2>Chefs</h2>
       <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
-      <li><a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
+      <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
     </div>
 
     <div class="row first-chef-row">
-
-        <div class="col-sm-6 wow fadeInDown text-center">
-            <img src="<%= image_path('theme/chefs/profile_1.png') %>" width="300" height="300" alt="Generic placeholder image">
+        <div class="col-sm-3 wow fadeInDown text-center">
+            <img src="<%= image_path('theme/chefs/profile_1.png') %>"  width="250" height="250"  alt="Generic placeholder image">
             <h3> <%= @chefs[2].name %> </h3>
             <p class="lead"><%= t('.chef_1')%></p>
             <li><a href= "<%= chef_path(@chefs[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
         </div><!-- /.col-lg-4 -->
-        <div class="col-sm-6 wow fadeInDown text-center">
-            <img src="<%= image_path('theme/chefs/profile_2.png') %>" width="300" height="300" alt="Generic placeholder image">
+        <div class="col-sm-3 wow fadeInDown text-center">
+            <img src="<%= image_path('theme/chefs/profile_2.png') %>"  width="250" height="250"  alt="Generic placeholder image">
             <h3> <%= @chefs[3].name %> </h3>
             <p class="lead"><%= t('.chef_2')%></p>
             <li><a href= "<%= chef_path(@chefs[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
-        </div><!-- /.col-lg-4 -->
-
-
-    </div><!-- /.row -->
-    <br>
-    <hr>
-    <br>
-    <div class="row second-chef-row">
-
-        <div class="col-sm-6  wow fadeInDown text-center">
-            <img src="<%= image_path('theme/chefs/profile_3.png') %>" width="300" height="300" alt="Generic placeholder image">
+        </div>
+        <div class="col-sm-3  wow fadeInDown text-center">
+            <img src="<%= image_path('theme/chefs/profile_3.png') %>" width="250" height="250"  alt="Generic placeholder image">
             <h3> <%= @chefs[1].name %> </h3>
             <p class="lead"><%= t('.chef_3')%></p>
             <li><a href= "<%= chef_path(@chefs[2]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
             <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
         </div><!-- /.col-lg-4 -->
 
-        <div class="col-sm-6 wow fadeInDown text-center">
-            <img  src="<%= image_path('theme/chefs/profile_4.png') %>" width="300" height="300" alt="Generic placeholder image">
+        <div class="col-sm-3 wow fadeInDown text-center">
+            <img  src="<%= image_path('theme/chefs/profile_4.png') %>" width="250" height="250" alt="Generic placeholder image">
             <h3> <%= @chefs[0].name %> </h3>
             <p class="lead"><%= t('.chef_4')%></p>
             <li><a href= "<%= chef_path(@chefs[3]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
             <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
         </div><!-- /.col-lg-4 -->
-
-    </div>
-
-  </div>
-  </div>
-
-  <!-- Use it -->
-  <div id ="useit" class="content-section-a">
-
-      <div class="container">
-
-          <div class="row">
-
-      <div class="col-sm-6 pull-right wow fadeInRightBig">
-                  <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
-              </div>
-
-      <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
-          <h3 class="section-heading"> <%= @dishes[0].name %> </h3>
-          <div class="sub-title lead3"> <%= @dishes[0].chef.name %> <br> junio 27, 2016</div>
-          <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
-              <p>
-                  <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
-                  <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
-              </p>
       </div>
-          </div>
-      </div>
-      <!-- /.container -->
+    </div>
   </div>
-
-  <div class="content-section-b">
-
-  <div class="container">
-          <div class="row">
-              <div class="col-sm-6 wow fadeInLeftBig">
-                  <div id="owl-demo-1" class="owl-carousel">
-          <a href="img/iphone.png" class="image-link">
-            <div class="item">
-              <%= image_tag "http://cdn.noticiaaldia.com/wp-content/uploads/2015/08/00041517915417f854ff2d94f7acd3b8.jpg", :title => "example", :class=>"img-responsive img-rounded" %>
-            </div>
-          </a>
-        </div>
-              </div>
-
-      <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
-          <h3 class="section-heading"> <%= @dishes[1].name %> </h3>
-          <div class="sub-title lead3"> <%= @dishes[1].chef.name %> <br> junio 27, 2016</div>
-          <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
-              <p>
-                  <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
-                  <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
-              </p>
-          </div>
-    </div>
-      </div>
-  </div>
-
-
-  <!-- Screenshot -->
-  <!--
-  <div id="screen" class="content-section-b">
-      <div class="container">
-        <div class="row" >
-    <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
-      <h2><%=t('.your_order')%></h2>
-      <p class="lead" style="margin-top:0"><%= t('.construction_1')%></p>
-    </div>
-    </div>
-      <div class="row wow bounceInUp" >
-            <div id="owl-demo" class="owl-carousel">
-
-      <a href="img/slide/1.png" class="image-link">
-        <div class="item">
-          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/1.png') %>" alt="Owl Image">
-        </div>
-      </a>
-
-            <a href="img/slide/2.png" class="image-link">
-        <div class="item">
-          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/2.png') %>" alt="Owl Image">
-        </div>
-      </a>
-
-      <a href="img/slide/3.png" class="image-link">
-        <div class="item">
-          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/3.png') %>" alt="Owl Image">
-        </div>
-      </a>
-
-      <a href="img/slide/1.png" class="image-link">
-        <div class="item">
-          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/1.png') %>" alt="Owl Image">
-        </div>
-      </a>
-
-            <a href="img/slide/2.png" class="image-link">
-        <div class="item">
-          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/2.png') %>" alt="Owl Image">
-        </div>
-      </a>
-
-      <a href="img/slide/3.png" class="image-link">
-        <div class="item">
-          <img  class="img-responsive img-rounded" src="<%= image_path('theme/slide/3.png') %>" alt="Owl Image">
-        </div>
-      </a>
-            </div>
-        </div>
-      </div>
-  </div>-->
+  <!-- End Chefs -->
 
   <div  class="content-section-c ">
     <div class="container">
@@ -289,7 +226,7 @@
                   <div class="content-style-form content-style-form-4 ">
                     <h2 class="morph-clone"><%= t('.join_us')%></h2>
                     <form>
-                      <center><h3><%= t('.Proximamente')%></h3></center>
+                      <center><h3><%= t('.coming_soon')%></h3></center>
                     </form>
                   </div>
                 </div>
@@ -358,17 +295,18 @@
   -->
 
   <footer>
+    <script type="text/javascript">
+    jQuery(function($) {
+    $(document).ready( function() {
+    $('.navbar-default').stickUp();
 
-  <script type="text/javascript">
-  jQuery(function($) {
-  $(document).ready( function() {
-  $('.navbar-default').stickUp();
+    });
+    });
+    </script>
 
-  });
-  });
-  </script>
-  <script>
-  new WOW().init();
-  </script>
-</footer>
+    <script>
+    new WOW().init();
+    </script>
+    
+  </footer>
 </body>

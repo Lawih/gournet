@@ -77,7 +77,7 @@ es:
       chef: "Chef"
       edit_profile: "Editar perfil"
       change_your_password: "Cambiar contraseña"
-      new_dish: "Nuevo plato"      
+      new_dish: "Nuevo plato"
 
   users:
     form:
@@ -100,7 +100,8 @@ es:
       chef_1: "Su especialidad el churrasco"
       chef_2: "Su especialidad es la pizza"
       chef_3: "Su especialidad ratatouille"
-      chef_4: "Su especialidad el cocido boyacense"
+      chef_4: "Su especialidad espagheti"
+      coming_soon: "Próximamente"
       dish_description: "Filetes anchos de abadejo grillado, servidos con el salteado clásico de la cocina vasca (pimientos de tres colores, cebolla, tomates y aceite de oliva). Viene servido con papas estilo Arzak."
       order: "Pedir"
       dish_description2: "Golosina para adultos altamente adictiva, abstenerse o rendirse por completo Base de galletita, relleno de toffee (caramelo suave) con almendras tostadas y cubierta de chocolate belga semi amargo."
