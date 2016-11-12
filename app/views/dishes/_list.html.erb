@@ -26,8 +26,8 @@
               <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
             </div>
             <div class="col-md-12" >
-              <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
-              <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
+              <div class="col-md-4" ><!--<b><%= t("activerecord.attributes.dish.price") %>:</b>--> <h3>$<%= dish.price %></h3></div>
+              <!--<div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>-->
               <div class="col-md-12" ><b><%= t("activerecord.attributes.dish.description") %>: </b>
                 <%= truncate(dish.description, :length => 200) %>
                 <!--<%= dish.description %>-->

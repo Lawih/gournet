@@ -24,33 +24,39 @@
     </div>
     <div class=col-md-9>
       <div class="col-md-12" >
-        <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a> -
-        <% if chef != nil%>
-          <a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a>
-        <%end%>
-        <% if user_signed_in? %>
-          <% if current_user.id != dish.chef.id%>
-            <%flag = true
-              favorite = nil%>
-              <%if dish.favorite_dishes !=nil%>
-                <% dish.favorite_dishes.each do |favorite_dishe| %>
-                  <% if favorite_dishe.user.id == current_user.id
-                    flag = false
-                    favorite = favorite_dishe
-                    break
-                    end%>
-                <%end%>
-              <%end%>
-              <%if flag%>
-                <%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe,
-                  new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id),
-                  method: :get %>
-              <%else%>
-                <%= link_to "<button class='btn btn-danger btn-sm'>Eliminar de guardados</button>".html_safe,
-                favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %>
-              <%end%>
+        <div class="button_down ">
+          <h3><a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a> -
+          <% if chef != nil%>
+            <a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a>
           <%end%>
-        <%end%></h3>
+          <% if user_signed_in? %>
+            <% if current_user.id != dish.chef.id%>
+              <%flag = true
+                favorite = nil%>
+                <%if dish.favorite_dishes !=nil%>
+                  <% dish.favorite_dishes.each do |favorite_dishe| %>
+                    <% if favorite_dishe.user.id == current_user.id
+                      flag = false
+                      favorite = favorite_dishe
+                      break
+                      end%>
+                  <%end%>
+                <%end%>
+                <%if flag%>
+                  <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"
+                  href="<%=new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id)%>">
+                  <img  src="<%= image_path('theme/icon/heart_green.png') %>" alt="">
+                  </a>
+                  <!--<%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe,
+                    new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id),
+                    method: :get %>-->
+                <%else%>
+                  <%= link_to "<img src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-delete-icon.png'".html_safe,
+                  favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %>
+                <%end%>
+            <%end%>
+          <%end%></h3>
+        </div>
       </div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
@@ -77,7 +83,9 @@
         </div>
 
     <div class="col-md-12" >
-        <% if viewmore == true%><%= link_to "<button class='btn btn-embossed btn-primary' >Ver mas</button>".html_safe, dish %><%end%>
+        <% if viewmore == true%>
+          <%= link_to "<button class='btn btn-embossed btn-primary' >Ver mas</button>".html_safe, dish %>
+        <%end%>
         <%= link_to "<button class='btn btn-embossed btn-primary' >Editar</button>".html_safe, edit_dish_path(dish) if policy(dish).edit? %>
         <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
     </div>
