@@ -1070,6 +1070,23 @@ img {
     transition: none !important;
 }
 
+.pagination {
+    font-size: 20px;
+    margin-top: 5px;
+    margin: 0px;
+    .previous_page {}
+    .previous_page.disabled {
+        color: #ccc;
+    }
+    .current {
+        color: #1abc9c;
+    }
+    .next_page {}
+    .next_page.disabled {
+        color: #ccc;
+    }
+}
+
 
 /* Media Queries */
 
@@ -1215,7 +1232,7 @@ img {
 footer {
     background-color: #f8f8f8;
     padding: 50px 0;
-		margin-top: 30px;
+    margin-top: 30px;
 }
 
 p.copyright {

@@ -4,6 +4,9 @@
 #     <%= t('hello') %>
 
 en:
+  will_paginate:
+    next_label: " →"
+    previous_label: "← "
 
   time:
     formats:
