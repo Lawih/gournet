@@ -27,7 +27,7 @@
                   <a class="navbar-brand" href="/">GourNet</a>
                 <%end%>
             </div>
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+            <div class="navbar-header">
                 <div class="search-wrapper">
                     <div class="input-holder">
                         <%= form_tag dishes_path, :method => 'get' do %>
@@ -39,8 +39,15 @@
                         <% end %>
                     </div>
                 </div>
+            </div>
 
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
+                  <% if !user_signed_in? || ( user_signed_in? && (current_user.type != "Chef") ) %>
+                  <li class="menuItem">
+                      <a href="#coming_soon" style="color: #1abc9c;"><%= t('.become_chef') %></a>
+                  </li>
+                  <% end %>
                   <% if user_signed_in? %>
                       <li class="menuItem">
                           <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
@@ -177,6 +184,7 @@
           <h3 class="footer-title">GourNet</h3>
             <li>Bogotá, Colombia</li>
             <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
+          <br>
           <br>
           <div class="fb-like" data-href="https://gournet.herokuapp.com" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
         </div>

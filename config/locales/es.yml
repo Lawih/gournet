@@ -78,6 +78,7 @@ es:
       edit_profile: "Editar perfil"
       change_your_password: "Cambiar contraseña"
       new_dish: "Nuevo plato"
+      become_chef: "Ser chef"
 
   users:
     form:

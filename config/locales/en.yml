@@ -74,6 +74,7 @@ en:
       your_order: "Your order"
       about_us: "About"
       contact_us: "Contact"
+      become_chef: "Become a chef"
 
   users:
     form:
