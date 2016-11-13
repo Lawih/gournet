@@ -21,6 +21,7 @@ class User < ApplicationRecord
   #has_and_belongs_to_many :dishes, join_table: :favorite_dishes #ADD AL
 
   has_many :addresses
+  has_many :notifications, foreign_key: :recipient_id
 
   #if you want email to be case insensitive, you should add
   validates :username , presence: true , confirmation: true

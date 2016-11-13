@@ -45,6 +45,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :notifications, only: [:index] do
+      collection do
+        post :mark_as_read
+      end
+    end
+
+
     resources :dish_ingredients
     resources :user_allergies
     resources :allergies

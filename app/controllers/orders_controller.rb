@@ -91,5 +91,7 @@ private
     def offer_callback
       offer = @order.offer
       offer.update(amount: (offer.amount - @order.amount ))
+
+      Notification.create(actor: current_user, recipient: offer.dish.chef, action: "ordered", notifiable: @order)
     end
 end

@@ -21,10 +21,10 @@ class DishesController < ApplicationController
     ) or return
     @dishes = @filterrific.find.page(params[:page])
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+   # respond_to do |format|
+    #  format.html
+     # format.js
+    #end
 
     def reset_filterrific
       # Clear session persistence
