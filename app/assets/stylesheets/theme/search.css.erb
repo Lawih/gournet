@@ -1,10 +1,6 @@
 .search-wrapper {
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    top:50%;
-    left:50%;
+    position: relative;
+    margin: 10px 0;
 }
 .search-wrapper.active {}
 
@@ -12,10 +8,10 @@
     overflow: hidden;
     height: 40px;
     position: relative;
-    border-radius: 30px;
+    border-radius: 0px;
     width:350px;
     background: rgba(0,0,0,0.05);
-    border-color: rgba(0,0,0,0.3);
+    border-color: rgba(0,0,0,0.1);
     border-style: solid;
     border-width: 1px;
     -webkit-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
@@ -52,12 +48,11 @@
 }
 
 .search-wrapper .input-holder .search-icon {
-    width:35px;
-    height:35px;
-    margin: 2px 3px 0 0;
-    border-radius: 30px;
+    width:40px;
+    height:40px;
+    border-radius: 0px;
     border:none;
-    background: rgba(255,255,255,0.6);;
+    background: rgba(255,255,255,0.4);;
     padding:0px;
     outline:none;
     position: relative;
@@ -72,10 +67,10 @@
     opacity: 0;
     width:35px;
     height:35px;
-    margin: 2px 3px 0 0;
+    margin: 8px 3px 0 0;
     border-radius: 30px;
     border:none;
-    padding:0px;
+    padding:5px;
     outline:none;
     position: absolute;
     z-index: 3;
@@ -88,7 +83,7 @@
 .search-wrapper .input-holder .search-icon span {
     width:35px;
     height:35px;
-    margin-left: 10px;
+    margin-left: 15px;
     display: inline-block;
     vertical-align: middle;
     -webkit-transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
@@ -122,5 +117,6 @@
 @media screen and (max-width: 1000px) {
     .search-wrapper .input-holder {
       opacity: 0;
+      display: none;
     }
 }

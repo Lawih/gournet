@@ -29,8 +29,10 @@
     <%= f.password_field :current_password %><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i>
   </div>
 
-  <div><%= f.submit t('.update') %></div>
-<% end %>
+  <div class="actions" align="center">
+    <%= f.submit t('.update'), :class => "btn btn-embossed btn-primary" %>
+  </div>
+  <% end %>
   </div>
   </div>
 <h3><%= t('.cancel_my_account') %></h3>

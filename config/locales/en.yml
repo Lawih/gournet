@@ -4,6 +4,9 @@
 #     <%= t('hello') %>
 
 en:
+  will_paginate:
+    next_label: " →"
+    previous_label: "← "
 
   time:
     formats:
@@ -74,6 +77,7 @@ en:
       your_order: "Your order"
       about_us: "About"
       contact_us: "Contact"
+      become_chef: "Become a chef"
 
   users:
     form:

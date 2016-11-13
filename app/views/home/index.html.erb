@@ -11,7 +11,7 @@
 			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"><%=t('.forget_about_cooking_at_home')%></h3>
 			<ul class="list-inline intro-social-buttons">
           <% if !user_signed_in? %>
-            <li><%= link_to t('.sign_up'), new_user_registration_path, class: "btn  btn-lg mybutton_cyano wow fadeIn" %>
+            <li><%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-lg mybutton_cyano wow fadeIn" %>
     				</li>
     				<li id="download" ><%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-lg mybutton_standard wow swing wow fadeIn" %>
     				</li>
@@ -21,7 +21,7 @@
         <!-- /.container -->
 		<div class="col-xs-12 text-center abcen wow fadeIn">
 			<div class="button_down ">
-				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#coming_soon"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
+				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#dishes"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
 			</div>
 		</div>
   </div>
@@ -121,7 +121,7 @@
      NavBar END-->
 
     <!--dishes--->
-    <div id ="dishes" class="content-section-a">
+    <div id="dishes" class="content-section-b" style="margin-top:80px; border-top:0">
         <div class="container">
             <div class="row">
               <div class="col-sm-6 pull-right wow fadeInRightBig">
@@ -131,7 +131,7 @@
               <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
                   <h3 class="section-heading"> <a href= "<%= dish_path(@dishes[0]) %>" class="link"><%= @dishes[0].name %></a></h3>
                   <div class="sub-title lead3">
-                    <a href= "<%= chef_path(@dishes[0].chef) %>" class="link"><%= @dishes[0].chef.username %></a>
+                    <a href= "<%= chef_path(@dishes[0].chef) %>" class="link"><b><%= @dishes[0].chef.username %></b></a>
                   </div>
                   <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
                       <p>
@@ -143,7 +143,7 @@
         </div>
     </div>      <!-- /.container -->
 
-    <div class="content-section-b">
+    <div class="content-section-a">
       <div class="container">
         <div class="row">
             <div class="col-sm-6 wow fadeInLeftBig">
@@ -159,7 +159,7 @@
         <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
             <h3 class="section-heading"> <a href= "<%= dish_path(@dishes[1]) %>" class="link"><%= @dishes[1].name %></a></h3>
             <div class="sub-title lead3">
-              <a href= "<%= chef_path(@dishes[1].chef) %>" class="link"><%= @dishes[1].chef.username %></a>
+              <a href= "<%= chef_path(@dishes[1].chef) %>" class="link"><b><%= @dishes[1].chef.username %></b></a>
             </div>
             <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
                 <p>
@@ -174,12 +174,12 @@
 
 
   <!-- Chefs -->
-  <div id="Chefs" class="content-section-b" style="border-top: 0">
+  <div id="Chefs" class="content-section-b">
     <div class="container">
       <div class="col-md-12 text-center wrap_title">
         <h2>Chefs</h2>
         <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
-        <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver todos</span></a>
+        <a href= "<%= chefs_path %>" class="btn btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver todos</span></a>
       </div>
 
       <div class="row first-chef-row">
@@ -188,7 +188,7 @@
               <div class="index-img"> <img src="<%= @chefs[i].picture%>" class="img-circle"></div>
               <h3> <a href= "<%= chef_path(@chefs[i]) %>" class="link"><%= @chefs[i].username %></a></h3>
               <p class="lead"><%= t('.chef_'+(i+1).to_s)%></p>
-              <li><a href= "<%= chef_path(@chefs[i]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver perfil</span></a>
+              <li><a href= "<%= chef_path(@chefs[i]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver perfil</span></a>
           </div><!-- /.col-lg-4 -->
         <%end%>
       </div>
@@ -249,7 +249,6 @@
   </div>
   -->
   <!-- Banner Download -->
-  <!--
   <div id="downloadlink" class="banner">
     <div class="container">
       <div class="row">
@@ -260,7 +259,7 @@
       </div>
       </div>
     </div>
-  </div>-->
+  </div>
 
   <!-- Contact -->
   <!--
