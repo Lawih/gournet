@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-    <div class="col-md-6 ">
-    </div>
-    <div class="col-md-6 ">
-      <div class="col-md-3 ">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-3" style="vertical-align: middle;height:100%;">
         Ordenar por:
       </div>
       <div class="col-md-6 filter">
@@ -11,23 +10,16 @@
             <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { :class => 'selectpicker' }) %>
         <% end %>
       </div>
-      <div class="col-md-3 ">
-          <%= link_to(
-            'Restablecer filtros',
-            reset_filterrific_url,
-            class: "btn btn-embossed btn-primary"
-          ) %>
+      <div class="col-md-3">
+          <%= link_to( 'Restablecer orden', reset_filterrific_url, class: "btn btn-embossed btn-primary" ) %>
         <%# add an automated spinner to your form when the list is refreshed %>
         <%= render_filterrific_spinner %>
       </div>
     </div>
+  </div>
 </div>
 
-<%= render(
-  partial: 'dishes/list',
-  locals: { dishes: @dishes }
-) %>
-
+<%= render( partial: 'dishes/list', locals: { dishes: @dishes } ) %>
 
 <div class="row">
   <div class="col-md-12 text-center">

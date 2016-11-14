@@ -5,6 +5,11 @@ class AddressesController < ApplicationController
   # GET /addresses.json
   def index
     @addresses = current_user.addresses
+    @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
+      marker.lat address.latitude
+      marker.lng address.longitude
+      marker.infowindow address.name
+    end
   end
 
   # GET /addresses/1
