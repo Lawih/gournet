@@ -17,6 +17,7 @@
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require bootstrap/carousel
+//= require bootstrap-select
 //= require owl.carousel
 //= require magnific-popup
 //= require app
@@ -24,4 +25,3 @@
 //= require gmaps/google
 //= require_tree .
 //= require_tree ./theme
-//= require bootstrap-select

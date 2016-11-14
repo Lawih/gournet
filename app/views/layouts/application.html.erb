@@ -48,7 +48,29 @@
                       <a href="#coming_soon" style="color: #1abc9c;"><%= t('.become_chef') %></a>
                   </li>
                   <% end %>
+
+
                   <% if user_signed_in? %>
+
+                      <!-- Notification -->
+                      <li class="menuItem" data-behavior="notifications" >
+                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                          <%= fa_icon "bell" %> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" >
+                          <li class="dropdown-submenu">
+                            <%= link_to 'Social shit', addresses_path%>
+                          </li>
+                          <li class="dropdown-submenu">
+                            <%= link_to 'More social shit', addresses_path%>
+                          </li>
+                          <li class="dropdown-submenu">
+                            <%= link_to 'Fuck this', addresses_path%>
+                          </li>
+                        </ul>
+                      </li>
+
+
                       <li class="menuItem">
                           <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
                               <%=current_user.username%> <span class="caret"></span> </a>
