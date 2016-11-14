@@ -8,7 +8,7 @@ class AddressesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
       marker.lat address.latitude
       marker.lng address.longitude
-      marker.info window address.name
+      marker.infowindow address.name
     end
   end
 
