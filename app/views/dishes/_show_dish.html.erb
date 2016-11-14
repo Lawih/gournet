@@ -26,10 +26,7 @@
       <div class="col-md-12" >
         <div class="button_down ">
           <h3>
-            <a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a> -
-          <% if chef != nil%>
-            <a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a>
-          <%end%>
+            <a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a>
           <% if user_signed_in? %>
             <% if current_user.id != dish.chef.id%>
               <%flag = true
@@ -57,6 +54,12 @@
                 <%end%>
             <%end%>
           <%end%></h3>
+
+          <h4>
+            <% if chef != nil%>
+                <a href= "<%= chef_path(chef) %>" class="link"><%= chef.username %></a>
+            <%end%>
+          </h4>
         </div>
       </div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
