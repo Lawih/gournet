@@ -16,7 +16,7 @@
     <div class=col-md-9 >
       <div class=col-md-12 ><b>Description: </b><%= dish.description %></div>
       <div class=col-md-3 >Score: <%= dish.score %></div>
-      <div class=col-md-4 >Price:  <%= dish.price %></div>
+      <div class=col-md-4 >Price:  <%= number_with_delimiter(dish.price) %></div>
       <div class=col-md-4 >Calories: <%= dish.calories %></div>
       <div class=col-md-1 >
           <td><%= link_to 'Show', dish %></td>

@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %></div>
-      <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= dish.price %></div>
+      <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.price") %>:</b> $<%= number_with_delimiter(dish.price) %></div>
       <div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>
       <div class="col-md-12"><b><%= t("activerecord.attributes.dish.description") %>: </b><%= dish.description %></div>
 
