@@ -1,33 +1,37 @@
 <body id="home">
- <!-- Preloader -->
+  <!-- Preloader -->
   <div id="preloader">
     <div id="status"></div>
   </div>
 
   <!-- FullScreen -->
   <div class="intro-header">
-		<div class="col-xs-12 text-center abcen1">
+    <div class="col-xs-12 text-center abcen1">
       <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">GourNet</h1>
-			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"><%=t('.forget_about_cooking_at_home')%></h3>
-			<ul class="list-inline intro-social-buttons">
-          <% if !user_signed_in? %>
-            <li><%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-lg mybutton_cyano wow fadeIn" %>
-    				</li>
-    				<li id="download" ><%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-lg mybutton_standard wow swing wow fadeIn" %>
-    				</li>
+      <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">
+        <%=t('.forget_about_cooking_at_home')%>
+      </h3>
+      <ul class="list-inline intro-social-buttons">
+        <% if !user_signed_in? %>
+          <li>
+            <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-lg mybutton_cyano wow fadeIn" %>
+          </li>
+          <li id="download">
+            <%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-lg mybutton_standard wow swing wow fadeIn" %>
+          </li>
           <%end%>
-			</ul>
-		</div>
-        <!-- /.container -->
-		<div class="col-xs-12 text-center abcen wow fadeIn">
-			<div class="button_down ">
-				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#dishes"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
-			</div>
-		</div>
+      </ul>
+    </div>
+    <!-- /.container -->
+    <div class="col-xs-12 text-center abcen wow fadeIn">
+      <div class="button_down ">
+        <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s" href="#dishes"> <img class="img_scroll" src="<%= image_path('theme/icon/circle.png') %>" alt=""> </a>
+      </div>
+    </div>
   </div>
 
-    <!-- NavBar-->
-    <!-- NavBar
+  <!-- NavBar-->
+  <!-- NavBar
     <nav class="navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -120,57 +124,68 @@
     </nav>
      NavBar END-->
 
-    <!--dishes--->
-    <div id="dishes" class="content-section-b" style="margin-top:80px; border-top:0">
-        <div class="container">
-            <div class="row">
-              <div class="col-sm-6 pull-right wow fadeInRightBig">
-                    <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
-              </div>
-
-              <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
-                  <h3 class="section-heading"> <a href= "<%= dish_path(@dishes[0]) %>" class="link"><%= @dishes[0].name %></a></h3>
-                  <div class="sub-title lead3">
-                    <a href= "<%= chef_path(@dishes[0].chef) %>" class="link"><b><%= @dishes[0].chef.username %></b></a>
-                  </div>
-                  <p class="lead"> <%= truncate(@dishes[0].description, :length => 200) %>
-                      <p>
-                          <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
-                          <a href= "<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
-                      </p>
-              </div>
-            </div>
+  <!--dishes--->
+  <div id="dishes" class="content-section-b" style="margin-top:80px; border-top:0">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 pull-right wow fadeInRightBig">
+          <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
         </div>
-    </div>      <!-- /.container -->
 
-    <div class="content-section-a">
-      <div class="container">
-        <div class="row">
-            <div class="col-sm-6 wow fadeInLeftBig">
-                <div id="owl-demo-1" class="owl-carousel">
-                  <a href="img/iphone.png" class="image-link">
-                    <div class="item">
-                      <%= image_tag "http://cdn.noticiaaldia.com/wp-content/uploads/2015/08/00041517915417f854ff2d94f7acd3b8.jpg", :title => "example", :class=>"img-responsive img-rounded" %>
-                    </div>
-                  </a>
-                </div>
-            </div>
-
-        <div class="col-sm-6 wow fadeInRightBig"  data-animation-delay="200">
-            <h3 class="section-heading"> <a href= "<%= dish_path(@dishes[1]) %>" class="link"><%= @dishes[1].name %></a></h3>
-            <div class="sub-title lead3">
-              <a href= "<%= chef_path(@dishes[1].chef) %>" class="link"><b><%= @dishes[1].chef.username %></b></a>
-            </div>
-            <p class="lead"> <%= truncate(@dishes[1].description, :length => 200) %>
-                <p>
-                    <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
-                    <a href= "<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
-                </p>
-            </div>
+        <div class="col-sm-6 wow fadeInLeftBig" data-animation-delay="200">
+          <h3 class="section-heading">
+            <a href="<%= dish_path(@dishes[0]) %>" class="link">
+              <%= @dishes[0].name %>
+            </a>
+          </h3>
+          <div class="sub-title lead3">
+            <a href="<%= chef_path(@dishes[0].chef) %>" class="link"><b><%= @dishes[0].chef.username %></b></a>
+          </div>
+          <p class="lead">
+            <%= truncate(@dishes[0].description, :length => 200) %>
+              <p>
+                <a href="<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
+                <a href="<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
+              </p>
         </div>
       </div>
     </div>
-    <!--end dishes-->
+  </div>
+  <!-- /.container -->
+
+  <div class="content-section-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 wow fadeInLeftBig">
+          <div id="owl-demo-1" class="owl-carousel">
+            <a href="img/iphone.png" class="image-link">
+              <div class="item">
+                <%= image_tag "http://cdn.noticiaaldia.com/wp-content/uploads/2015/08/00041517915417f854ff2d94f7acd3b8.jpg", :title => "example", :class=>"img-responsive img-rounded" %>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 wow fadeInRightBig" data-animation-delay="200">
+          <h3 class="section-heading">
+            <a href="<%= dish_path(@dishes[1]) %>" class="link">
+              <%= @dishes[1].name %>
+            </a>
+          </h3>
+          <div class="sub-title lead3">
+            <a href="<%= chef_path(@dishes[1].chef) %>" class="link"><b><%= @dishes[1].chef.username %></b></a>
+          </div>
+          <p class="lead">
+            <%= truncate(@dishes[1].description, :length => 200) %>
+              <p>
+                <a href="<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ver detalles</span></a>
+                <a href="<%= dish_path(@dishes[1]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ordenar</span></a>
+              </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end dishes-->
 
 
   <!-- Chefs -->
@@ -178,19 +193,29 @@
     <div class="container">
       <div class="col-md-12 text-center wrap_title">
         <h2>Chefs</h2>
-        <p class="lead" style="margin-top:0"><%= t('.favourite_chef')%></p>
-        <a href= "<%= chefs_path %>" class="btn btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver todos</span></a>
+        <p class="lead" style="margin-top:0">
+          <%= t('.favourite_chef')%>
+        </p>
+        <a href="<%= chefs_path %>" class="btn btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver todos</span></a>
       </div>
 
       <div class="row first-chef-row">
         <%for i in(0..3)%>
           <div class="col-sm-3 wow fadeInDown text-center">
-              <div class="index-img"> <img src="<%= @chefs[i].picture%>" class="img-circle"></div>
-              <h3> <a href= "<%= chef_path(@chefs[i]) %>" class="link"><%= @chefs[i].username %></a></h3>
-              <p class="lead"><%= t('.chef_'+(i+1).to_s)%></p>
-              <li><a href= "<%= chef_path(@chefs[i]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver perfil</span></a>
-          </div><!-- /.col-lg-4 -->
-        <%end%>
+            <div class="index-img"> <img src="<%= @chefs[i].picture%>" class="img-circle"></div>
+            <h3>
+              <a href="<%= chef_path(@chefs[i]) %>" class="link">
+                <%= @chefs[i].username %>
+              </a>
+            </h3>
+            <p class="lead">
+              <%= t('.chef_'+(i+1).to_s)%>
+            </p>
+            <li>
+              <a href="<%= chef_path(@chefs[i]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver perfil</span></a>
+          </div>
+          <!-- /.col-lg-4 -->
+          <%end%>
       </div>
     </div>
   </div>
@@ -199,26 +224,32 @@
   <div id="coming_soon" class="content-section-c ">
     <div class="container">
       <div class="row">
-      <div class="col-md-6 col-md-offset-3 text-center white">
-        <h2>GourNet</h2>
-      </div>
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <div class="mockup-content">
+        <div class="col-md-6 col-md-offset-3 text-center white">
+          <h2>GourNet</h2>
+        </div>
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <div class="mockup-content">
             <div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
               <<button type="button "><span><%= t('.join_us')%></span></button>
-              <div class="morph-content">
-                <div>
-                  <div class="content-style-form content-style-form-4 ">
-                    <h2 class="morph-clone"><%= t('.join_us')%></h2>
-                    <form>
-                      <center><h3><%= t('.coming_soon')%></h3></center>
-                    </form>
+                <div class="morph-content">
+                  <div>
+                    <div class="content-style-form content-style-form-4 ">
+                      <h2 class="morph-clone">
+                        <%= t('.join_us')%>
+                      </h2>
+                      <form>
+                        <center>
+                          <h3>
+                            <%= t('.coming_soon')%>
+                          </h3>
+                        </center>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -253,10 +284,17 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-        <h2>Nuestras Redes</h2>
-        <li><a href="https://twitter.com/" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Twitter</span></a>
-				</li>
-      </div>
+          <h2>Nuestras Redes</h2>
+
+          <ul class="social-networks spin-icon">
+            <ul class="social-networks spin-icon">
+              <li><a href="https://twitter.com/" class="icon-twitter">Twitter</a></li>
+              <li><a href="https://www.facebook.com/" class="icon-facebook">Facebook</a></li>
+              <li><a href="https://instagram.com" class="icon-instagram">Instagram</a></li>
+            </ul>
+
+            </li>
+        </div>
       </div>
     </div>
   </div>
