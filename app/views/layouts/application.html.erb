@@ -1,152 +1,157 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
-
+<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <head>
-    <title>Gournet</title>
-    <%= stylesheet_link_tag    'application', media: 'all'%>
+
+  
+  <title>Gournet</title>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application'%>
-    <%= javascript_include_tag :modernizr %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Arvo:400,700"%>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic"%>
+      <%= javascript_include_tag :modernizr %>
+        <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Arvo:400,700"%>
+          <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic"%>
 
-    <%= csrf_meta_tags %>
+            <%= csrf_meta_tags %>
 
-    <!-- NavBar-->
-    <!-- NavBar-->
-    <nav class="navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <!-- NavBar-->
+              <!-- NavBar-->
+              <nav class="navbar-default" role="navigation">
+                <div class="container">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
-                <% if user_signed_in? %>
-                  <a class="navbar-brand" href="<%=dishes_path%>">GourNet</a>
-                <%else%>
-                  <a class="navbar-brand" href="/">GourNet</a>
-                <%end%>
-            </div>
-            <div class="navbar-header">
-                <div class="search-wrapper">
-                    <div class="input-holder">
+                    <% if user_signed_in? %>
+                      <a class="navbar-brand" href="<%=dishes_path%>">GourNet</a>
+                      <%else%>
+                        <a class="navbar-brand" href="/">GourNet</a>
+                        <%end%>
+                  </div>
+                  <div class="navbar-header">
+                    <div class="search-wrapper">
+                      <div class="input-holder">
                         <%= form_tag dishes_path, :method => 'get' do %>
                           <%= text_field_tag :search, params[:search], :class => 'search-input', :placeholder => "Ej: pizza, risotto." %>
-                          <div class="search-icon">
-                            <%= submit_tag "", :class => "search-button" %>
-                            <span></span>
-                          </div>
-                        <% end %>
+                            <div class="search-icon">
+                              <%= submit_tag "", :class => "search-button" %>
+                                <span></span>
+                            </div>
+                            <% end %>
+                      </div>
                     </div>
-                </div>
-            </div>
+                  </div>
 
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                  <% if !user_signed_in? || ( user_signed_in? && (current_user.type != "Chef") ) %>
-                  <li class="menuItem">
-                      <a href="#coming_soon" style="color: #1abc9c;"><%= t('.become_chef') %></a>
-                  </li>
-                  <% end %>
-
-
-                  <% if user_signed_in? %>
-
-                      <!-- Notification -->
-                      <li class="menuItem" data-behavior="notifications" >
-                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                          <%= fa_icon "bell" %> <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" >
-                          <li class="dropdown-submenu">
-                            <%= link_to 'Social shit', addresses_path%>
-                          </li>
-                          <li class="dropdown-submenu">
-                            <%= link_to 'More social shit', addresses_path%>
-                          </li>
-                          <li class="dropdown-submenu">
-                            <%= link_to 'Fuck this', addresses_path%>
-                          </li>
-                        </ul>
-                      </li>
+                  <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                      <% if !user_signed_in? || ( user_signed_in? && (current_user.type != "Chef") ) %>
+                        <li class="menuItem">
+                          <a href="#coming_soon" style="color: #1abc9c;">
+                            <%= t('.become_chef') %>
+                          </a>
+                        </li>
+                        <% end %>
 
 
-                      <li class="menuItem">
-                          <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                              <%=current_user.username%> <span class="caret"></span> </a>
-                          <ul class="dropdown-menu">
-                              <li class="dropdown-submenu">
-                                <%= link_to 'Mis direcciones', addresses_path%>
-                              </li>
-                              <% if current_user.type == "Chef" %>
+                          <% if user_signed_in? %>
+
+                            <!-- Notification -->
+                            <li class="menuItem" data-behavior="notifications">
+                              <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                                <%= fa_icon "bell" %> <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu">
                                 <li class="dropdown-submenu">
-                                  <%= link_to t('.new_dish'), new_dish_path %>
+                                  <%= link_to 'Social shit', addresses_path%>
                                 </li>
-                                <li class="divider"></li>
                                 <li class="dropdown-submenu">
+                                  <%= link_to 'More social shit', addresses_path%>
+                                </li>
+                                <li class="dropdown-submenu">
+                                  <%= link_to 'Fuck this', addresses_path%>
+                                </li>
+                              </ul>
+                            </li>
+
+
+                            <li class="menuItem">
+                              <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                                <%=current_user.username%> <span class="caret"></span> </a>
+                              <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                  <%= link_to 'Mis direcciones', addresses_path%>
+                                </li>
+                                <% if current_user.type == "Chef" %>
+                                  <li class="dropdown-submenu">
+                                    <%= link_to t('.new_dish'), new_dish_path %>
+                                  </li>
+                                  <li class="divider"></li>
+                                  <li class="dropdown-submenu">
                                     <%= link_to 'Perfil usuario', user_path(current_user)%>
-                                    <%= link_to 'Perfil chef', chef_path(current_user)%>
-                                </li>
-                                <li class="divider"></li>
-                              <% else %>
-                                <li class="dropdown-submenu">
-                                  <%= link_to t('.profile'), user_path(current_user)%>
-                                </li>
-                              <% end%>
-                              <li class="dropdown-submenu">
-                                  <%= link_to t('.edit_profile'), edit_profile_path%>
-                              </li>
-                              <li class="dropdown-submenu">
-                                  <%= link_to t('.change_your_password'), edit_user_registration_path%>
-                              </li>
-                              <li class="divider"></li>
+                                      <%= link_to 'Perfil chef', chef_path(current_user)%>
+                                  </li>
+                                  <li class="divider"></li>
+                                  <% else %>
+                                    <li class="dropdown-submenu">
+                                      <%= link_to t('.profile'), user_path(current_user)%>
+                                    </li>
+                                    <% end%>
+                                      <li class="dropdown-submenu">
+                                        <%= link_to t('.edit_profile'), edit_profile_path%>
+                                      </li>
+                                      <li class="dropdown-submenu">
+                                        <%= link_to t('.change_your_password'), edit_user_registration_path%>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li class="menuItem">
+                                        <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
+                                      </li>
+                              </ul>
+                            </li>
+                            <%else%>
                               <li class="menuItem">
-                                  <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
+                                <%= link_to t('.sign_in'), new_user_session_path%>
                               </li>
-                          </ul>
-                      </li>
-                  <%else%>
-                      <li class="menuItem">
-                          <%= link_to t('.sign_in'), new_user_session_path%>
-                      </li>
-                      <li class="menuItem">
-                          <%= link_to t('.sign_up'), new_user_registration_path%>
-                      </li>
-                  <% end%>
+                              <li class="menuItem">
+                                <%= link_to t('.sign_up'), new_user_registration_path%>
+                              </li>
+                              <% end%>
 
-                <li class="menuItem">
-                    <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                                <li class="menuItem">
+                                  <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
                         Menu <span class="caret"></span> </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.chefs'), chefs_path%>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.dishes'), dishes_path%>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.contact_us'), new_contact_path %>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.about_us'), static_pages_about_us_path %>
-                        </li>
+                                  <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+                                      <%= link_to t('.chefs'), chefs_path%>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                      <%= link_to t('.dishes'), dishes_path%>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-submenu">
+                                      <%= link_to t('.contact_us'), new_contact_path %>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                      <%= link_to t('.about_us'), static_pages_about_us_path %>
+                                    </li>
+                                  </ul>
+                                </li>
                     </ul>
-                </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- NavBar END-->
-    <!--
+                  </div>
+                </div>
+              </nav>
+              <!-- NavBar END-->
+              <!--
 <div class="notice"><%= notice %></div>
 <div class="alert"><%= alert %></div>
 -->
-    </center>
+              </center>
 </head>
 
 <body>
-    <%= yield %>
+  <%= yield %>
 </body>
 <footer>
   <script>
@@ -167,8 +172,8 @@
    }(document, 'script', 'facebook-jssdk'));
    </script>
 
-   <!----barra siempre arriba--->
-   <script type="text/javascript">
+  <!----barra siempre arriba--->
+  <script type="text/javascript">
      jQuery(function($) {
      $(document).ready( function() {
      $('.navbar-default').stickUp();
@@ -185,33 +190,46 @@
     <div class="row">
       <div class="col-md-7">
         <div class="col-md-4">
-        <h2 class="footer-title">Acerca</h2>
+          <h2 class="footer-title">Acerca</h2>
 
           <%= link_to t('.about_us'), static_pages_about_us_path %>
-          <%= link_to t('.contact_us'), new_contact_path %>
+            <%= link_to t('.contact_us'), new_contact_path %>
         </div>
         <div class="col-md-4">
-        <h2 class="footer-title">Chefs</h2>
+          <h2 class="footer-title">Chefs</h2>
           <%= link_to "Nuestros chefs", chefs_path%><br>
         </div>
         <div class="col-md-4">
-        <h2 class="footer-title">Platos</h2>
+          <h2 class="footer-title">Platos</h2>
 
           <%= link_to "Menu del día", dishes_path%><br>
         </div>
-      </div> <!-- /col-xs-7 -->
+      </div>
+      <!-- /col-xs-7 -->
 
       <div class="col-md-5">
         <div class="footer-banner">
           <h3 class="footer-title">GourNet</h3>
-            <li>Bogotá, Colombia</li>
-            <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
-          <br>
-          <br>
-          <div class="fb-like" data-href="https://gournet.herokuapp.com" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+          <li>Bogotá, Colombia</li>
+          <%= link_to_unless I18n.locale == :en, "English", locale: :en %> |
+            <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
+              <br>
+              <br>
+              <a class="btn-xs" target="_blank" title="On Facebook" href="http://www.facebook.com/">
+                <i class="fa fa-facebook fa-lg"></i>
+              </a>
+              <a class="btn-xs" target="_blank" title="On Twitter" href="http://twitter.com/">
+                <i class="fa fa-twitter fa-lg"></i>
+              </a>
+              <a class="btn-xs" target="_blank" title="On Instagram" href="http://instagram.com/">
+                <i class="fa fa-instagram fa-lg "></i>
+              </a>
+              <div class="fb-like" data-href="https://gournet.herokuapp.com" data-layout="button" data-action="like"
+                data-show-faces="true" data-share="false"></div>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
 </html>
