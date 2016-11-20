@@ -157,6 +157,9 @@ es:
     new:
       new_order: "Ordenar"
       new_order_back: "Volver al plato"
+  chefs:
+    index:
+      show_profile: "Ver perfil"
 
   offers:
     new:

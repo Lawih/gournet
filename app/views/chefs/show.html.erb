@@ -5,18 +5,15 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="img-div"> <img src="<%=@chef.picture%>" class="img-circle"></div>
-          <h3><%= @chef.username %></h3>
+          <div class="img-div"> <img src="<%= @chef.picture %>" class="img-circle"></div>
         </div>
         <div class="panel-body">
-            <h4><%= @chef.type unless @chef.type.blank? %></h4>
+          <h3><%= @chef.username %></h3>
+            <h4><%= @chef.name unless @chef.name.blank? %>
+            <%= @chef.lastname unless @chef.lastname.blank? %></h4>
             <h5><%= @chef.category unless @chef.category.blank? %></h5>
-            <h5><%= @chef.name unless @chef.name.blank? %>
-            <%= @chef.lastname unless @chef.lastname.blank? %></h5>
-            <h5><%= @chef.email unless @chef.email.blank? %></h5>
-            <h5><%= @chef.birthday unless @chef.birthday.blank? %></h5>
             <h5><%= @chef.bio unless @chef.bio.blank? %></h5>
-        </div>
+
         <%flag = true
           follow = nil%>
         <% if user_signed_in? %>
@@ -38,35 +35,36 @@
                 new_following_path(follow, :chef_id => @chef.id, :user_id => current_user.id, :chef => @chef),
                 method: :get %>
             <%else%>
-              <%= link_to "<button class='btn btn-embossed btn-danger' >Dejar de seguir</button>".html_safe,
+              <%= link_to "<button class='btn btn-embossed btn-danger'>Dejar de seguir</button>".html_safe,
               following_path(follow, :chef => @chef), method: :delete %>
             <%end%>
           <%end%>
         <%end%>
+        </div>
       </div>
     </div>
 
 
 <!-- Dishes-->
-    <div class=col-md-8 >
+    <div class="col-md-9" >
         <div class="container-fluid">
         <% @dishes.each do |dish| %>
-        <%=render "dishes/show_dish", dish: dish , chef: nil, divide: "",viewmore: true  %>
+        <%= render "dishes/show_dish", dish: dish , chef: nil, divide: "", view_more: true, in_chef: true  %>
         <!--
-          <div class=col-md-12 >
-              <div class=col-md-12 ><h3><a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>
+          <div class="col-md-12" >
+              <div class="col-md-12" ><h3><a href= "<%= dish_path(dish) %>"><%= dish.name %></a></h3></div>
               </br>
               </br>
-              <div class=col-md-3 >
+              <div class="col-md-3" >
                 <div class="imgdish-div">
                 </div>
               </div>
-              <div class=col-md-9 >
-                <div class=col-md-12 ><b>Description: </b><%= dish.description %></div>
-                <div class=col-md-3 >Score: <%= dish.score %></div>
-                <div class=col-md-4 >Price:  <%= dish.price %></div>
-                <div class=col-md-4 >Calories: <%= dish.calories %></div>
-                <div class=col-md-1 ><td><%= link_to t('show'), dish %></td>
+              <div class="col-md-9" >
+                <div class="col-md-12" ><b>Description: </b><%= dish.description %></div>
+                <div class="col-md-3" >Score: <%= dish.score %></div>
+                <div class="col-md-4" >Price:  <%= dish.price %></div>
+                <div class="col-md-4" >Calories: <%= dish.calories %></div>
+                <div class="col-md-1" ><td><%= link_to t('show'), dish %></td>
                   <td><%= link_to 'Edit', edit_dish_path(dish) if policy(dish).edit? %></td>
                   <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %></td>
                 </div>
@@ -80,6 +78,6 @@
   </div>
 
     <!--
-    <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"> <span class="network-name">Ver todos</span>  </a>
-    <a href= "<%= chef_dishes_path(@chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Platos de este chef</span></a>
+    <a href= "<%= chefs_path %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"> <span class="network-name">Ver todos</span>  </a>
+    <a href= "<%= chef_dishes_path(@chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name">Platos de este chef</span></a>
 -->

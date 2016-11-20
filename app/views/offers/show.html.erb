@@ -1,8 +1,8 @@
 <div class="container" align="Center">
 
   <div class="row"  align="Center">
-    <div class=col-md-3 align="left"></div>
-    <div class=col-md-6 align="left">
+    <div class="col-md-3" align="left"></div>
+    <div class="col-md-6" align="left">
       <center>
       <p id="notice"><%= notice %></p>
 
@@ -31,8 +31,8 @@
         <%= @offer.is_active %>
       </p>
       <hr>
-      <a href= "<%= edit_chef_offer_path(@offer.dish.chef,@offer) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name"><%= t('offers.edit.edit_offer')%></span></a>
-      <a href= "<%= chef_offers_url(@offer.dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name"><%= t('offers.edit.edit_offer_back')%></span></a>
+      <a href= "<%= edit_chef_offer_path(@offer.dish.chef,@offer) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name"><%= t('offers.edit.edit_offer')%></span></a>
+      <a href= "<%= chef_offers_url(@offer.dish.chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name"><%= t('offers.edit.edit_offer_back')%></span></a>
       </center>
     </div>
   </div>

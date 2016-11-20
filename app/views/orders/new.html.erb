@@ -2,11 +2,11 @@
   <h2> <%= t('.new_order')%></h2>
 
   <div class="row"  align="Center">
-    <div class=col-md-4 align="left"></div>
-    <div class=col-md-4 align="left">
+    <div class="col-md-4" align="left"></div>
+    <div class="col-md-4" align="left">
       <%= render 'form', order: @order %>
       <hr>
-      <a href= "<%= offer_path(params[:offer_id]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name"><%= t('.new_order_back')%></span></a>
+      <a href= "<%= offer_path(params[:offer_id]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name"><%= t('.new_order_back')%></span></a>
     </div>
   </div>
   <div class="span11">
