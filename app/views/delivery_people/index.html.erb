@@ -22,7 +22,7 @@
         <td><%= delivery_person.document %></td>
         <td><%= delivery_person.phone %></td>
         <td><%= delivery_person.picture %></td>
-        <td><%= link_to 'Show', delivery_person %></td>
+        <td><%= link_to t('show'), delivery_person %></td>
         <td><%= link_to 'Edit', edit_delivery_person_path(delivery_person) %></td>
         <td><%= link_to 'Destroy', delivery_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

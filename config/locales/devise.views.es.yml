@@ -4,9 +4,9 @@ es:
       user:
         current_password: Contraseña actual
         email: Correo electrónico
-        login: Usuario o Correo Electrónico
-        password: Contraseña
-        password_confirmation: Confirmación de la contraseña
+        login: Usuario | Correo electrónico
+        password: Nueva contraseña
+        password_confirmation: Confirmar contraseña
         remember_me: Recordarme
         reset_password_token: Restablecer token contraseña
         unlock_token: Desbloquear token
@@ -73,13 +73,14 @@ es:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada correctamente. Esperamos verte pronto."
       edit:
         are_you_sure: "¿Está usted seguro?"
-        cancel_my_account: Anular mi cuenta
+        cancel_my_account: Cancelar mi cuenta
+        change_your_password: Cambiar contraseña
         currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmacion de: %{email} '
-        leave_blank_if_you_don_t_want_to_change_it: dejar en blanco si no desea cambiarlo
+        leave_blank_if_you_don_t_want_to_change_it: Dejar en blanco si no desea cambiarlo
         title: Editar %{resource}
         unhappy: Infeliz
         update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
+        we_need_your_current_password_to_confirm_your_changes: Necesitamos su contraseña actual para confirmar los cambios
       new:
         sign_up: Registrarse
       signed_up: Bienvenido. Tu cuenta fue creada.

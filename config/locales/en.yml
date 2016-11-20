@@ -40,10 +40,12 @@ en:
         delivery_date: "Delivery date"
         max_date: "Max request date"
       addresses:
-        Name: "Name"
-        Address: "Address"
-        Latitude: "Latitude"
-        Longitude: "Longitude"
+        name: "Name"
+        address: "Address"
+        latitude: "Latitude"
+        longitude: "Longitude"
+      dish_image:
+        picture_url: "Pictures"
     mail_form:
       attributes:
         contact:
@@ -65,6 +67,7 @@ en:
   layouts: # Name of the view
     application: # Name of file view
       home: "Home" # <%= t('.home') %> in views/layouts/application.html.erb
+      search_placeholder: "Ex: pizza, risotto."
       sign_in: "Sign in"
       sign_up: "Sign up"
       log_out: "Log out"
@@ -97,10 +100,7 @@ en:
       contact_us: "Contact"
       forget_about_cooking_at_home: "Forget about cooking at home"
       favourite_chef: "Select your favourite chef!"
-      chef_1: "Her specialty is steak"
-      chef_2: "Her specialty is pizza"
-      chef_3: "His specialty is ratatouille"
-      chef_4: "His specialty is spaghetti"
+      social: "Our Social Networks"
       coming_soon: "Coming soon"
       dish_description: "Filetes anchos de abadejo grillado, servidos con el salteado clásico de la cocina vasca (pimientos de tres colores, cebolla, tomates y aceite de oliva). Viene servido con papas estilo Arzak."
       order: "Make your order"

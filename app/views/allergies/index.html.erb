@@ -14,7 +14,7 @@
     <% @allergies.each do |allergy| %>
       <tr>
         <td><%= allergy.name %></td>
-        <td><%= link_to 'Show', allergy %></td>
+        <td><%= link_to t('show'), allergy %></td>
         <td><%= link_to 'Edit', edit_allergy_path(allergy) %></td>
         <td><%= link_to 'Destroy', allergy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

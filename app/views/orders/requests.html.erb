@@ -26,7 +26,7 @@
         <td><%= order.date %></td>
         <td><%= order.comment %></td>
         <td><%= order.status %></td>
-        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to t('show'), order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

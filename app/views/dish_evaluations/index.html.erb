@@ -24,7 +24,7 @@
         <td><%= dish_evaluation.score_quality %></td>
         <td><%= dish_evaluation.score_visual %></td>
         <td><%= dish_evaluation.comment %></td>
-        <td><%= link_to 'Show', dish_evaluation %></td>
+        <td><%= link_to t('show'), dish_evaluation %></td>
         <td><%= link_to 'Edit', edit_dish_evaluation_path(dish_evaluation) %></td>
         <td><%= link_to 'Destroy', dish_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -16,7 +16,7 @@
       <tr>
         <td><%= favorite_dish.user %></td>
         <td><%= favorite_dish.dish %></td>
-        <td><%= link_to 'Show', favorite_dish %></td>
+        <td><%= link_to t('show'), favorite_dish %></td>
         <td><%= link_to 'Edit', edit_favorite_dish_path(favorite_dish) %></td>
         <td><%= link_to 'Destroy', favorite_dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -16,7 +16,7 @@
       <tr>
         <td><%= dish_ingredient.ingredient %></td>
         <td><%= dish_ingredient.dish %></td>
-        <td><%= link_to 'Show', dish_ingredient %></td>
+        <td><%= link_to t('show'), dish_ingredient %></td>
         <td><%= link_to 'Edit', edit_dish_ingredient_path(dish_ingredient) %></td>
         <td><%= link_to 'Destroy', dish_ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

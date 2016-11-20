@@ -1,4 +1,7 @@
 es:
+  back: "Volver"
+  show: "Ver más"
+
   will_paginate:
     next_label: " →"
     previous_label: "← "
@@ -15,36 +18,65 @@ es:
   activerecord:
 
     models:
+      address:
+        one: "dirección"
+        other: "direcciones"
+      dish:
+        one: "plato"
+        other: "platos"
+      user:
+        one: "usuario"
+        other: "usuarios"
       order:
-        one: "Orden"
-        other: "Ordenes"
+        one: "orden"
+        other: "ordenes"
       offer:
-        one: "Oferta"
-        other: "Ofertas"
+        one: "oferta"
+        other: "ofertas"
 
     attributes:
-      user: #TODO
+      address:
         name: "Nombre"
-        email: "Correo electrónico"
-        username: "Usuario"
-        lastname: "Apellido"
-        birthday: "Cumpleaños"
-        phone: "Teléfono"
-      order:
-        amount: "Cantidad"
-        date: "Fecha"
-        status: "Estado"
+        address: "Dirección"
+        city: "Ciudad"
+        latitude: "Latitud"
+        longitude: "Longitud"
+      allergies:
+        name: "Alergia"
+      dish_evaluation:
+        score_time: "Tiempo"
+        score_quality: "Calidad"
+        score_visual: "Presentación"
         comment: "Comentario"
-      offer:
-          amount: "Cantidad"
-          delivery_date: "Fecha de entrega"
-          max_date: "Pedir antes de"
       dish:
         name: "Nombre"
         description: "Descripción"
         score: "Puntuación"
         price: "Precio"
         calories: "Calorias"
+        picture_url: "Foto"
+      ingredients:
+        name: "Nombre"
+      offer:
+        amount: "Cantidad"
+        delivery_date: "Fecha de entrega"
+        max_date: "Pedir antes de"
+      order:
+        amount: "Cantidad"
+        date: "Fecha"
+        status: "Estado"
+        comment: "Comentario"
+      user:
+        name: "Nombre"
+        email: "Correo electrónico"
+        username: "Usuario"
+        lastname: "Apellido"
+        birthday: "Cumpleaños"
+        phone: "Teléfono"
+        picture: "Foto"
+        category: "Categoría"
+      dish_image:
+        picture_url: "Fotos"
 
   mail_form:
     attributes:
@@ -59,6 +91,7 @@ es:
   # Views
   layouts:
     application:
+      search_placeholder: "Ej: pizza, risotto."
       home: "Inicio"
       sign_in: "Iniciar sesión"
       sign_up: "Regístrate"
@@ -98,10 +131,6 @@ es:
       contact_us: "Contáctenos"
       forget_about_cooking_at_home: "Comida casera a domicilio, olvídate de cocinar"
       favourite_chef: "¡Selecciona tu chef favorito!"
-      chef_1: "Su especialidad el churrasco"
-      chef_2: "Su especialidad es la pizza"
-      chef_3: "Su especialidad ratatouille"
-      chef_4: "Su especialidad espagheti"
       coming_soon: "Próximamente"
       dish_description: "Filetes anchos de abadejo grillado, servidos con el salteado clásico de la cocina vasca (pimientos de tres colores, cebolla, tomates y aceite de oliva). Viene servido con papas estilo Arzak."
       order: "Pedir"
@@ -117,7 +146,13 @@ es:
       edit_profile: "Editar perfil"
       change_your_password: "Cambiar contraseña"
       new_dish: "Nuevo plato"
+      social: "Nuestras Redes Sociales"
 
+  dishes:
+    new:
+      new_dish: "Nuevo Plato"
+    edit:
+      edit_dish: "Editar Plato"
   orders:
     new:
       new_order: "Ordenar"
@@ -134,15 +169,15 @@ es:
 
   addresses:
     show:
-      Name: "Nombre"
-      Address: "Dirección"
-      Latitude: "Latitud"
-      Longitude: "Longitud"
+      name: "Nombre"
+      address: "Dirección"
+      latitude: "Latitud"
+      longitude: "Longitud"
     form:
-      Name: "Nombre"
-      Address: "Dirección"
-      Latitude: "Latitud"
-      Longitude: "Longitud"
+      name: "Nombre"
+      address: "Dirección"
+      latitude: "Latitud"
+      longitude: "Longitud"
 
   contacts:
     new:

@@ -1,12 +1,12 @@
 <div class="container">
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <h2>New Dish</h2>
+    <h2><%= t('.new_dish') %></h2>
     <% if user_signed_in? %>
       <%= render 'form', dish: @dish , chef: current_user%>
     <%else%>
       <%= render 'form', dish: @dish , chef: nil%>
     <%end%>
-    <%= link_to 'Back', dishes_path %>
+    <%= link_to t(t('back')), dishes_path %>
   </div>
 </div>
