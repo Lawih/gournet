@@ -27,6 +27,10 @@
       <%= f.text_field :address %>
     </div>
 
+    <div class="field">
+      <%= f.select :city, options_for_select([["Bogotá", "Bogota"]]), {}, {} %>
+    </div>
+
     <div class="actions" align="center">
       <%= f.submit :class => "btn btn-embossed btn-primary" %>
     </div>
