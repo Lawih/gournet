@@ -3,58 +3,61 @@
   <% @dishes.each do |dish| %>
   <% if orient == 1%>
   <div class="content-section-b dish">
-  <% else%>
-  <div class="content-section-a dish">
-  <% end%>
-  <div class="container">
-    <div class="row">
-      <%if orient == 1%>
-        <div class="col-md-5 pull-right wow fadeInRightBig">
-      <%else%>
-        <div class="col-md-5 wow fadeInLeftBig">
-      <%end%>
-          <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
-          <div class="">
-            <%if @dish_images != nil%>
-              <% @dish_images.each do |p| %>
-                <%= image_tag p.picture_url%>
+    <% else%>
+    <div class="content-section-a dish">
+      <% end%>
+      <div class="container">
+        <div class="row">
+          <%if orient == 1%>
+            <div class="col-md-5 pull-right wow fadeInRightBig">
+          <%else%>
+            <div class="col-md-5 wow fadeInLeftBig">
+          <%end%>
+              <div class="">
+                <%if @dish_images != nil%>
+                  <% @dish_images.each do |p| %>
+                    <%= image_tag p.picture_url%>
+                  <% end %>
+                <% else %>
+                    <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
               <% end %>
-            <% end %>
-          </div>
-        </div>
+              </div>
+            </div>
 
-        <div class="col-md-7 wow fadeInLeftBig">
-          <div class="col-md-12" >
-            <div class="col-md-8" >
-              <p>
-              <h3><a href="<%= dish_path(dish) %>" class="link"><%=dish.name%></a> </h3>
-              <h4><a href="<%= chef_path(dish.chef) %>" class="link"><%=dish.chef.username %></a></h4>
-            </p>
+            <div class="col-md-7 wow fadeInLeftBig">
+              <div class="col-md-12" >
+                <div class="col-md-8" >
+                  <p>
+                  <h3><a href="<%= dish_path(dish) %>" class="link"><%=dish.name%></a> </h3>
+                  <h4><a href="<%= chef_path(dish.chef) %>" class="link"><%=dish.chef.username %></a></h4>
+                </p>
+                </div>
+              </div>
+              <div class="col-md-12" >
+                <div class="col-md-6" ><!--<b><%= t("activerecord.attributes.dish.price") %>:</b>--> <h4>$<%= number_with_delimiter(dish.price) %></h4></div>
+                <div class="col-md-6" >
+                  <b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %>
+                </div>
+                <!--<div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>-->
+                <div class="col-md-12" >
+                  <p class="lead">
+                    <%= truncate(dish.description, :length => 200) %>
+                  </p>
+                </div>
+                <div class="col-md-12" >
+                  <p>
+                    <%= link_to 'Ver más', dish, :class => "btn btn-embossed btn-primary " %>
+                    <%= link_to 'Editar', (edit_dish_path(dish) if policy(dish).edit?), { :class => "btn btn-embossed btn-primary" } %>
+                    <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-12" >
-            <div class="col-md-6" ><!--<b><%= t("activerecord.attributes.dish.price") %>:</b>--> <h4>$<%= number_with_delimiter(dish.price) %></h4></div>
-            <div class="col-md-6" >
-              <b><%= t("activerecord.attributes.dish.score") %>: </b><%= dish.score %>
-            </div>
-            <!--<div class="col-md-4" ><b><%= t("activerecord.attributes.dish.calories") %>: </b><%= dish.calories %></div>-->
-            <div class="col-md-12" >
-              <p class="lead">
-                <%= truncate(dish.description, :length => 200) %>
-              </p>
-            </div>
-            <div class="col-md-12" >
-              <p>
-                <%= link_to 'Ver más', dish, :class => "btn btn-embossed btn-primary " %>
-                <%= link_to 'Editar', (edit_dish_path(dish) if policy(dish).edit?), { :class => "btn btn-embossed btn-primary" } %>
-                <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary ", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
-              </p>
-            </div>
           </div>
-        </div>
-      </div>
-      </div>
-      </div>
-      <%orient = orient*-1%>
-    <% end %>
+          </div>
+          <%orient = orient*-1%>
+        <% end %>
+    </div>
+  </div>
 </div>
