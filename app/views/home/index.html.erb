@@ -30,100 +30,6 @@
     </div>
   </div>
 
-  <!-- NavBar-->
-  <!-- NavBar
-    <nav class="navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">GourNet</a>
-            </div>
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <div class="search-wrapper">
-                    <div class="input-holder">
-                        <%= form_tag dishes_path, :method => 'get' do %>
-                          <%= text_field_tag :search, params[:search], :class => 'search-input', :placeholder => "Ej: pizza, risotto." %>
-                          <div class="search-icon">
-                            <%= submit_tag "", :class => "search-button" %>
-                            <span></span>
-                          </div>
-                        <% end %>
-                    </div>
-                </div>
-
-                <ul class="nav navbar-nav">
-                  <% if user_signed_in? %>
-                      <li class="menuItem">
-                          <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                              <%=current_user.username%> <span class="caret"></span> </a>
-                          <ul class="dropdown-menu">
-                              <li class="dropdown-submenu">
-                                <%= link_to 'Mis direcciones', addresses_path%>
-                              </li>
-                              <% if current_user.type == "Chef" %>
-                                <li class="dropdown-submenu">
-                                  <%= link_to t('.new_dish'), new_dish_path %>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="dropdown-submenu">
-                                    <%= link_to 'Perfil usuario', user_path(current_user)%>
-                                    <%= link_to 'Perfil chef', chef_path(current_user)%>
-                                </li>
-                                <li class="divider"></li>
-                              <% else %>
-                                <li class="dropdown-submenu">
-                                  <%= link_to t('.profile'), user_path(current_user)%>
-                                </li>
-                              <% end%>
-                              <li class="dropdown-submenu">
-                                  <%= link_to t('.edit_profile'), edit_profile_path%>
-                              </li>
-                              <li class="dropdown-submenu">
-                                  <%= link_to t('.change_your_password'), edit_user_registration_path%>
-                              </li>
-                              <li class="divider"></li>
-                              <li class="menuItem">
-                                  <%= link_to t('.log_out'), destroy_user_session_path, method: :delete%>
-                              </li>
-                          </ul>
-                      </li>
-                  <%else%>
-                      <li class="menuItem">
-                          <%= link_to t('.sign_in'), new_user_session_path%>
-                      </li>
-                      <li class="menuItem">
-                          <%= link_to t('.sign_up'), new_user_registration_path%>
-                      </li>
-                  <% end%>
-
-                <li class="menuItem">
-                    <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
-                        Menu <span class="caret"></span> </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.chefs'), chefs_path%>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.dishes'), dishes_path%>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.contact_us'), new_contact_path %>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <%= link_to t('.about_us'), static_pages_about_us_path %>
-                        </li>
-                    </ul>
-                </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-     NavBar END-->
-
   <!--dishes--->
   <div id="dishes" class="content-section-b" style="margin-top:80px; border-top:0">
     <div class="container">
@@ -147,6 +53,7 @@
                 <a href="<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name">Ver detalles</span></a>
                 <a href="<%= dish_path(@dishes[0]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name">Ordenar</span></a>
               </p>
+            </p>
         </div>
       </div>
     </div>

@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" style="margin-bottom:15px">
       <div class="col-md-3" style="vertical-align: middle;height:100%;">
         Ordenar por:
       </div>
       <div class="col-md-6 filter">
         <%= form_for_filterrific @filterrific do |f| %>
-            <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { :class => 'selectpicker' }) %>
+            <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { :class => '' }) %>
         <% end %>
       </div>
       <div class="col-md-3">
