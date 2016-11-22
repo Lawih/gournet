@@ -1,11 +1,11 @@
-<p id="notice"><%= notice %></p>
-<div class="container-field dish-page">
-    <%=render "dishes/show_dish", dish: @dish, chef: @dish.chef, divide: " - ",view_more: false,  in_chef: false  %>
-    <div class="col-md-12">
-      <div class="col-md-6">
-        <% if @dish.offer.active.count > 0 %>
-          <h4> Oferta actual: </h4>
-          <center>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <%=render "dishes/show_dish", dish: @dish, chef: @dish.chef, divide: " - ",view_more: false,  in_chef: false  %>
+  <div class="col-md-12">
+    <% if @dish.offer.active.count > 0 %>
+    <div class="col-md-7 offer">
+        <h4> Oferta actual: </h4>
+        <center>
           <div class="col-md-12">
             <div class="col-md-3"> <%= t("activerecord.attributes.offer.amount") %> </div>
             <div class="col-md-3"> <%= t("activerecord.attributes.offer.delivery_date") %> </div>
@@ -32,25 +32,27 @@
                 </div>
               </div>
           <% end %>
-        </center>
-        <% end %>
-        <% if policy(@dish).edit? %>
-            <div class="col-md-12" >
-              <a href= "<%= new_offer_url(:dish_id => dish.id ) %>" class="btn btn-embossed btn-primary"> <%= t("offers.new.new_offer") %> </a>
-            </div>
-        <% end %>
-      </div>
-      <div class="col-md-6">
+      </center>
 
-          <H4>Comentarios</H4>
-          <%@dish_evaluations.each do |evaluation| %>
-              <%= render "dish_evaluations/show", dish_evaluation: evaluation%>
-          <%end%>
-          <%if user_signed_in?%>
-          <div class="col-md-12">
-            <%= render "dish_evaluations/new", dish: @dish%>
-            <br>
-          </div>
-          <%end%>
-      </div>
+    <% if policy(@dish).edit? %>
+        <div class="col-md-12" >
+          <a href= "<%= new_offer_url(:dish_id => dish.id ) %>" class="btn btn-embossed btn-primary"> <%= t("offers.new.new_offer") %> </a>
+        </div>
+    <% end %>
+  </div>
+  <% end %>
+
+    <div class="col-md-5 comments">
+        <H4>Comentarios</H4>
+        <%@dish_evaluations.each do |evaluation| %>
+            <%= render "dish_evaluations/show", dish_evaluation: evaluation%>
+        <%end%>
+        <%if user_signed_in?%>
+        <div class="col-md-12">
+          <%= render "dish_evaluations/new", dish: @dish%>
+          <br>
+        </div>
+        <%end%>
+    </div>
+  </div>
 </div>

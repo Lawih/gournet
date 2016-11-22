@@ -1,6 +1,6 @@
 <div class="panel panel-success">
    <div class="panel-heading">
-     <h4> Nuevo Comentario</h4>
+     <h4>Nuevo Comentario</h4>
     <% @dish_evaluation = DishEvaluation.new%>
     <%= bootstrap_form_for(@dish_evaluation) do |f| %>
       <% if @dish_evaluation.errors.any? %>
