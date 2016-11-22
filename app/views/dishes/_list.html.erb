@@ -13,13 +13,13 @@
           <%else%>
             <div class="col-md-5 wow fadeInLeftBig">
           <%end%>
-                <% if dish.dish_images.count > 0 %>
-                  <div>
+                <div>
+                  <% if dish.dish_images.count > 0 %>
                     <%= image_tag dish.dish_images.first.picture_url, :class => "img-responsive" %>
-                  </div>
-                <%else%>
-                  <% image_tag "https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png", :title => "default", :class => "img-responsive" %>
-                <% end %>
+                  <%else%>
+                    <%= image_tag "https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png", :title => "default", :class => "img-responsive" %>
+                  <% end %>
+                </div>
             </div>
 
             <div class="col-md-7 wow fadeInLeftBig">
