@@ -13,15 +13,15 @@
           <%else%>
             <div class="col-md-5 wow fadeInLeftBig">
           <%end%>
-              <div class="">
-                <%if @dish_images != nil%>
-                  <% @dish_images.each do |p| %>
+                <%if dish.dish_images != nil%>
+                  <% dish.dish_images.each do |p| %>
+                  <div class="col-md-6" >
+                  <div class="imgdish-div ">
                     <%= image_tag p.picture_url%>
+                  </div>
+                </div>
                   <% end %>
-                <% else %>
-                    <%= image_tag "http://cdn.colombia.com/sdi/2011/08/02/bandeja-paisa-500926.jpg", :title => "example", :class=>"img-responsive" %>
-              <% end %>
-              </div>
+                <% end %>
             </div>
 
             <div class="col-md-7 wow fadeInLeftBig">

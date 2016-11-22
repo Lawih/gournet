@@ -99,5 +99,5 @@ FavoriteDish.create(user_id: 3, dish_id:7)
 FavoriteDish.create(user_id: 4, dish_id:8)
 FavoriteDish.create(user_id: 5, dish_id:2)
 
-DishImage.create(dish_id: 2, picture_url:"https://storage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/pescado.jpg")
-DishImage.create(dish_id: 1, picture_url:"https://storage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/bandeja-paisa-500926.jpg")
+DishImage.create(dish_id: 2, picture_url:"pescado.jpg")
+DishImage.create(dish_id: 1, picture_url:"bandeja-paisa-500926.jpg")
