@@ -12,7 +12,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-  <div class="col-md-12">
+  <div class="col-md-12 dish-page">
     <div class="col-md-3" align="right">
           <%if @dish_images != nil%>
             <%if @dish_images.count > 0 %>
@@ -32,7 +32,7 @@
     <div class="col-md-9">
       <div class="col-md-12" >
         <div class="button_down ">
-          <h3>
+          <h3 style="margin:0">
             <a href= "<%= dish_path(dish) %>" class="link"><%= dish.name %></a>
           <% if user_signed_in? %>
             <% if current_user.id != dish.chef.id%>
@@ -48,9 +48,9 @@
                   <%end%>
                 <%end%>
                 <%if flag%>
-                  <a class="imgcircle wow bounceInUp btn" data-wow-duration="1.0s"
+                  <a class="imgcircle wow btn" data-wow-duration="1.0s"
                   href="<%=new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id)%>">
-                  <img  src="<%= image_path('theme/icon/heart_green.png') %>" alt="">
+                  <img src="<%= image_path('theme/icon/heart_green.png') %>" alt="" style="padding:0; height:50px; width:50px;">
                   </a>
                   <!--<%= link_to "<button class='btn btn-success btn-sm'>Guardar</button>".html_safe,
                     new_favorite_dish_path(:user_id => current_user.id, :dish_id => dish.id),
@@ -60,7 +60,8 @@
                   favorite_dish_path(favorite, :dish_id => favorite.dish_id), method: :delete %>
                 <%end%>
             <%end%>
-          <%end%></h3>
+          <%end%>
+          </h3>
 
           <h4>
             <% if chef != nil%>

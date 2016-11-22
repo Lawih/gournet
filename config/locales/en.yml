@@ -15,6 +15,11 @@ en:
 
   # Models
   activerecord:
+    models:
+      dish_evaluation:
+        one: "comment"
+        other: "comments"
+        
     attributes:
       user: #TODO
         name: "Name"
@@ -46,6 +51,8 @@ en:
         longitude: "Longitude"
       dish_image:
         picture_url: "Pictures"
+
+
     mail_form:
       attributes:
         contact:
