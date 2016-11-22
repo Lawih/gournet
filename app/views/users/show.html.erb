@@ -17,9 +17,6 @@
             <%= current_user.lastname unless current_user.lastname.blank? %>
         </h4>
         <h4>
-          <%= current_user.email unless current_user.email.blank? %>
-        </h4>
-        <h4>
           <%= current_user.birthday unless current_user.birthday.blank? %>
         </h4>
         <h4>
@@ -37,27 +34,53 @@
 
   <div class="col-md-9" align="center">
     <div class="col-md-12">
-      <b><font SIZE=4 COLOR="#DC768C">Tus chefs  favoritos </font></b></br>
-      <% @followings.each do |following| %>
-        <%if following.user == current_user%>
-          <div class="col-md-2">
-            <div class="img-face">
-              <img src="<%=following.chef.picture%>" class="img-circle">
+      <%if @followings != nil && @followings.count>0%>
+        <b><font SIZE=4 COLOR="#DC768C">Tus chefs  favoritos </font></b></br>
+        <% @followings.each do |following| %>
+          <%if following.user == current_user%>
+            <div class="col-md-2">
+              <a href= "<%= chef_path(following.chef) %>" >
+              <div class="img-face">
+                <img src="<%=following.chef.picture%>" class="img-circle">
+              </div>
+              <h5><%= following.chef.username %></h5></a>
             </div>
-            <a href= "<%= chef_path(following.chef) %>" ><h5><%= following.chef.username %></h5></a>
+          <%end%>
+        <% end %>
+      <%else%>
+      <b><font SIZE=4 COLOR="#DC768C">Tus chefs sugeridos </font></b></br>
+      <% Chef.take(4).each do |chef| %>
+        <%if chef.id != current_user.id%>
+          <div class="col-md-2">
+            <a href= "<%= chef_path(chef) %>" >
+            <div class="img-face">
+              <img src="<%=chef.picture%>" class="img-circle">
+            </div>
+            <h5><%= chef.username %></h5></a>
           </div>
         <%end%>
       <% end %>
+      <%end%>
     </div>
 
     <div class="col-md-12">
-      <b><font SIZE=4 COLOR="#DC768C">Tus platos guardados </font></b></br>
-      <% @favorite_dishes.each do |favorite_dish| %>
-        <div class="col-md-2">
-          <a href= "<%= dish_path(favorite_dish.dish) %>" ><%= favorite_dish.dish.name %></a> de
-          <%= favorite_dish.dish.chef.username %>
-        </div>
-      <% end %>
+      <%if @favorite_dishes != nil%>
+        <b><font SIZE=4 COLOR="#DC768C">Tus platos guardados </font></b></br>
+        <% @favorite_dishes.each do |favorite_dish| %>
+          <div class="col-md-2">
+            <div class="img-face">
+              <a href= "<%= dish_path(favorite_dish.dish) %>" >
+              <%if favorite_dish.dish.dish_images.first != nil%>
+                <img src="<%=favorite_dish.dish.dish_images.first.picture_url%>">
+              <%else%>
+                <img src="https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png">
+              <%end%>
+            </div>
+            <%= favorite_dish.dish.name %></a> de
+            <%= favorite_dish.dish.chef.username %>
+          </div>
+        <% end %>
+      <%end%>
     </div>
 
     <%if current_user.friends != nil%>

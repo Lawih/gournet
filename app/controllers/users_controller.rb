@@ -22,8 +22,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    #@followings = @user.followings
-    @followings = Following.all
+    if user_is_chef?
+      @followings = Following.all
+    else
+      @followings = @user.followings
+    end
+    
+    #@followings = Following.all
     @favorite_dishes = @user.favorite_dishes
     #if user_is_chef?
     #    redirect_to chef_path(@user)

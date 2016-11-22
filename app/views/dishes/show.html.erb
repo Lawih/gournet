@@ -41,15 +41,16 @@
         <% end %>
       </div>
       <div class="col-md-6">
-        <H4>Comentarios</H4>
-        <%@dish_evaluations.each do |evaluation| %>
-            <%= render "dish_evaluations/show", dish_evaluation: evaluation%>
-        <%end%>
-        <div class="col-md-12">
-          <%= render "dish_evaluations/new", dish: @dish%>
-          <br>
-        </div>
+
+          <H4>Comentarios</H4>
+          <%@dish_evaluations.each do |evaluation| %>
+              <%= render "dish_evaluations/show", dish_evaluation: evaluation%>
+          <%end%>
+          <%if user_signed_in?%>
+          <div class="col-md-12">
+            <%= render "dish_evaluations/new", dish: @dish%>
+            <br>
+          </div>
+          <%end%>
       </div>
-
-
 </div>
