@@ -112,6 +112,9 @@ es:
       change_your_password: "Cambiar contraseña"
       new_dish: "Nuevo plato"
       become_chef: "Ser chef"
+      our_chefs: "Nuestros chefs"
+      menu_day: "Menú del día"
+      about: "Acerca"
 
   users:
     form:

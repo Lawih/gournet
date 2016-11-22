@@ -3,63 +3,65 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .box {
-    padding: 0 5px 0 5px;
+    padding: 0 5px;
 }
 
-div.img-div{
-    height:200px;
-    width:200px;
-    overflow:hidden;
-    border-radius:50%;
+div.img-div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 50%;
 }
-.img-div img{
-    height:200px;
-    width:200px;
+
+.img-div img {
+    height: 200px;
+    width: 200px;
     //-webkit-transform:translate(-50%);
 }
 
-div.imgs-div{
-    height:150px;
-    width:150px;
-    overflow:hidden;
-    border-radius:50%;
+div.imgs-div {
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    border-radius: 50%;
 }
-.imgs-div img{
-    height:150px;
-    width:150px;
+
+.imgs-div img {
+    height: 180px;
+    width: 180px;
     //-webkit-transform:translate(-50%);
 }
 
-div.imgdish-div{
-    height:180px;
-    width:180px;
-    overflow:hidden;
-}
-.imgdish-div img{
-    height:180px;
-    width:180px;
+div.imgdish-div {
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
 }
 
-div.img-face{
-    height:110px;
-    width:110px;
-    overflow:hidden;
-    border-radius:50%;
+.imgdish-div img {
+    height: 180px;
+    width: 180px;
 }
-.img-face img{
-    height:110px;
-    width:110px;
+
+div.img-face {
+    height: 110px;
+    width: 110px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.img-face img {
+    height: 110px;
+    width: 110px;
     //-webkit-transform:translate(-50%);
 }
 
-div.index-img{
-    height:250px;
-    width:250px;
-    overflow:hidden;
-    border-radius:50%;
-}
-.index-img img{
-    height:250px;
-    width:250px;
+div.index-img {}
+
+.index-img img {
+    height: 250px;
+    width: 250px;
+    display: block;
+    margin: auto;
     //-webkit-transform:translate(-50%);
 }

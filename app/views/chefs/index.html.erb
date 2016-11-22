@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
   <div class="container">
     <% @chefs.each do |chef| %>
-      <div class="col-md-3" align="center">
-
+      <div class="col-md-3 col-sm-6" align="center">
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="imgs-div"> <img src="<%=chef.picture%>" class="img-circle"></div>
-            <h4><%= chef.username %></h4>
+            <h4 style="margin: 5px"><%= chef.username %></h4>
           </div>
-          <div class="panel-body">
+          <div class="panel-body" style="min-height: 250px;">
               <h4><%= chef.name unless chef.name.blank? %>
               <%= chef.lastname unless chef.lastname.blank? %></h4>
               <h5><%= chef.category unless chef.category.blank? %></h5>
-              <h5><%= chef.bio unless chef.bio.blank? %></h5>
+              <p><%= chef.bio unless chef.bio.blank? %></p>
               <a href= "<%= chef_path(chef) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.4s"><span class="network-name"><%= t('.show_profile') %></span></a>
           </div>
         </div>

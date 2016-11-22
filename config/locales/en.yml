@@ -81,6 +81,9 @@ en:
       about_us: "About"
       contact_us: "Contact"
       become_chef: "Become a chef"
+      our_chefs: "Our chefs"
+      menu_day: "Menu of the day"
+      about: "About"
 
   users:
     form:
