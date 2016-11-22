@@ -14,10 +14,8 @@
             <div class="col-md-5 wow fadeInLeftBig">
           <%end%>
                 <% if dish.dish_images.count > 0 %>
-                  <div class="col-md-6" >
-                    <div class="imgdish-div ">
-                      <%= image_tag dish.dish_images.take(0) %>
-                    </div>
+                  <div>
+                    <%= image_tag dish.dish_images.first.picture_url, :class => "img-responsive" %>
                   </div>
                 <%else%>
                   <% image_tag "https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png", :title => "default", :class => "img-responsive" %>
