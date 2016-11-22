@@ -108,7 +108,7 @@
 
       <div class="row first-chef-row">
         <%for i in(0..3)%>
-          <div class="col-sm-3 wow fadeInDown text-center">
+          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInDown text-center">
             <div class="index-img"> <img src="<%= @chefs[i].picture%>" class="img-circle"></div>
             <h3>
               <a href="<%= chef_path(@chefs[i]) %>" class="link">
@@ -116,10 +116,11 @@
               </a>
             </h3>
             <p class="lead">
-              <%= t('.chef_'+(i+1).to_s)%>
+              <%= @chefs[i].bio %>
             </p>
             <li>
               <a href="<%= chef_path(@chefs[i]) %>" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.5s"><span class="network-name">Ver perfil</span></a>
+              <br><br>
           </div>
           <!-- /.col-lg-4 -->
           <%end%>

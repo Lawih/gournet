@@ -186,19 +186,19 @@
     <div class="row">
       <div class="col-md-7">
         <div class="col-md-4">
-          <h2 class="footer-title">Acerca</h2>
-
+          <h2 class="footer-title"><%= t('.about') %></h2>
           <%= link_to t('.about_us'), static_pages_about_us_path %>
-            <%= link_to t('.contact_us'), new_contact_path %>
+          <br>
+          <%= link_to t('.contact_us'), new_contact_path %>
         </div>
         <div class="col-md-4">
           <h2 class="footer-title">Chefs</h2>
-          <%= link_to "Nuestros chefs", chefs_path%><br>
+          <%= link_to t('.our_chefs'), chefs_path%><br>
         </div>
         <div class="col-md-4">
-          <h2 class="footer-title">Platos</h2>
-
-          <%= link_to "Menu del día", dishes_path%><br>
+          <h2 class="footer-title"><%= t('.dishes') %></h2>
+          <%= link_to t('.menu_day'), dishes_path%><br>
+          <br>
         </div>
       </div>
       <!-- /col-xs-7 -->
