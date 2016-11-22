@@ -49,6 +49,7 @@ class DishesController < ApplicationController
     @dish_evaluations = @dish.dish_evaluations
     @favorite_dishes = @dish.favorite_dishes
     @dish_images = @dish.dish_images
+    @dish_evaluations_new = DishEvaluation.new
   end
 
   # GET /dishes/new

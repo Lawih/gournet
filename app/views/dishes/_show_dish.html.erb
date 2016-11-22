@@ -12,17 +12,23 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="col-md-12 dish" >
-    <div class="col-md-3" >
-        <div class="col-md-12" >
+  <div class="col-md-12">
+    <div class="col-md-3" align="right">
+          <%if @dish_images != nil%>
             <%if @dish_images.count > 0 %>
               <%= image_tag @dish_images.first.picture_url, :class => "img-responsive" %>
             <% else %>
               <%= image_tag "https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png", :title => "default", :class => "img-responsive" %>
             <% end %>
-          </div>
-        </div>
-    </div>
+          <%else%>
+            <%if dish_images.count > 0 %>
+            <br>
+              <div class="imgdish-div"> <img src="<%= dish_images.first.picture_url %>"></div>
+            <% else %>
+              <%= image_tag "https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png", :title => "default", :class => "img-responsive" %>
+            <% end %>
+          <%end%>
+      </div>
     <div class="col-md-9">
       <div class="col-md-12" >
         <div class="button_down ">
@@ -97,41 +103,4 @@
         <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
     </div>
   </div>
-
-  <div class="col-md-12">
-    <% if !in_chef && dish.offer.active.count > 0 && chef != nil%>
-        <h4> Oferta actual: </h4>
-        <center>
-        <div class="col-md-12">
-          <div class="col-md-3"> <%= t("activerecord.attributes.offer.amount") %> </div>
-          <div class="col-md-3"> <%= t("activerecord.attributes.offer.delivery_date") %> </div>
-          <div class="col-md-3"> <%= t("activerecord.attributes.offer.max_date") %> </div>
-        </div>
-
-        <% dish.offer.active.each do |offer| %>
-              <div class="col-md-3" ><%= offer.amount %></div>
-              <div class="col-md-3" >
-                <%= l(offer.delivery_date, format: :day)%> -
-                <%= l(offer.delivery_date, format: :hour) %>
-              </div>
-              <div class="col-md-3" >
-                  <%= l(offer.max_date, format: :day)%> -
-                  <%= l(offer.max_date, format: :hour)%>
-              </div>
-              <div class="col-md-3" >
-                  <% if policy(offer).edit? %>
-                    <a href= "<%= edit_offer_url(:id => offer.id) %>" class="btn btn-embossed btn-primary"> <%= t("offers.edit.edit_offer") %> </a>
-                  <% else %>
-                    <a href= "<%= new_order_url(:offer_id => offer.dish.id) %>" class="btn btn-embossed btn-primary"> <%= t("orders.new.new_order") %> </a>
-                  <% end %>
-              </div>
-        <% end %>
-      </center>
-      <% end %>
-      <% if policy(dish).edit? %>
-          <div class="col-md-12" >
-            <a href= "<%= new_offer_url(:dish_id => dish.id ) %>" class="btn btn-embossed btn-primary"> <%= t("offers.new.new_offer") %> </a>
-          </div>
-      <% end %>
-    </div>
 </div>
