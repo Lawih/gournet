@@ -34,10 +34,9 @@ class DishEvaluationsController < ApplicationController
   # POST /dish_evaluations.json
   def create
     @dish_evaluation = DishEvaluation.new(dish_evaluation_params)
-
     respond_to do |format|
       if @dish_evaluation.save
-        format.html { redirect_to @dish_evaluation, notice: 'Dish evaluation was successfully created.' }
+        format.html { redirect_to :back }
         format.json { render :show, status: :created, location: @dish_evaluation }
       else
         format.html { render :new }
@@ -51,7 +50,7 @@ class DishEvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @dish_evaluation.update(dish_evaluation_params)
-        format.html { redirect_to @dish_evaluation, notice: 'Dish evaluation was successfully updated.' }
+        format.html { redirect_to :back }
         format.json { render :show, status: :ok, location: @dish_evaluation }
       else
         format.html { render :edit }

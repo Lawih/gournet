@@ -1,3 +1,6 @@
+<br>
+<div class="panel panel-info">
+   <div class="panel-heading">
 <%= bootstrap_form_for(@dish_evaluation) do |f| %>
   <% if @dish_evaluation.errors.any? %>
     <div id="error_explanation">
@@ -13,24 +16,33 @@
 
   <input readonly="readonly" value="<%= current_user.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
   <input readonly="readonly" value="<%= @dish_evaluation.dish.id %>" type="email" name="dish[chef_id]" id="dish_chef_id" style="display:none">
-
-  <div class="field">
-    <%= f.number_field :score_time %>
+  <div class="col-md-4">
+    <div class="field">
+      <%= f.number_field :score_time,{ :min => 1, :max=> 5,enable: true } %>
+    </div>
   </div>
 
+  <div class="col-md-4">
   <div class="field">
-    <%= f.number_field :score_quality %>
+    <%= f.number_field :score_quality,{ :min => 1, :max=> 5,enable: true } %>
+  </div>
   </div>
 
+  <div class="col-md-4">
   <div class="field">
-    <%= f.number_field :score_visual %>
+    <%= f.number_field :score_visual,{ :min => 1, :max=> 5,enable: true } %>
+  </div>
   </div>
 
+  <div class="col-md-12">
   <div class="field">
     <%= f.text_area :comment %>
+  </div>
   </div>
 
   <div class="actions" align="center">
     <%= f.submit :class => "btn btn-embossed btn-primary" %>
   </div>
 <% end %>
+</div>
+</div>
