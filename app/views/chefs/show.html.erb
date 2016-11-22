@@ -47,10 +47,12 @@
 
 <!-- Dishes-->
     <div class="col-md-9" >
+      <div class="scroll-dish">
         <div class="container-fluid">
         <% @dishes.each do |dish| %>
         <%= render "dishes/show_dish", dish: dish , chef: nil, divide: "", view_more: true, in_chef: true, dish_images: dish.dish_images %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
