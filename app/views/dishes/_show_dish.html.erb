@@ -14,15 +14,14 @@
 
 <div class="col-md-12 dish" >
     <div class="col-md-3" >
-        <%if @dish_images != nil%>
-          <% @dish_images.each do |p| %>
-          <div class="col-md-6" >
-          <div class="imgdish-div ">
-            <%= image_tag p.picture_url%>
+        <div class="col-md-12" >
+            <%if @dish_images.count > 0 %>
+              <%= image_tag @dish_images.first.picture_url, :class => "img-responsive" %>
+            <% else %>
+              <%= image_tag "https://storage.googleapis.com/gournet_photos/uploads/dish_image/default.png", :title => "default", :class => "img-responsive" %>
+            <% end %>
           </div>
         </div>
-          <% end %>
-        <% end %>
     </div>
     <div class="col-md-9">
       <div class="col-md-12" >
