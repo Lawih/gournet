@@ -118,6 +118,7 @@ es:
       our_chefs: "Nuestros chefs"
       menu_day: "Menú del día"
       about: "Acerca"
+      my_adresses: "Mis direcciones"
 
   users:
     form:
