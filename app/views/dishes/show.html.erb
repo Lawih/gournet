@@ -6,25 +6,28 @@
     <div class="col-md-7 offer">
         <h4> Oferta actual: </h4>
         <center>
+        <div class="row">
           <div class="col-md-12">
-            <div class="col-md-3"> <%= t("activerecord.attributes.offer.amount") %> </div>
-            <div class="col-md-3"> <%= t("activerecord.attributes.offer.delivery_date") %> </div>
-            <div class="col-md-3"> <%= t("activerecord.attributes.offer.max_date") %> </div>
+            <div class="col-md-2"> <b><%= t("activerecord.attributes.offer.amount") %> </b></div>
+            <div class="col-md-4"> <b><%= t("activerecord.attributes.offer.delivery_date") %> </b></div>
+            <div class="col-md-4"> <b><%= t("activerecord.attributes.offer.max_date") %></b> </div>
           </div>
+        </div>
 
           <% @dish.offer.active.each do |offer| %>
-                <div class="col-md-12">
-                <div class="col-md-3" ><%= offer.amount %></div>
-                <div class="col-md-3" >
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-2" ><%= offer.amount %></div>
+                <div class="col-md-4" >
                   <%= l(offer.delivery_date, format: :day)%> -
                   <%= l(offer.delivery_date, format: :hour) %>
                 </div>
-                <div class="col-md-3" >
+                <div class="col-md-4" >
                     <%= l(offer.max_date, format: :day)%> -
                     <%= l(offer.max_date, format: :hour)%>
                 </div>
 
-                <div class="col-md-3" >
+                <div class="col-md-2" >
                     <% if policy(offer).edit? %>
                       <%= link_to "<button class='btn btn-embossed btn-primary' >Editar Oferta</button>".html_safe,
                       edit_offer_url(offer, :id => offer.id, :dish_id => @dish.id, :url => 'dish_path(@dish)')%>
@@ -33,11 +36,11 @@
                     <% end %>
                 </div>
               </div>
+            </div>
           <% end %>
       </center>
 
     <% if policy(@dish).edit? %>
-
         <div class="col-md-12" align="Center" >
           <br>
           <br>
