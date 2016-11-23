@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.scroll-dish{
+div.scroll-dish {
     height: 600px;
     overflow-y: scroll;
 }
@@ -12,15 +12,13 @@ div.scroll-dish{
 }
 
 div.img-div {
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-    border-radius: 50%;
 }
 
 .img-div img {
     height: 200px;
     width: 200px;
+    display: block;
+    margin: auto;
     //-webkit-transform:translate(-50%);
 }
 
@@ -48,15 +46,13 @@ div.imgdish-div {
 }
 
 div.img-face {
-    height: 110px;
-    width: 110px;
-    overflow: hidden;
-    border-radius: 50%;
 }
 
 .img-face img {
     height: 110px;
     width: 110px;
+    display: block;
+    margin: auto;
     //-webkit-transform:translate(-50%);
 }
 
@@ -68,4 +64,16 @@ div.index-img {}
     display: block;
     margin: auto;
     //-webkit-transform:translate(-50%);
+}
+
+.center {
+    position: absolute;
+    display: table-cell;
+    text-align: center;
+    height: 130px;
+}
+
+.icon {
+    height: 110px;
+    width: 110px;
 }
