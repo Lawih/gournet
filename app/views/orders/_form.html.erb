@@ -12,9 +12,9 @@
     </div>
   <% end %>
 
-  <div>
-    <h3> <%= order.offer.dish.name %> </h3>
-    <h5> <%= order.offer.dish.chef.username %> </h5>
+  <div align="center">
+    <h3> <%= order.offer.dish.name %></h3>
+    <h4> <%= order.offer.dish.chef.username %> </h4>
   </div>
 
   <%= f.hidden_field :offer_id, {:value => params[:offer_id]} %>
@@ -22,10 +22,6 @@
 
   <div class="field">
     <%= f.select :amount, (1 .. order.offer.amount) %>
-  </div>
-
-  <div class="field">
-    <%= f.datetime_select :date, start_year: Date.today.year, end_year: Date.today.year + 1  %>
   </div>
 
   <div class="field">

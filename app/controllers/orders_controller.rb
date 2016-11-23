@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         offer_callback
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to dish_path(Offer.find(order_params[:offer_id]).dish_id) }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update(order_params)
         offer_callback
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to dish_path(Offer.find(order_params[:offer_id]).dish_id) }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }

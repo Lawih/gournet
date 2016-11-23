@@ -50,6 +50,7 @@ class DishesController < ApplicationController
     @favorite_dishes = @dish.favorite_dishes
     @dish_images = @dish.dish_images
     @dish_evaluations_new = DishEvaluation.new
+    @offers = @dish.offer.where("max_date > ? AND is_active = TRUE", DateTime.current)
   end
 
   # GET /dishes/new
