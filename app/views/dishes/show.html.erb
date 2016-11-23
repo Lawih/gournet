@@ -23,9 +23,11 @@
                     <%= l(offer.max_date, format: :day)%> -
                     <%= l(offer.max_date, format: :hour)%>
                 </div>
+
                 <div class="col-md-3" >
                     <% if policy(offer).edit? %>
-                      <a href= "<%= edit_offer_url(:id => offer.id) %>" class="btn btn-embossed btn-primary"> <%= t("offers.edit.edit_offer") %> </a>
+                      <%= link_to "<button class='btn btn-embossed btn-primary' >Editar Oferta</button>".html_safe,
+                      edit_offer_url(offer, :id => offer.id, :dish_id => @dish.id, :url => 'dish_path(@dish)')%>
                     <% else %>
                       <a href= "<%= new_order_url(:offer_id => offer.dish.id) %>" class="btn btn-embossed btn-primary"> <%= t("orders.new.new_order") %> </a>
                     <% end %>
@@ -35,8 +37,11 @@
       </center>
 
     <% if policy(@dish).edit? %>
-        <div class="col-md-12" >
-          <a href= "<%= new_offer_url(:dish_id => dish.id ) %>" class="btn btn-embossed btn-primary"> <%= t("offers.new.new_offer") %> </a>
+
+        <div class="col-md-12" align="Center" >
+          <br>
+          <br>
+          <a href= "<%= new_offer_url(:dish_id => @dish.id ) %>" class="btn btn-embossed btn-primary"> <%= t("offers.new.new_offer") %> </a>
         </div>
     <% end %>
   </div>

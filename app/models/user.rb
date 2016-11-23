@@ -67,6 +67,7 @@ class User < ApplicationRecord
       email = auth.info.email
       user = User.find_by(email: email) if email
       username = auth.info.email.split("@")[0]
+      username = username.split(".")[0]
       if User.find_by_username(username) != nil
         username = "#{auth.uid}"
       end

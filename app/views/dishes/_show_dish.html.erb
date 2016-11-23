@@ -100,8 +100,10 @@
         <% if view_more %>
           <%= link_to 'Ver más', dish, :class => "btn btn-embossed btn-primary" %>
         <%end%>
+        <% if policy(dish).edit?%>
         <%= link_to 'Editar', (edit_dish_path(dish) if policy(dish).edit?), { :class => "btn btn-embossed btn-primary" } %>
         <%= link_to 'Eliminar', dish, :class => "btn btn-embossed btn-primary", method: :delete, data: { confirm: 'Are you sure?' } if policy(dish).destroy? %>
+        <%end%>
     </div>
   </div>
 </div>
