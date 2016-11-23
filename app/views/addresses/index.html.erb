@@ -14,13 +14,15 @@
     <% @addresses.each do |address| %>
       <div class="col-md-3" align="center">
         <div class="imgs-div"> <img src="<%= asset_path 'house.png' %>" class="img-circle"></div>
-        <h2><%= address.name %><h2>
-        <%= link_to 'Mostrar', address ,class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
-         <%= link_to 'Eliminar', address, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn  btn-lg mybutton_cyano wow fadeIn" %>
+        <h2 style="margin: 5px;"><%= address.name %></h2>
+        <div class="row" style="margin: 20px 0 30px 0;">
+          <%= link_to 'Mostrar', address , class:"btn  btn-lg mybutton_cyano" %>
+          <%= link_to 'Eliminar', address, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn  btn-lg mybutton_cyano" %>
+        </div>
       </div>
     <% end %>
     <div style='width: 1300px;'>
-      <div id="map" style='width: 1100px; height:400px;'></div>
+      <div id="map" style='width: 1100px; height:400px; margin: 30px 0;'></div>
       <br><br><br>
     </div>
 
@@ -36,4 +38,3 @@
 
   </div>
 <br>
-

@@ -19,7 +19,7 @@ en:
       dish_evaluation:
         one: "comment"
         other: "comments"
-        
+
     attributes:
       user: #TODO
         name: "Name"
@@ -91,6 +91,7 @@ en:
       our_chefs: "Our chefs"
       menu_day: "Menu of the day"
       about: "About"
+      my_adresses: "My addresses"
 
   users:
     form:
