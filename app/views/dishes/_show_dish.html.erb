@@ -77,15 +77,21 @@
 
       <% if !in_chef %>
         <div class="col-md-12">
+          <button class="btn btn-primary  btn-sm" id="sharebtn" type="button" onclick="shareURL();" value ="">Compartir link</button>
           <% if user_signed_in? %>
-            <% if Identity.find_by_user_id(current_user.id) != nil%>
+            <div class="fb-share-button "
+              data-href="https://gournet.herokuapp.com/es/dishes/<%=dish.id%>" data-layout="button" data-size="large" >
+              <a class="fb-xfbml-parse-ignore" target="_blank"
+              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgournet.herokuapp.com%2Fes%2Fdishes%2F<%=dish.id%>%2F&amp;src=sdkpreparse">
+                </a>
+            </div>
+            <!--<% if Identity.find_by_user_id(current_user.id) != nil%>
               <% if Identity.find_by_user_id(current_user.id).provider == "facebook"%>
                   <%= link_to "<button class='btn' >Compartir en facebook</button>".html_safe,
                   shareDish_path(:name => dish.name,:description => dish.description,:id => dish.id), data: { confirm: '¿Estas seguro que deseas compartir el plato?' } %>
               <%end%>
-            <%end%>
+            <%end%>-->
           <%end%>
-          <button class="btn btn-primary" id="sharebtn" type="button" onclick="shareURL();" value ="">Compartir link</button>
         </div>
         <div class="col-md-12">
           <br>
