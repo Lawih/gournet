@@ -5,7 +5,7 @@
   <div class="col-md-4" align="left">
 <div class="skinny_wrapper wrapper_padding input-group">
   <%= bootstrap_form_for @contact do |f| %>
-      <%= f.text_field :name, required: true %>
+      <%= f.text_field :name, required: true , value: params[:text]%>
       <%= f.email_field :email, required: true %>
 
       <br>
@@ -15,7 +15,7 @@
       <div class="hidden">
         <%= f.text_field :nickname, hint: 'leave this field blank' %>
       </div>
-      
+
       <div>
         <center>
           <%= f.submit t('.send'), :class => "btn btn-embossed btn-primary" %>
