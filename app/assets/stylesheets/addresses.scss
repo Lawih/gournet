@@ -1,3 +1,20 @@
 // Place all the styles related to the addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.map-view{
+  width: 1100px;
+  height:400px;
+  margin: 30px 0;
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1024px) {
+  .map-view{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .map-view{
+    width: 100%;
+  }
+}
