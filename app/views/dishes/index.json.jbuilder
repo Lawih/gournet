@@ -9,4 +9,7 @@ json.dishes @dishes do |dish|
   json.score dish.score
   json.price dish.price
   json.calories dish.calories
+  json.pictures dish.dish_images do |picture|
+    json.picture_url picture.picture_url.url
+  end
 end

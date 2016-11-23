@@ -37,6 +37,56 @@ Ingredient.create( name: "Leche" )
 Ingredient.create( name: "Maní" )
 Ingredient.create( name: "Cebolla" )
 
+Following.create(chef_id: 7, user_id: 1, is_favorite: false)
+Following.create(chef_id: 7, user_id: 2, is_favorite: true)
+Following.create(chef_id: 10, user_id: 3, is_favorite: true)
+Following.create(chef_id: 12, user_id: 1, is_favorite: false)
+Following.create(chef_id: 13, user_id: 2, is_favorite: true)
+Following.create(chef_id: 8, user_id: 4, is_favorite: true)
+
+Dish.create(chef_id: 7, name: "Bandeja Paisa", price: 25000, calories: 5000, score: 4.2, description: "Una plato monstruoso. La bandeja paisa viene con carne molida, chicharrón de cerdo, aguacate, salsa, huevo, fríjoles, arroz, una arepa pequeña, y con frecuencia, 2 o 3 tipos de embutidos. Como el nombre lo dice, es más común en la zona paisa del país y encontrará la porción más grande y deliciosa en Medellín.")
+DishImage.create(dish_id: 1, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/bandeja-paisa-500926.jpg")
+
+Dish.create(chef_id: 7, name: "Pescado Frito", price: 17000, calories: 2200, score: 4.0, description: "Hay muchas variaciones de este plato, pero las más populares vienen con Mojarra, Bagre o Sierra. El pescado se fríe entero así que la mayoría de veces se sirve tal como vino del agua, acompañado de arroz, fríjoles, ensalada y plátano frito.")
+DishImage.create(dish_id: 2, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/pesca.jpg")
+
+Dish.create(chef_id: 8, name: "Ajiaco", price: 15000, calories: 2300, score: 4.7, description: "El Ajiaco es una sopa hecha con tres diferentes tipos de papa (Colombia tiene una gran variedad), pollo, alcaparras, mazorca y arroz. Siempre hay discusiones sobre dónde conseguir el mejor ajiaco, así que nosotros recomendamos el Ajiaco Santafereño que se encuentra en Bogotá.")
+DishImage.create(dish_id: 3, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/ajiaco.jpg")
+
+Dish.create(chef_id: 8, name: "Sancocho", price: 13000, calories: 1200, score: 4.4,  description: "El Sancocho es una sopa que se prepara de diferentes formas, según la región. El de pescado es muy popular, aunque esta sopa es algo así como una parrillada mixta, ya que se prepara con diferentes tipos de carnes como pollo, carne, cerdo y algunas veces más variedad. Uno de los mejores se puede encontrar en Andrés Carne de Res.")
+DishImage.create(dish_id: 4, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/sacocho.jpg")
+
+Dish.create(chef_id: 9, name: "Lechona", price: 12000, calories: 3300, score: 4.3,description: "La Lechona es un plato típico de la región del Tolima que consiste en cerdo relleno de guisantes, cebolla, arroz y varias especies (con su cabeza visible) y se acompaña con arepas. Para asegurar que la carne sea tierna, la lechona se cocina por hasta 10 horas a fuego lento.")
+DishImage.create(dish_id: 5, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/lechona.jpg")
+
+Dish.create(chef_id: 9, name: "Posta Negra", price: 22000, calories: 4200, score: 4.6,  description: "Posta Negra es un plato tradicional de la Costa Caribe, en especial de Cartagena. Gracias a las variaciones en su preparación, es muy difícil probar dos platos iguales en lugares diferentes, pero básicamente se compone de carne de res finamente cortada y marinada con cebolla, vinagre, ajo y otras hierbas. Se acompaña con arroz.")
+DishImage.create(dish_id: 6, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/posta.jpg")
+
+Dish.create(chef_id: 10, name: "Mote de Queso", price: 7000, calories: 1300, score: 3.9,description: "El Mote de Queso es otro plato de la Costa Caribe. Es una sopa preparada con cebolla, ajo, limón, queso costeño y ñame o yuca.")
+DishImage.create(dish_id: 7, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/mote.jpg")
+
+Dish.create(chef_id: 10, name: "Tamal", price: 5000, calories: 2200, score: 4.4,  description: "Hecho de arroz, harina de color amarillo o blanco, carne de cerdo, pollo, huevo, zanahoria, a veces, guisantes, patatas y envuelto y cocinado en hojas de plátano es ideal para un buen desayuno o una onces de la tarde")
+DishImage.create(dish_id: 8, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/tamal.jpg")
+
+Dish.create(chef_id: 11, name: "Arroz con coco", price: 16000, calories: 2300, score: 4.7,description: "una preparación de arroz, coco, cola o leche de coco, con textura interesante y un sabor único.")
+DishImage.create(dish_id: 9, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/rrcc.jpg")
+
+Dish.create(chef_id: 12, name: "Arroz con pollo", price: 17000, calories: 3200, score: 4.6, description: "Es algo así como la paella de fama mundial, pero sólo mariscos pollo, su consistencia es similar y se prepara con arroz, guisantes, zanahoria, pimentón, cebolla, chorizo y frijoles, se pueden encontrar en cualquier región de Colombia.")
+DishImage.create(dish_id: 10, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/arroz_con_pollo.jpg")
+
+Dish.create(chef_id: 12, name: "Fritanga", price: 32000, calories: 5300, score: 4.9,description: "La fritanga tiene chorizos de cerdo, rellena (arroz, sangre de cerdo cocida(llamada morcilla) , arvejas en envuelto en tripas), pepitoria de cordero, y frituras varias de órganos de vaca como el pulmón (bofe), el hígado, el cerebro , o testículos de toro (criadillas).")
+DishImage.create(dish_id: 11, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/fritanga.jpg")
+
+Dish.create(chef_id: 7, name: "Mondongo antioqueño", price: 22000, calories: 4200, score: 4.6, description: "El mondongo es una sopa que se prepara con la carne del estomago de res, limpia y cortada en trozos finos; carne blanda de cerdo, también cortada en trocitos; varios vegetales y verduras, todo cocinado por largo tiempo y acompañado de aliños y especias")
+DishImage.create(dish_id: 12, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/Mondongo-Antioque_o.jpg")
+
+Dish.create(chef_id: 7, name: "Ajiaco santafereño", price: 7000, calories: 1300, score: 4.9, description: "Plato tipico bogotano. Consiste en una sopa de pollo que contiene diferentes tipos de papa y se puede servir sola o con crema de leche y alcaparras encurtidas, generalmente en tazones de barro cocido. El ajiaco colombiano también suele incluir mazorcas de maíz tierno.")
+DishImage.create(dish_id: 13, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/ajiaco.jpg")
+
+Dish.create(chef_id: 8, name: "Buñuelo de maiz", price: 3000, calories: 1200, score: 4.1,description: "Son preparados con maiz biche molido,cebollin,ajo. Se acompañan con queso.")
+DishImage.create(dish_id: 14, remote_picture_url_url:"https://commondatastorage.googleapis.com/gournet_photos/uploads/dish_image/picture_url/bunuelo.jpg")
+
+
 DishEvaluation.create(user_id: 1, dish_id: 1, score_time: 4, score_quality: 4, score_visual: 4, comment: "El plato estaba caliente y  muy rico")
 DishEvaluation.create(user_id: 2, dish_id: 1, score_time: 3, score_quality: 4, score_visual: 4, comment: "El plato llego un poco tarde pero tenia muy buen sabor")
 DishEvaluation.create(user_id: 3, dish_id: 4, score_time: 4, score_quality: 5, score_visual: 3, comment: "El plato venia un poco revuelto, llego rapido y estaba delicioso")
@@ -45,13 +95,6 @@ DishEvaluation.create(user_id: 5, dish_id: 5, score_time: 4, score_quality: 4, s
 DishEvaluation.create(user_id: 6, dish_id: 6, score_time: 4, score_quality: 4, score_visual: 4, comment: "El plato estaba caliente y  muy rico")
 DishEvaluation.create(user_id: 1, dish_id: 7, score_time: 4, score_quality: 4, score_visual: 4, comment: "El plato estaba caliente y  muy rico")
 DishEvaluation.create(user_id: 1, dish_id: 8, score_time: 4, score_quality: 4, score_visual: 4, comment: "El plato estaba caliente y  muy rico")
-
-Following.create(chef_id: 7, user_id: 1, is_favorite: false)
-Following.create(chef_id: 7, user_id: 2, is_favorite: true)
-Following.create(chef_id: 10, user_id: 3, is_favorite: true)
-Following.create(chef_id: 12, user_id: 1, is_favorite: false)
-Following.create(chef_id: 13, user_id: 2, is_favorite: true)
-Following.create(chef_id: 8, user_id: 4, is_favorite: true)
 
 # Rotten
 Offer.create(dish_id: 1, amount: 20, delivery_date: "2016-10-21 07:00:00", max_date: "2016-10-21 05:00:00", is_active: true)
@@ -81,6 +124,3 @@ FavoriteDish.create(user_id: 1, dish_id:6)
 FavoriteDish.create(user_id: 3, dish_id:7)
 FavoriteDish.create(user_id: 4, dish_id:8)
 FavoriteDish.create(user_id: 5, dish_id:2)
-
-DishImage.create(dish_id: 2, picture_url:"pescado.jpg")
-DishImage.create(dish_id: 1, picture_url:"bandeja-paisa-500926.jpg")
