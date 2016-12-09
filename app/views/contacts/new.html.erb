@@ -5,11 +5,11 @@
   <div class="col-md-4" align="left">
 <div class="skinny_wrapper wrapper_padding input-group">
   <%= bootstrap_form_for @contact do |f| %>
-      <%= f.text_field :name, required: true , value: params[:text]%>
+      <%= f.text_field :name, required: true %>
       <%= f.email_field :email, required: true %>
 
       <br>
-      <%= f.text_area :message, rows: "6", as: :text %>
+      <%= f.text_area :message, rows: "6", as: :text , value: params[:text]%>
 
       <!-- to filter span -->
       <div class="hidden">

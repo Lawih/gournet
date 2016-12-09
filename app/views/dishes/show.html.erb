@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
   <%=render "dishes/show_dish", dish: @dish, chef: @dish.chef, divide: " - ",view_more: false,  in_chef: false  %>
   <div class="col-md-12">
-    <% if @dish.offer.active.count > 0 %>
+    <% if @offers.count > 0 %>
     <div class="col-md-7 offer">
         <h4> Oferta actual: </h4>
         <center>
@@ -14,29 +14,32 @@
           </div>
         </div>
 
-          <% @dish.offer.active.each do |offer| %>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="col-md-2" ><%= offer.amount %></div>
-                <div class="col-md-4" >
-                  <%= l(offer.delivery_date, format: :day)%> -
-                  <%= l(offer.delivery_date, format: :hour) %>
-                </div>
-                <div class="col-md-4" >
-                    <%= l(offer.max_date, format: :day)%> -
-                    <%= l(offer.max_date, format: :hour)%>
-                </div>
+          <% @offers.each do |offer| %>
+            <% if offer.amount>0%>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-2" ><%= offer.amount %></div>
+                  <div class="col-md-4" >
+                    <%= l(offer.delivery_date, format: :day)%> -
+                    <%= l(offer.delivery_date, format: :hour) %>
+                  </div>
+                  <div class="col-md-4" >
+                      <%= l(offer.max_date, format: :day)%> -
+                      <%= l(offer.max_date, format: :hour)%>
+                  </div>
 
-                <div class="col-md-2" >
-                    <% if policy(offer).edit? %>
-                      <%= link_to "<button class='btn btn-embossed btn-primary' >Editar Oferta</button>".html_safe,
-                      edit_offer_url(offer, :id => offer.id, :dish_id => @dish.id, :url => 'dish_path(@dish)')%>
-                    <% else %>
-                      <a href= "<%= new_order_url(:offer_id => offer.dish.id) %>" class="btn btn-embossed btn-primary"> <%= t("orders.new.new_order") %> </a>
-                    <% end %>
+                  <div class="col-md-2" >
+                      <% if policy(offer).edit? %>
+                        <%= link_to "<button class='btn btn-embossed btn-primary' >Editar Oferta</button>".html_safe,
+                        edit_offer_url(offer, :id => offer.id, :dish_id => @dish.id, :url => 'dish_path(@dish)')%>
+                      <% else %>
+                      <%= link_to "<button class='btn btn-embossed btn-primary' >Ordenar</button>".html_safe,
+                       new_order_url(:offer_id => offer.id)%>
+                      <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
+            <%end%>
           <% end %>
       </center>
 
